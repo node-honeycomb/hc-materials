@@ -1,0 +1,52 @@
+@import "../../theme.less";
+
+.j-layout-landing {
+  background: #f0f2f5;
+  width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  position: relative;
+
+  .j-top {
+    text-align: center;
+  }
+
+  .ant-layout-header{
+    background: #ffffff;
+    .j-sider-logo{
+      margin-left: 20px;
+      h1{
+        color: #666;
+      }
+    }
+  }
+
+  .j-logo {
+    height: 44px;
+    vertical-align: top;
+    margin-right: 16px;
+  }
+
+  .j-title {
+    font-size: 33px;
+    color: @heading-color;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: relative;
+    top: 2px;
+  }
+
+  .j-desc {
+    font-size: @font-size-base;
+    color: @text-color-secondary;
+    margin-top: 12px;
+    margin-bottom: 40px;
+  }
+
+  .j-footer {
+    width: 100%;
+    bottom: 0;
+  }
+}

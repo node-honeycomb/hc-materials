@@ -1,0 +1,19 @@
+@import '../../../components/footer/style/index.less';
+@import '../../../components/breadCrumb/style/index.less';
+
+@layout-content-prefix-cls: ~'@{hc-prefix}-layout-content';
+
+.@{layout-content-prefix-cls} {
+  &&-footer {
+    width: 100%;
+    bottom: 0;
+  }
+  &&-content{
+    margin: 20px 20px 0;
+    background: #fff;
+    > .ant-card .ant-card-wider-padding .ant-card-body,
+    > .ant-card .ant-card-body{
+      padding: 0;
+    }
+  }
+}

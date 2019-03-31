@@ -1,0 +1,44 @@
+@import '../../theme.less';
+
+@layer-prefix-cls: ~'@{hc-prefix}-layer';
+
+.@{layer-prefix-cls} {
+  &&-layerItem.ant-card{
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 10px;
+    &.active {
+      background: #f6fcff;
+      border: 1px solid #40a9ff;
+    }
+    > .ant-card-head {
+      padding: 0 10px;
+      min-height: 32px;
+      .ant-card-extra {
+        padding: 7px 0;
+        .anticon {
+          cursor: pointer;
+        }
+        .anticon-setting{
+          font-size: 16px;
+        }
+      }
+    }
+    > .ant-card-body {
+      padding: 0;
+      height: calc(~"100% - 44px");
+    }
+  }
+  &&-layerItem.ant-card:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.@{hc-prefix}-spin-container {
+  text-align: center;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+}

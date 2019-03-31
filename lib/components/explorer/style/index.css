@@ -1,0 +1,78 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-explorer .iconfont {
+  font-style: normal;
+  margin-right: 2px;
+}
+.hc-explorer.hc-explorer-elem_title {
+  border-bottom: 1px solid #ddd;
+  height: 43px;
+  line-height: 42px;
+  font-size: 14px;
+  padding-left: 10px;
+  color: #268eea;
+}
+.hc-explorer.hc-explorer-elem_title.hc-explorer.hc-explorer-elem_title-elem_link {
+  cursor: pointer;
+}
+.hc-explorer.hc-explorer-elem_btn-group {
+  margin: 7px 6px;
+  white-space: nowrap;
+}
+.hc-explorer.hc-explorer-elem_btn-group .ant-radio-button-wrapper {
+  padding: 0 10px;
+}
+.hc-explorer.hc-explorer-elem_search {
+  margin: 6px;
+}
+.hc-explorer .ant-radio-button-wrapper-checked {
+  background: #6262e6;
+  color: white;
+}
+.hc-explorer.hc-explorer-elem_tree {
+  padding: 0;
+  margin: 5px 0;
+  height: calc(100% - 180px);
+  overflow-y: auto;
+}
+.hc-explorer .ant-tree li {
+  position: relative;
+  padding: 5px;
+}
+.hc-explorer .ant-tree li .ant-tree-node-content-wrapper {
+  height: auto;
+}
+.hc-explorer .ant-tree li a {
+  width: 91%;
+}
+.hc-explorer .ant-tree li a:hover,
+.hc-explorer .ant-tree li a.ant-tree-node-selected {
+  background-color: transparent;
+  color: #108ee9;
+}
+.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns {
+  position: absolute;
+  right: 5px;
+  display: none;
+  background: white;
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  z-index: 10;
+}
+.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns span {
+  padding: 1px 5px;
+}
+.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns span:hover {
+  color: #108ee9;
+}
+.hc-explorer .ant-tree li:hover {
+  background: #fefefe;
+}
+.hc-explorer .ant-tree li:hover.hc-explorer .ant-tree li:hover_elem-btns {
+  display: block;
+}
+.hc-explorer .ant-tree li.active {
+  background: #fefefe;
+}

@@ -1,0 +1,58 @@
+@import '../../../theme.less';
+
+@breadCrumb-prefix-cls: ~'@{hc-prefix}-breadCrumb';
+
+.@{breadCrumb-prefix-cls}{
+  background: #fff;
+  border-bottom: 2px solid #dddddd;
+  .ant-breadcrumb{
+    padding: 10px 15px;
+    a{
+      color: #2db7f5
+    }
+    a:hover{
+      color: #57c5f7;
+    }
+    &:before,
+    &:after{
+      clear: both;
+      display: table;
+      content: ' ';
+    }
+    > span:first-child .ant-breadcrumb-link:before{
+      border-left: 2px solid #2db7f5;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      height: 22px;
+      content: ' ';
+      margin-top: -4px;
+    }
+  
+    .ant-breadcrumb-link{
+      font-size: 16px;
+      line-height: 20px;
+      vertical-align: bottom;
+      color: #666;
+      font-weight: normal;
+      &::first-child{
+        font-weight: bold;
+      }
+      h5{
+        display: inline-block;
+        font-size: 16px;
+      }
+    }
+    
+    &&-extra{
+      float: right;
+      .antd-nav-link{
+        display: inline-block;
+        margin-right: 10px;
+      }
+      > .ant-btn{
+        margin-right: 10px;
+      }
+    }
+  }
+}

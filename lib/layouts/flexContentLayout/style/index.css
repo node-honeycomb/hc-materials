@@ -1,0 +1,165 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-footer {
+  padding: 0 16px;
+  margin: 48px 0 24px 0;
+  text-align: center;
+}
+.hc-footer.hc-footer-links {
+  margin-bottom: 8px;
+}
+.hc-footer.hc-footer-links a {
+  color: rgba(0, 0, 0, 0.45);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.hc-footer.hc-footer-links a:not(:last-child) {
+  margin-right: 40px;
+}
+.hc-footer.hc-footer-links a:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+.hc-footer.hc-footer-copyright {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
+.hc-breadCrumb {
+  background: #fff;
+  border-bottom: 2px solid #dddddd;
+}
+.hc-breadCrumb .ant-breadcrumb {
+  padding: 10px 15px;
+}
+.hc-breadCrumb .ant-breadcrumb a {
+  color: #2db7f5;
+}
+.hc-breadCrumb .ant-breadcrumb a:hover {
+  color: #57c5f7;
+}
+.hc-breadCrumb .ant-breadcrumb:before,
+.hc-breadCrumb .ant-breadcrumb:after {
+  clear: both;
+  display: table;
+  content: ' ';
+}
+.hc-breadCrumb .ant-breadcrumb > span:first-child .ant-breadcrumb-link:before {
+  border-left: 2px solid #2db7f5;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 22px;
+  content: ' ';
+  margin-top: -4px;
+}
+.hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link {
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: bottom;
+  color: #666;
+  font-weight: normal;
+}
+.hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link::first-child {
+  font-weight: bold;
+}
+.hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link h5 {
+  display: inline-block;
+  font-size: 16px;
+}
+.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra {
+  float: right;
+}
+.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
+  display: inline-block;
+  margin-right: 10px;
+}
+.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
+  margin-right: 10px;
+}
+.hc-layout-flexContent.hc-layout-flexContent-footer {
+  width: 100%;
+  bottom: 0;
+}
+.hc-layout-flexContent .ant-card-wider-padding .ant-card-head {
+  padding: 0 10px;
+}
+.hc-layout-flexContent .ant-card-wider-padding .ant-card-head .ant-card-head-title {
+  padding: 10px 0;
+}
+.hc-layout-flexContent .ant-card-wider-padding .ant-card-body {
+  padding: 10px;
+}
+.hc-layout-flexContent.hc-layout-flexContent-body {
+  max-height: calc(100% - 142px);
+  margin: 20px 20px 0;
+  background: transparent;
+}
+.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body {
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body-body_wrap {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+}
+.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body-body_overview {
+  margin-left: 20px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox {
+  min-height: 40px;
+  position: relative;
+  padding: 0 10px;
+  background: white;
+  border-bottom: 2px solid #ddd;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-compass,
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-environment-o,
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o {
+  float: left;
+  margin: 8px 3px 0;
+  padding: 2px;
+  font-size: 20px;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-compass:hover,
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-environment-o:hover,
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o:hover {
+  cursor: pointer;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o {
+  float: right;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-breadcrumb {
+  margin-bottom: 0;
+  border-bottom: 0 none;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-breadcrumb .ant-breadcrumb {
+  padding-left: 5px;
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  width: 100%;
+}
+.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-connector {
+  width: 40%;
+  position: absolute;
+  left: 30%;
+  top: 0;
+  height: 42px;
+}

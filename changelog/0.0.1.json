@@ -1,0 +1,12 @@
+{
+  "log": [
+    "hc-components变更为hc-materials",
+    "组件特性变更：DataSet去掉themeOptions属性",
+    "组件特性变更：Search 和 HeaderSearch合并",
+    "组件特性变更：Header去掉Menu，增加dropdownProps、menuProps和searchProps",
+    "组件特性变更：Search增加inputProps",
+    "组件特性变更：Sider去除Link",
+    "组件引用变更：GlobalFooter改名为Footer",
+    "组件下线：GModal组件下线"
+  ]
+}

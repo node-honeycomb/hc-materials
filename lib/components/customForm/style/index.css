@@ -1,0 +1,30 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-customForm .ant-radio-group {
+  margin-top: 4px;
+}
+.hc-customForm .ant-form-extra .anticon {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+}
+.hc-customForm-compact .ant-form-item {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+.hc-customForm-compact .ant-form-item:first-child {
+  margin-top: 0;
+}
+.hc-customForm-compact .ant-card.hc-customForm-card {
+  margin-top: 14px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.hc-customForm-compact .ant-card.hc-customForm-card .ant-form-item:first-child {
+  margin-top: 0;
+}
+.hc-customForm-compact.ant-card {
+  margin-top: 14px;
+}
