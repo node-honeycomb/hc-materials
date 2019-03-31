@@ -8,7 +8,7 @@ import Drawer from 'antd/lib/drawer';
 import Divider from 'antd/lib/divider';
 
 import {BreadCrumb} from '../../components/breadCrumb';
-import {Footer} from '../../components/Footer';
+import {Footer} from '../../components/footer';
 import {BasicLayout} from '../basicLayout';
 
 const styles = {

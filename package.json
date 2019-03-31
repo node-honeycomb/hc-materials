@@ -1,6 +1,6 @@
 {
   "name": "hc-materials",
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.5",
   "main": "./lib/index.js",
   "author": "dtboost <dtboost@aliyun.com>",
   "description": "基于react的通用组件库",
@@ -20,6 +20,7 @@
     "hoist-non-react-statics": "3.3.0",
     "react-router-dom": "4.4.0-beta.1",
     "react-joyride": "2.0.5",
+    "react-grid-layout": "0.16.6",
     "lodash": "4.17.11",
     "async-validator": "1.11.0",
     "classnames": "2.2.5",

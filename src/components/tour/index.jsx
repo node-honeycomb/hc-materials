@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Joyride from 'react-joyride';
 import {localeContext} from '../../core/localeContext';
-import 'react-joyride/lib/react-joyride-compiled.css';
 
 const types = ['continuous', 'single'];
 
