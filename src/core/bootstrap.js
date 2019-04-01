@@ -1,4 +1,5 @@
-import {Notification, message} from 'antd';
+import Notification from 'antd/lib/notification';
+import message from 'antd/lib/message';
 import {fallbackRoutes} from './fallbackRoutes';
 import {crud} from 'beatle';
 import {Layer} from '../layers';
