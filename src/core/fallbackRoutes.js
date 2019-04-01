@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {bootstrap} from './bootstrap';
-import {browserHistory} from 'react-router-dom';
 import {Exception} from '../components/exception';
 import {localeContext} from './localeContext';
 const exceptions = {
@@ -38,7 +37,7 @@ class ExceptionScene extends React.PureComponent {
         size: 'large',
         name: locale.backToHome,
         action: () => {
-          browserHistory.replace(this.context.app.route(bootstrap.getPrefix(this.context.app)).resolvePath);
+          this.app.replace(this.context.app.route(bootstrap.getPrefix(this.context.app)).resolvePath);
         }
       }
     ];

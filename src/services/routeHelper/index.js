@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import urllib from 'url';
+import {createLocation} from 'history';
 
 export class RouteHelper {
   static contextTypes = {
@@ -7,15 +8,9 @@ export class RouteHelper {
   }
 
   constructor(context) {
+    this.router = context.router;
     this._fns = [];
-    const location = window.location;
-    if (context.location) {
-      this.location = context.location;
-    } else {
-      const u = urllib.parse(location.search, true);
-      this.location = this.context.router.createLocation(location.pathname);
-      this.location.query = u.query;
-    }
+    this.location = this.router.location;
 
     this.applyChange(null, location.href);
     context.router.listen((location) => {
@@ -25,13 +20,13 @@ export class RouteHelper {
   }
 
   replace(query) {
-    const newLocation = this.context.router.createLocation(this.location.pathname);
+    const newLocation = createLocation(this.location.pathname);
     newLocation.query = Object.assign(this.location.query, query);
-    this.context.router.replace(newLocation);
+    this.router.history.replace(newLocation);
   }
 
   push(url) {
-    this.context.router.push(url);
+    this.router.history.push(url);
   }
 
   watch(watcher, callback) {
