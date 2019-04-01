@@ -27,4 +27,4 @@ gallery.components = {
 };
 setGallery(gallery);
 
-export default exportObj;
+module.exports = exportObj;
