@@ -44,13 +44,13 @@
   display: inline-block;
   font-size: 16px;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra {
+.hc-breadCrumb .ant-breadcrumb-extra {
   float: right;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
+.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
   display: inline-block;
   margin-right: 10px;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
+.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
   margin-right: 10px;
 }

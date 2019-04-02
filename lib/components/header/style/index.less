@@ -17,10 +17,10 @@
     }
   }
 
-  &&-right {
+  &-right {
     float: right;
     height: 100%;
-    &&-action {
+    &-action {
       cursor: pointer;
       padding: 0 12px;
       display: inline-block;
@@ -36,7 +36,7 @@
       }
     }
     
-    &&-search {
+    &-search {
       .anticon-search {
         cursor: pointer;
         font-size: 16px;
@@ -66,13 +66,13 @@
         }
       }
     }
-    &&-search-show .ant-select-search{
+    &-search-show .ant-select-search{
       width: 210px;
       margin-left: 8px;
     }
     
-    &&-account {
-      &&-avatar {
+    &-account {
+      &-avatar {
         margin: 20px 8px 20px 0;
         color: @primary-color;
         background: rgba(255, 255, 255, .85);
@@ -81,7 +81,7 @@
     }
   }
   
-  &&-menu {
+  &-menu {
     .anticon {
       margin-right: 8px;
     }
@@ -91,7 +91,7 @@
   }  
 
   
-  &&-trigger {
+  &-trigger {
     float: left;
     font-size: 20px;
     line-height: 64px;
@@ -114,7 +114,7 @@
 
 @media screen and (max-width: @screen-xs) {
   .@{header-prefix-cls} {
-    &&-trigger {
+    &-trigger {
       display: none;
     }
   }

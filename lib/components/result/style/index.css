@@ -7,39 +7,39 @@
   width: 72%;
   margin: 0 auto;
 }
-.hc-result.hc-result-icon {
+.hc-result-icon {
   font-size: 72px;
   line-height: 72px;
   margin-bottom: 24px;
 }
-.hc-result.hc-result-icon > .success {
+.hc-result-icon > .success {
   color: #52c41a;
 }
-.hc-result.hc-result-icon > .error {
+.hc-result-icon > .error {
   color: #f5222d;
 }
-.hc-result.hc-result-title {
+.hc-result-title {
   font-size: 24px;
   color: rgba(0, 0, 0, 0.85);
   font-weight: 500;
   line-height: 32px;
   margin-bottom: 16px;
 }
-.hc-result.hc-result-description {
+.hc-result-description {
   font-size: 14px;
   line-height: 22px;
   color: rgba(0, 0, 0, 0.45);
   margin-bottom: 24px;
 }
-.hc-result.hc-result-extra {
+.hc-result-extra {
   background: #fafafa;
   padding: 24px 40px;
   border-radius: 2px;
   text-align: left;
 }
-.hc-result.hc-result-actions {
+.hc-result-actions {
   margin-top: 32px;
 }
-.hc-result.hc-result-actions button:not(:last-child) {
+.hc-result-actions button:not(:last-child) {
   margin-right: 8px;
 }

@@ -7,21 +7,21 @@
   margin: 48px 0 24px 0;
   text-align: center;
 }
-.hc-footer.hc-footer-links {
+.hc-footer-links {
   margin-bottom: 8px;
 }
-.hc-footer.hc-footer-links a {
+.hc-footer-links a {
   color: rgba(0, 0, 0, 0.45);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.hc-footer.hc-footer-links a:not(:last-child) {
+.hc-footer-links a:not(:last-child) {
   margin-right: 40px;
 }
-.hc-footer.hc-footer-links a:hover {
+.hc-footer-links a:hover {
   color: rgba(0, 0, 0, 0.65);
 }
-.hc-footer.hc-footer-copyright {
+.hc-footer-copyright {
   color: rgba(0, 0, 0, 0.45);
   font-size: 14px;
 }
@@ -67,17 +67,17 @@
   display: inline-block;
   font-size: 16px;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra {
+.hc-breadCrumb .ant-breadcrumb-extra {
   float: right;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
+.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
   display: inline-block;
   margin-right: 10px;
 }
-.hc-breadCrumb .ant-breadcrumb.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
+.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
   margin-right: 10px;
 }
-.hc-layout-flexContent.hc-layout-flexContent-footer {
+.hc-layout-flexContent-footer {
   width: 100%;
   bottom: 0;
 }
@@ -90,12 +90,12 @@
 .hc-layout-flexContent .ant-card-wider-padding .ant-card-body {
   padding: 10px;
 }
-.hc-layout-flexContent.hc-layout-flexContent-body {
+.hc-layout-flexContent-body {
   max-height: calc(100% - 142px);
   margin: 20px 20px 0;
   background: transparent;
 }
-.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body {
+.hc-layout-flexContent-body > .ant-card-body {
   padding: 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -106,13 +106,13 @@
       -ms-flex-align: stretch;
           align-items: stretch;
 }
-.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body-body_wrap {
+.hc-layout-flexContent-body > .ant-card-body-body_wrap {
   -webkit-box-flex: 1;
   -webkit-flex: auto;
       -ms-flex: auto;
           flex: auto;
 }
-.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body.hc-layout-flexContent.hc-layout-flexContent-body > .ant-card-body-body_overview {
+.hc-layout-flexContent-body > .ant-card-body-body_overview {
   margin-left: 20px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -122,41 +122,41 @@
       -ms-flex-negative: 0;
           flex-shrink: 0;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox {
+.hc-layout-flexContent-iconbox {
   min-height: 40px;
   position: relative;
   padding: 0 10px;
   background: white;
   border-bottom: 2px solid #ddd;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-compass,
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-environment-o,
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o {
+.hc-layout-flexContent-iconbox .anticon-compass,
+.hc-layout-flexContent-iconbox .anticon-environment-o,
+.hc-layout-flexContent-iconbox .anticon-appstore-o {
   float: left;
   margin: 8px 3px 0;
   padding: 2px;
   font-size: 20px;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-compass:hover,
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-environment-o:hover,
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o:hover {
+.hc-layout-flexContent-iconbox .anticon-compass:hover,
+.hc-layout-flexContent-iconbox .anticon-environment-o:hover,
+.hc-layout-flexContent-iconbox .anticon-appstore-o:hover {
   cursor: pointer;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox .anticon-appstore-o {
+.hc-layout-flexContent-iconbox .anticon-appstore-o {
   float: right;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-breadcrumb {
+.hc-layout-flexContent-iconbox-breadcrumb {
   margin-bottom: 0;
   border-bottom: 0 none;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-breadcrumb .ant-breadcrumb {
+.hc-layout-flexContent-iconbox-breadcrumb .ant-breadcrumb {
   padding-left: 5px;
   display: inline-block;
   zoom: 1;
   vertical-align: middle;
   width: 100%;
 }
-.hc-layout-flexContent.hc-layout-flexContent-iconbox.hc-layout-flexContent.hc-layout-flexContent-iconbox-connector {
+.hc-layout-flexContent-iconbox-connector {
   width: 40%;
   position: absolute;
   left: 30%;

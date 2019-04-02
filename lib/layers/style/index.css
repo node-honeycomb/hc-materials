@@ -2,33 +2,33 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-.hc-layer.hc-layer-layerItem.ant-card {
+.hc-layer-layerItem.ant-card {
   height: 100%;
   overflow: auto;
   margin-bottom: 10px;
 }
-.hc-layer.hc-layer-layerItem.ant-card.active {
+.hc-layer-layerItem.ant-card.active {
   background: #f6fcff;
   border: 1px solid #40a9ff;
 }
-.hc-layer.hc-layer-layerItem.ant-card > .ant-card-head {
+.hc-layer-layerItem.ant-card > .ant-card-head {
   padding: 0 10px;
   min-height: 32px;
 }
-.hc-layer.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra {
+.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra {
   padding: 7px 0;
 }
-.hc-layer.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra .anticon {
+.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra .anticon {
   cursor: pointer;
 }
-.hc-layer.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra .anticon-setting {
+.hc-layer-layerItem.ant-card > .ant-card-head .ant-card-extra .anticon-setting {
   font-size: 16px;
 }
-.hc-layer.hc-layer-layerItem.ant-card > .ant-card-body {
+.hc-layer-layerItem.ant-card > .ant-card-body {
   padding: 0;
   height: calc(100% - 44px);
 }
-.hc-layer.hc-layer-layerItem.ant-card:last-child {
+.hc-layer-layerItem.ant-card:last-child {
   margin-bottom: 0;
 }
 .'hc'-spin-container {

@@ -18,12 +18,12 @@
       -ms-flex: 1;
           flex: 1;
 }
-.hc-archive.ant-form.hc-archive.ant-form-expand {
+.hc-archive.ant-form-expand {
   font-size: 12px;
   position: absolute;
   bottom: 0;
   right: 20px;
 }
-.hc-archive.ant-form.hc-archive.ant-form-btns .ant-btn {
+.hc-archive.ant-form-btns .ant-btn {
   margin-right: 10px;
 }

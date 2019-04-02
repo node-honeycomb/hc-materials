@@ -10,7 +10,7 @@
   position: relative;
   z-index: 10;
 
-  &&-logo {
+  &-logo {
     height: 64px;
     position: relative;
     padding-left: 24px;
@@ -38,7 +38,7 @@
     }
   }
 
-  &&-collapse-outer{
+  &-collapse-outer{
     position: absolute;
     right: 0;
     top: 50%;
@@ -49,12 +49,12 @@
     -ms-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
-    &&-collapse-inner{
+    &-collapse-inner{
       top: -50%;
       position: relative;
       overflow: hidden;
       height: 50px;
-      &&-collapse-bg{
+      &-collapse-bg{
         height: 50px;
         right: 0;
         left: auto;
@@ -63,7 +63,7 @@
         border-right: 13px solid #f7f7f7;
         border-top: 9px solid transparent;
       }
-      &&-collapse{
+      &-collapse{
         color: #546478;
         height: 50px;
         position: relative;
@@ -79,13 +79,13 @@
         -webkit-transition: all 0.1s ease,0.1s ease;
       }
       &:hover{
-        &&-collapse-bg{
+        &-collapse-bg{
           border-bottom: 8px solid transparent;
           border-left: none;
           border-right: 20px solid #f7f7f7;
           border-top: 8px solid transparent
         }
-        &&-collapse{
+        &-collapse{
           right: 0;
         }
       }
@@ -95,11 +95,11 @@
 
 .@{sider-collapse-prefix-cls} {
   &.@{sider-prefix-cls} {
-    &&-collapse-outer{
+    &-collapse-outer{
       left: 0;
       right: auto;
-      &&-collapse-inner{
-        &&-collapse-bg{
+      &-collapse-inner{
+        &-collapse-bg{
           width: 0;
           height: 50px;
           position: absolute;
@@ -115,18 +115,18 @@
           -moz-transition: all 0.1s ease,0.1s ease;
           -webkit-transition: all 0.1s ease,0.1s ease;
         }
-        &&-collapse{
+        &-collapse{
           top: 15px;
           left: -7px;
           right: auto;
         } 
         &:hover{
-          &&-collapse-bg{
+          &-collapse-bg{
             border-bottom: 8px solid transparent;
             border-left: 20px solid #D9DEE4;
             border-top: 8px solid transparent
           }
-          &&-collapse{
+          &-collapse{
             left: 0;
           }
         }
@@ -139,12 +139,12 @@
 .@{sider-light-prefix-cls} {
   &.@{sider-prefix-cls} {
     background: white;
-    &&-logo{
+    &-logo{
       background: white;
       h1 {
         margin-bottom: 0;
       }
-      &&-menu-text {
+      &-menu-text {
         color: rgba(0, 0, 0, 0.85);
       }
     }

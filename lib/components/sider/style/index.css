@@ -9,7 +9,7 @@
   position: relative;
   z-index: 10;
 }
-.hc-sider.hc-sider-logo {
+.hc-sider-logo {
   height: 64px;
   position: relative;
   padding-left: 24px;
@@ -22,12 +22,12 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.hc-sider.hc-sider-logo img {
+.hc-sider-logo img {
   display: inline-block;
   vertical-align: middle;
   height: 32px;
 }
-.hc-sider.hc-sider-logo h1 {
+.hc-sider-logo h1 {
   padding-top: 4px;
   color: #fff;
   display: inline-block;
@@ -37,7 +37,7 @@
   font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: 600;
 }
-.hc-sider.hc-sider-collapse-outer {
+.hc-sider-collapse-outer {
   position: absolute;
   right: 0;
   top: 50%;
@@ -49,13 +49,13 @@
   -moz-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
 }
-.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner {
+.hc-sider-collapse-outer-collapse-inner {
   top: -50%;
   position: relative;
   overflow: hidden;
   height: 50px;
 }
-.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner-collapse-bg {
+.hc-sider-collapse-outer-collapse-inner-collapse-bg {
   height: 50px;
   right: 0;
   left: auto;
@@ -64,7 +64,7 @@
   border-right: 13px solid #f7f7f7;
   border-top: 9px solid transparent;
 }
-.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner-collapse {
+.hc-sider-collapse-outer-collapse-inner-collapse {
   color: #546478;
   height: 50px;
   position: relative;
@@ -79,20 +79,20 @@
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner:hover.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
+.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
   border-bottom: 8px solid transparent;
   border-left: none;
   border-right: 20px solid #f7f7f7;
   border-top: 8px solid transparent;
 }
-.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner:hover.hc-sider.hc-sider-collapse-outer.hc-sider.hc-sider-collapse-outer-collapse-inner:hover-collapse {
+.hc-sider-collapse-outer-collapse-inner:hover-collapse {
   right: 0;
 }
-.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer {
+.hc-sider-collapse.hc-sider-collapse-outer {
   left: 0;
   right: auto;
 }
-.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse-bg {
+.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse-bg {
   width: 0;
   height: 50px;
   position: absolute;
@@ -108,28 +108,28 @@
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse {
+.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse {
   top: 15px;
   left: -7px;
   right: auto;
 }
-.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
+.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
   border-bottom: 8px solid transparent;
   border-left: 20px solid #D9DEE4;
   border-top: 8px solid transparent;
 }
-.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer.hc-sider-collapse.hc-sider.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse {
+.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse {
   left: 0;
 }
 .hc-sider-light.hc-sider {
   background: white;
 }
-.hc-sider-light.hc-sider.hc-sider-light.hc-sider-logo {
+.hc-sider-light.hc-sider-logo {
   background: white;
 }
-.hc-sider-light.hc-sider.hc-sider-light.hc-sider-logo h1 {
+.hc-sider-light.hc-sider-logo h1 {
   margin-bottom: 0;
 }
-.hc-sider-light.hc-sider.hc-sider-light.hc-sider-logo.hc-sider-light.hc-sider.hc-sider-light.hc-sider-logo-menu-text {
+.hc-sider-light.hc-sider-logo-menu-text {
   color: rgba(0, 0, 0, 0.85);
 }

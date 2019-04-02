@@ -1,6 +1,6 @@
 {
   "name": "hc-materials",
-  "version": "0.0.1-beta.10",
+  "version": "0.0.1-rc.1",
   "main": "./lib/index.js",
   "author": "dtboost <dtboost@aliyun.com>",
   "description": "基于react的通用组件库",

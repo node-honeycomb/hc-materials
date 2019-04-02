@@ -6,7 +6,7 @@
   font-style: normal;
   margin-right: 2px;
 }
-.hc-explorer.hc-explorer-elem_title {
+.hc-explorer-elem_title {
   border-bottom: 1px solid #ddd;
   height: 43px;
   line-height: 42px;
@@ -14,24 +14,24 @@
   padding-left: 10px;
   color: #268eea;
 }
-.hc-explorer.hc-explorer-elem_title.hc-explorer.hc-explorer-elem_title-elem_link {
+.hc-explorer-elem_title-elem_link {
   cursor: pointer;
 }
-.hc-explorer.hc-explorer-elem_btn-group {
+.hc-explorer-elem_btn-group {
   margin: 7px 6px;
   white-space: nowrap;
 }
-.hc-explorer.hc-explorer-elem_btn-group .ant-radio-button-wrapper {
+.hc-explorer-elem_btn-group .ant-radio-button-wrapper {
   padding: 0 10px;
 }
-.hc-explorer.hc-explorer-elem_search {
+.hc-explorer-elem_search {
   margin: 6px;
 }
 .hc-explorer .ant-radio-button-wrapper-checked {
   background: #6262e6;
   color: white;
 }
-.hc-explorer.hc-explorer-elem_tree {
+.hc-explorer-elem_tree {
   padding: 0;
   margin: 5px 0;
   height: calc(100% - 180px);

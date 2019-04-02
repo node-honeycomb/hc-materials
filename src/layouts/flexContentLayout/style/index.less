@@ -4,7 +4,7 @@
 @layout-flexContent-prefix-cls: ~'@{hc-prefix}-layout-flexContent';
 
 .@{layout-flexContent-prefix-cls} {
-  &&-footer {
+  &-footer {
     width: 100%;
     bottom: 0;
   }
@@ -17,7 +17,7 @@
   .ant-card-wider-padding .ant-card-body{
     padding: 10px;
   }
-  &&-body{
+  &-body{
     max-height: calc(~'100% - 142px');
     margin: 20px 20px 0;
     background: transparent;
@@ -25,17 +25,17 @@
       padding: 0;
       display: flex;
       align-items: stretch;
-      &&-body_wrap{
+      &-body_wrap{
         flex: auto;
       }
-      &&-body_overview {
+      &-body_overview {
         margin-left: 20px;
         flex-grow: 0;
         flex-shrink: 0;
       }
     }
   }
-  &&-iconbox {
+  &-iconbox {
     min-height: 40px;
     position: relative;
     padding: 0 10px;
@@ -55,7 +55,7 @@
     .anticon-appstore-o {
       float: right;
     }
-    &&-breadcrumb{
+    &-breadcrumb{
       margin-bottom: 0;
       border-bottom: 0 none;
       .ant-breadcrumb {
@@ -66,7 +66,7 @@
         width: 100%;
       }
     }
-    &&-connector{
+    &-connector{
       width: 40%;
       position: absolute;
       left: 30%;
