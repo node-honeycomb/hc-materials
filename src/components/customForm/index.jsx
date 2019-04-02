@@ -252,10 +252,7 @@ class CustomFormBase extends React.PureComponent {
   }
 
   handleCancel() {
-    this
-      .context
-      .router
-      .goBack();
+    this.history.goBack();
   }
 
   getFormLayout(option, extra) {

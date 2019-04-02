@@ -4,16 +4,16 @@ import {createLocation} from 'history';
 
 export class RouteHelper {
   static contextTypes = {
-    router: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired
   }
 
   constructor(context) {
-    this.router = context.router;
+    this.history = context.history;
     this._fns = [];
-    this.location = this.router.location;
+    this.location = this.history.location;
 
     this.applyChange(null, location.href);
-    context.router.history.listen((location) => {
+    this.history.listen((location) => {
       this.location = location;
       this.applyChange(null, location.href);
     });
@@ -22,11 +22,11 @@ export class RouteHelper {
   replace(query) {
     const newLocation = createLocation(this.location.pathname);
     newLocation.query = Object.assign(this.location.query, query);
-    this.router.history.replace(newLocation);
+    this.history.replace(newLocation);
   }
 
   push(url) {
-    this.router.history.push(url);
+    this.history.push(url);
   }
 
   watch(watcher, callback) {
