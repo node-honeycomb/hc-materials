@@ -1,6 +1,6 @@
 import path from 'path';
 import {setGallery} from './layers/galleryResolver';
-const context = require.context('./', true, /\w+\/\w+\.(jsx|js)$/);
+const context = require.context('./', true, /\w+\/\w+\.jsx?$/);
 
 const exportObj = {};
 const gallery = {
@@ -20,6 +20,9 @@ context
     }
     Object.assign(exportObj, context(key));
   });
+
+const styleContext = require.context('./', true, /style\/index.jsx?$/);
+styleContext.keys().map(styleContext);
 
 const components = gallery.components;
 gallery.components = {

@@ -13,7 +13,7 @@ export class RouteHelper {
     this.location = this.router.location;
 
     this.applyChange(null, location.href);
-    context.router.listen((location) => {
+    context.router.history.listen((location) => {
       this.location = location;
       this.applyChange(null, location.href);
     });

@@ -4,7 +4,7 @@ import Layout from 'antd/lib/layout';
 
 import {Sider} from '../../components/sider';
 import {Header} from '../../components/header';
-
+import {localStorage} from '../../core/localStorage';
 import {BasicLayout} from '../basicLayout';
 
 const COLLAPSED_KEY = 'beatle_console_sidebar';
@@ -24,15 +24,11 @@ export class ConsoleLayout extends BasicLayout {
     className: ''
   }
 
-  static contextTypes = {
-    localStorage: PropTypes.object.isRequired
-  }
-
-  constructor(props, context) {
+  constructor(props) {
     super(props);
     this.state = {
       inited: true,
-      collapsed: context.localStorage && context.localStorage.get(COLLAPSED_KEY) === 'true' || false
+      collapsed: localStorage.get(COLLAPSED_KEY) === 'true' || false
     };
   }
 
@@ -45,7 +41,7 @@ export class ConsoleLayout extends BasicLayout {
         //   return;
         // }
         this.setState({collapsed: collapsed, inited: false});
-        this.context.localStorage && this.context.localStorage.set(COLLAPSED_KEY, collapsed);
+        localStorage.set(COLLAPSED_KEY, collapsed);
       }
     };
     const Sider = this.getComponent('Sider');
