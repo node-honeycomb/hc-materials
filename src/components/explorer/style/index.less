@@ -14,10 +14,9 @@
     font-size: 14px;
     padding-left: 10px;
     color: #268eea;
-
-    &-elem_link{
-      cursor: pointer;
-    }
+  }
+  &-elem_title &-elem_link{
+    cursor: pointer;
   }
   &-elem_btn-group{
     margin: 7px 6px;
@@ -52,7 +51,7 @@
       background-color: transparent;
       color: #108ee9;
     }
-    &&_elem-btns{
+    &_elem-btns{
       position: absolute;
       right: 5px;
       display: none;
@@ -69,7 +68,7 @@
     }
     &:hover{
       background: #fefefe;
-      &&_elem-btns{
+      &_elem-btns{
         display: block;
       }
     }

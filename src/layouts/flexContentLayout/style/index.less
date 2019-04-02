@@ -21,19 +21,19 @@
     max-height: calc(~'100% - 142px');
     margin: 20px 20px 0;
     background: transparent;
-    > .ant-card-body{
-      padding: 0;
-      display: flex;
-      align-items: stretch;
-      &-body_wrap{
-        flex: auto;
-      }
-      &-body_overview {
-        margin-left: 20px;
-        flex-grow: 0;
-        flex-shrink: 0;
-      }
-    }
+  }
+  &-body > .ant-card-body{
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+  }
+  &-body > .ant-card-body &-body_wrap{
+    flex: auto;
+  }
+  &-body > .ant-card-body &-body_overview {
+    margin-left: 20px;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
   &-iconbox {
     min-height: 40px;
@@ -55,23 +55,23 @@
     .anticon-appstore-o {
       float: right;
     }
-    &-breadcrumb{
-      margin-bottom: 0;
-      border-bottom: 0 none;
-      .ant-breadcrumb {
-        padding-left: 5px;
-        display: inline-block;
-        zoom: 1;
-        vertical-align: middle;
-        width: 100%;
-      }
+  }
+  &-breadcrumb{
+    margin-bottom: 0;
+    border-bottom: 0 none;
+    .ant-breadcrumb {
+      padding-left: 5px;
+      display: inline-block;
+      zoom: 1;
+      vertical-align: middle;
+      width: 100%;
     }
-    &-connector{
-      width: 40%;
-      position: absolute;
-      left: 30%;
-      top: 0;
-      height: 42px;
-    }
+  }
+  &-connector{
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    top: 0;
+    height: 42px;
   }
 }

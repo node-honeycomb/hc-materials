@@ -14,7 +14,7 @@
   padding-left: 10px;
   color: #268eea;
 }
-.hc-explorer-elem_title-elem_link {
+.hc-explorer-elem_title .hc-explorer-elem_link {
   cursor: pointer;
 }
 .hc-explorer-elem_btn-group {
@@ -52,7 +52,7 @@
   background-color: transparent;
   color: #108ee9;
 }
-.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns {
+.hc-explorer .ant-tree li_elem-btns {
   position: absolute;
   right: 5px;
   display: none;
@@ -61,16 +61,16 @@
   margin-top: -1px;
   z-index: 10;
 }
-.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns span {
+.hc-explorer .ant-tree li_elem-btns span {
   padding: 1px 5px;
 }
-.hc-explorer .ant-tree li.hc-explorer .ant-tree li_elem-btns span:hover {
+.hc-explorer .ant-tree li_elem-btns span:hover {
   color: #108ee9;
 }
 .hc-explorer .ant-tree li:hover {
   background: #fefefe;
 }
-.hc-explorer .ant-tree li:hover.hc-explorer .ant-tree li:hover_elem-btns {
+.hc-explorer .ant-tree li:hover_elem-btns {
   display: block;
 }
 .hc-explorer .ant-tree li.active {

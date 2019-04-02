@@ -21,9 +21,6 @@ context
     Object.assign(exportObj, context(key));
   });
 
-const styleContext = require.context('./', true, /style\/index.jsx?$/);
-styleContext.keys().map(styleContext);
-
 const components = gallery.components;
 gallery.components = {
   hc: components

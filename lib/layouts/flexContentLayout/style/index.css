@@ -106,13 +106,13 @@
       -ms-flex-align: stretch;
           align-items: stretch;
 }
-.hc-layout-flexContent-body > .ant-card-body-body_wrap {
+.hc-layout-flexContent-body > .ant-card-body .hc-layout-flexContent-body_wrap {
   -webkit-box-flex: 1;
   -webkit-flex: auto;
       -ms-flex: auto;
           flex: auto;
 }
-.hc-layout-flexContent-body > .ant-card-body-body_overview {
+.hc-layout-flexContent-body > .ant-card-body .hc-layout-flexContent-body_overview {
   margin-left: 20px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -145,18 +145,18 @@
 .hc-layout-flexContent-iconbox .anticon-appstore-o {
   float: right;
 }
-.hc-layout-flexContent-iconbox-breadcrumb {
+.hc-layout-flexContent-breadcrumb {
   margin-bottom: 0;
   border-bottom: 0 none;
 }
-.hc-layout-flexContent-iconbox-breadcrumb .ant-breadcrumb {
+.hc-layout-flexContent-breadcrumb .ant-breadcrumb {
   padding-left: 5px;
   display: inline-block;
   zoom: 1;
   vertical-align: middle;
   width: 100%;
 }
-.hc-layout-flexContent-iconbox-connector {
+.hc-layout-flexContent-connector {
   width: 40%;
   position: absolute;
   left: 30%;

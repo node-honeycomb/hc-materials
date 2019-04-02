@@ -52,13 +52,13 @@
   line-height: 72px;
   margin-bottom: 24px;
 }
-.hc-exception-content-desc {
+.hc-exception-content .hc-exception-desc {
   color: rgba(0, 0, 0, 0.45);
   font-size: 20px;
   line-height: 28px;
   margin-bottom: 16px;
 }
-.hc-exception-content-actions button:not(:last-child) {
+.hc-exception-content .hc-exception-actions button:not(:last-child) {
   margin-right: 8px;
 }
 @media screen and (max-width: 1200px) {

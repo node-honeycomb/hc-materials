@@ -177,13 +177,13 @@
   -moz-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
 }
-.hc-sider-collapse-outer-collapse-inner {
+.hc-sider-collapse-inner {
   top: -50%;
   position: relative;
   overflow: hidden;
   height: 50px;
 }
-.hc-sider-collapse-outer-collapse-inner-collapse-bg {
+.hc-sider-collapse-bg {
   height: 50px;
   right: 0;
   left: auto;
@@ -192,7 +192,7 @@
   border-right: 13px solid #f7f7f7;
   border-top: 9px solid transparent;
 }
-.hc-sider-collapse-outer-collapse-inner-collapse {
+.hc-sider-collapse {
   color: #546478;
   height: 50px;
   position: relative;
@@ -207,20 +207,20 @@
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
+.hc-sider-collapse-inner:hover .hc-sider-collapse-bg {
   border-bottom: 8px solid transparent;
   border-left: none;
   border-right: 20px solid #f7f7f7;
   border-top: 8px solid transparent;
 }
-.hc-sider-collapse-outer-collapse-inner:hover-collapse {
+.hc-sider-collapse-inner:hover .hc-sider-collapse {
   right: 0;
 }
 .hc-sider-collapse.hc-sider-collapse-outer {
   left: 0;
   right: auto;
 }
-.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse-bg {
+.hc-sider-collapse.hc-sider-collapse-bg {
   width: 0;
   height: 50px;
   position: absolute;
@@ -236,17 +236,17 @@
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner-collapse {
+.hc-sider-collapse.hc-sider-collapse {
   top: 15px;
   left: -7px;
   right: auto;
 }
-.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse-bg {
+.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse-bg {
   border-bottom: 8px solid transparent;
   border-left: 20px solid #D9DEE4;
   border-top: 8px solid transparent;
 }
-.hc-sider-collapse.hc-sider-collapse-outer-collapse-inner:hover-collapse {
+.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse {
   left: 0;
 }
 .hc-sider-light.hc-sider {
@@ -258,7 +258,7 @@
 .hc-sider-light.hc-sider-logo h1 {
   margin-bottom: 0;
 }
-.hc-sider-light.hc-sider-logo-menu-text {
+.hc-sider-light.hc-sider-menu-text {
   color: rgba(0, 0, 0, 0.85);
 }
 .hc-layout-landing {
