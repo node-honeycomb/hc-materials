@@ -121,7 +121,7 @@ export class Sider extends React.PureComponent {
       const cacheMap = {};
       let keys = [];
       routes.forEach(route => {
-        const children = route.children || route.childRoutes;
+        const children = route.children || route.routes;
         if (route.navKey && subMenus[route.navKey]) {
           if (!cacheMap[route.navKey]) {
             cacheMap[route.navKey] = true;
@@ -195,12 +195,12 @@ export class Sider extends React.PureComponent {
       }
     }
 
-    // #! 从路由配置项中获取childRoutes
+    // #! 从路由配置项中获取routes
     const target = item.target;
     const title = item.title || item.name;
     const icon = item.icon;
     const iconCom = icon && (<Icon type={icon} />);
-    const children = item.children || item.childRoutes || [];
+    const children = item.children || item.routes || [];
 
     if (title) {
       return {

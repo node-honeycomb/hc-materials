@@ -70,11 +70,11 @@ export function bootstrap(app, getInitData, versionKey, inters) {
   let promise = getInitData && getInitData() || Promise.resolve({});
   promise = promise.then((ret = {}) => {
     const route = app.route('/');
-    let childRoutes;
+    let routes;
     if (ret.scenes) {
-      childRoutes = Layer.createLayerRoutes(ret.scenes);
-      route.childRoutes = childRoutes;
-      app.setRoutes(childRoutes, null, route);
+      routes = Layer.createLayerRoutes(ret.scenes);
+      route.routes = routes;
+      app.setRoutes(routes, null, route);
     }
     return {
       versionKey: versionKey,
