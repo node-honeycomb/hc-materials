@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
