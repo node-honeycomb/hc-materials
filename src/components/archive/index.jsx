@@ -61,9 +61,14 @@ class IArchive extends React.PureComponent {
   }
 
   getFieldValue(name, option, editable) {
-    const value = this.state.dataSource[name] || option.value;
+    let value;
+    if (this.state.dataSource[name] === undefined) {
+      value = option.value;
+    } else {
+      value = this.state.dataSource[name];
+    }
     if (this.props.formatter) {
-      return this.props.formatter(value);
+      return this.props.formatter(value, option);
     } else {
       if (editable) {
         return option.renderInput ? option.renderInput(value, this.state.dataSource) : value;
@@ -157,6 +162,12 @@ class IArchive extends React.PureComponent {
     e && e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.props.options.forEach(option => {
+          if (option.getValue) {
+            const name = option.dataIndex || option.name;
+            values[name] = option.getValue(values[name]);
+          }
+        });
         this.props.onSubmit && this.props.onSubmit(values);
       }
     });

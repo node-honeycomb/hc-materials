@@ -49,7 +49,7 @@ export class Cascader {
    * }
    * ```
    */
-  getFieldDecorator = (name, {rely, event = 'onChange', getValueFromEvent, trigger, props = {}}) => Field => {
+  getFieldDecorator = (name, {rely, event = 'onChange', argIndex = 2, getValueFromEvent, trigger, props = {}}) => Field => {
     /**
      * + 初始化步骤
      * 1. rely有值表示当前组件和来源组件有级联关系，rely指向来源组件的实例名
@@ -84,8 +84,9 @@ export class Cascader {
    * @param {object} context -父级挂载的组件
    * @param {func} setState -方法
    */
+    const _getProps = props.getProps;
     const getProps = function (props, context, setState) {
-      const newProps = props.getProps ? props.getProps(props, context, setState) : {};
+      const newProps = _getProps ? _getProps(props, context, setState) : {};
       // 拿到ref实例
       newProps.ref = inst => {
         // 判断是否是Hoc组件
@@ -95,6 +96,7 @@ export class Cascader {
           refs[name] = inst;
         }
       };
+
       const cascadeEvents = cascadesMap[name];
       if (cascadeEvents) {
         // 遍历级联事件
@@ -113,11 +115,17 @@ export class Cascader {
                 const instance = refs[instObj.name];
                 if (instance) {
                   //
-                  if (instance._triggerParams === undefined) {
+                  if (argIndex !== 1 && instance._triggerParams === undefined) {
                     // 我们给B组件传入值到第二个参数
+                    if (!instance._args) {
+                      instance._args = [];
+                      for (let i = 1; i < argIndex; i++) {
+                        instance._args.push(undefined);
+                      }
+                    }
                     const method = instance[instObj.trigger];
-                    instance[instObj.trigger] = function (v) {
-                      return method.call(this, v, instance._triggerParams);
+                    instance[instObj.trigger] = function () {
+                      return method.apply(this, instance._args.concat(instance._triggerParams));
                     };
                   }
                   // 约定把值传入给_triggerParams

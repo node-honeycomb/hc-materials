@@ -47,25 +47,29 @@ export class DataSet extends React.PureComponent {
       .keys(props.data)
       .forEach(name => {
         const prop = props.data[name];
-        const originValue = typeof prop.value === 'function' ? prop.value.call(this, this.props) : prop.value;
-        const formatter = this.getFormatter(props.formatter, name);
-        // formatter是一系列解决组件schema的格式化函数
-        if (formatter) {
-          this.state[name] = formatter.call(this, prop.schema, originValue);
-        } else {
-          this.state[name] = originValue;
+        if (prop.value) {
+          const originValue = typeof prop.value === 'function' ? prop.value.call(this, this.props) : prop.value;
+          const formatter = this.getFormatter(props.formatter, name);
+          // formatter是一系列解决组件schema的格式化函数
+          if (formatter) {
+            this.state[name] = formatter.call(this, prop.schema, originValue);
+          } else {
+            this.state[name] = originValue;
+          }
         }
         if (prop.setter) {
-          this.stateUpdater[prop.setter] = (updateFn, callback) => (this.setState(({stateName}) => () => {
+          const setter = props.childProps[prop.setter];
+          this.stateUpdater[prop.setter] = (updateFn) => (this.setState((prevState) => {
             let newValue = typeof updateFn === 'function' ?
-              updateFn.call(this, stateName) :
+              updateFn.call(this, prevState[name]) :
               updateFn;
             const formatter = this.getFormatter(props.formatter, name);
             if (formatter) {
               newValue = formatter.call(this, prop.schema, newValue);
             }
-            return newValue;
-          }, callback));
+            setter && setter(newValue);
+            return {[name]: newValue};
+          }));
         }
       });
   }
