@@ -37,6 +37,11 @@
   font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: 600;
 }
+.hc-sider-fold {
+  height: 20px;
+  text-align: center;
+  color: white;
+}
 .hc-sider-collapse-outer {
   position: absolute;
   right: 0;
@@ -109,8 +114,8 @@
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
 .hc-sider-collapse.hc-sider-collapse {
-  top: 15px;
-  left: -7px;
+  top: 0;
+  left: 0;
   right: auto;
 }
 .hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse-bg {
@@ -132,4 +137,7 @@
 }
 .hc-sider-light.hc-sider-menu-text {
   color: rgba(0, 0, 0, 0.85);
+}
+.ant-layout-header .hc-sider-fold {
+  display: none;
 }

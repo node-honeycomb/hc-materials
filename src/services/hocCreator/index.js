@@ -46,7 +46,7 @@ export class HocCreator {
 
   destroy() {
     let modal = this._modals.pop();
-    while(modal) {
+    while (modal) {
       modal.destroy();
       modal = this._modals.pop();
     }

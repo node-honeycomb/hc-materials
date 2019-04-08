@@ -37,6 +37,11 @@
       font-weight: 600;
     }
   }
+  &-fold{
+    height: 20px;
+    text-align: center;
+    color: white;
+  }
 
   &-collapse-outer{
     position: absolute;
@@ -114,8 +119,8 @@
       -webkit-transition: all 0.1s ease,0.1s ease;
     }
     &-collapse{
-      top: 15px;
-      left: -7px;
+      top: 0;
+      left: 0;
       right: auto;
     } 
     &-collapse-inner:hover &-collapse-bg{
@@ -141,6 +146,14 @@
     }
     &-menu-text {
       color: rgba(0, 0, 0, 0.85);
+    }
+  }
+}
+
+.ant-layout-header{
+  .@{sider-prefix-cls} {
+    &-fold{
+      display: none;
     }
   }
 }

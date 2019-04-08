@@ -13,30 +13,31 @@ import {Sider} from '../sider';
 
 import {localeContext} from '../../core/localeContext';
 
-@localeContext('Header')
+@localeContext('Header', {
+  searchPlaceholder: '输入关键字进行搜索',
+  profile: '个人信息',
+  setting: '设置',
+  logout: '登出'
+})
 export class Header extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    brand: PropTypes.object,
     collapsed: PropTypes.bool,
     onCollapse: PropTypes.func,
-    avatar: PropTypes.string,
-    nick: PropTypes.string,
     noSider: PropTypes.bool,
-    loading: PropTypes.element,
+    project: PropTypes.any,
     theme: PropTypes.string,
     onChange: PropTypes.func,
-    hasSetting: PropTypes.bool,
     search: PropTypes.any,
     menuProps: PropTypes.object,
-    dropdownProps: PropTypes.object,
+    profileProps: PropTypes.object,
     searchProps: PropTypes.object,
   }
 
   static defaultProps = {
     className: '',
-    dropdownProps: {},
+    profileProps: {},
     searchProps: {}
   }
 
@@ -74,7 +75,7 @@ export class Header extends React.PureComponent {
       searchMode: true
     }, () => {
       if (this.state.searchMode) {
-        this._inputRef.current.focus();
+        this._inputRef.current && this._inputRef.current.focus();
       }
     });
   }
@@ -84,12 +85,13 @@ export class Header extends React.PureComponent {
   }
 
   render() {
-    const {loading, className, hasSetting, search, style, collapsed, nick, noSider, avatar, theme, searchProps, menuProps, dropdownProps} = this.props;
+    const {project, className, search, style, collapsed, noSider,  theme, searchProps, menuProps, profileProps} = this.props;
+    const {nick, avatar, dropdownProps, hasSetting} = profileProps;
     searchProps.inputProps = Object.assign(searchProps.inputProps || {}, {ref: this._inputRef, onBlur: this.leaveSearchMode});
 
     return (
       <Layout.Header className={'hc-header ' + className + (theme ? ' hc-header-' + theme : '')} style={style} >
-        {loading}
+        {project}
         {noSider ? null : (<Icon
           className='hc-header-trigger'
           type={collapsed ? 'menu-unfold' : 'menu-fold'}

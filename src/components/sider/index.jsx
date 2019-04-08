@@ -77,6 +77,7 @@ export class Sider extends React.PureComponent {
 
   componentWillUnmount() {
     this.mounted = false;
+    clearTimeout(this._resizeTimer);
   }
 
   componentDidUpdate(prevProps) {
@@ -266,26 +267,38 @@ export class Sider extends React.PureComponent {
     });
   }
 
+  toggleClick = () => {
+    this
+      .props
+      .onCollapse(!this.props.collapsed);
+
+    this._resizeTimer = setTimeout(() => {
+      const event = document.createEvent('HTMLEvents');
+      event.initEvent('resize', true, false);
+      window.dispatchEvent(event);
+    }, 600);
+  }
+
+
   render() {
     let Conn;
     let connProps;
     let sider = this.props.sider;
     let header = this.props.header;
     const brand = this.props.brand;
-    let flexDiv;
 
     const menuOption = Object.assign({
       mode: 'inline',
       theme: 'dark',
       inlineIndent: 24
     }, this.props.menu);
-
+    let flexDiv;
+    let prefix = (<div className="hc-sider-fold"></div>);
     if (menuOption.mode === 'horizontal') {
       Conn = Layout.Header;
       connProps = header || {};
     } else {
       menuOption.style = menuOption.style || {
-        margin: '16px 0',
         width: '100%'
       };
       menuOption.openKeys = this.state.collapsed ? null : this.state.openKeys;
@@ -296,10 +309,10 @@ export class Sider extends React.PureComponent {
         connProps = sider;
       } else {
         let width = this.props.width || 256;
-        let collapsedWidth = this.props.collapsedWidth || 80;
+        let collapsedWidth = this.props.collapsedWidth || 0;
         if (collapsed) {
-          width = 0;
-          collapsedWidth = 0;
+          width = collapsedWidth;
+          // collapsedWidth = 0;
         }
         connProps = {
           trigger: null,
@@ -310,6 +323,7 @@ export class Sider extends React.PureComponent {
         };
       }
       connProps.className = 'hc-sider ' + 'hc-sider-' + menuOption.theme + ' ' + (collapsed ? 'hc-sider-collapse' : 'hc-sider-expand');
+
       if (connProps.flex || flex) {
         flexDiv = (<div className="hc-sider-collapse-outer">
           <div className="hc-sider-collapse-inner">
@@ -319,6 +333,10 @@ export class Sider extends React.PureComponent {
             </div>
           </div>
         </div>);
+      } else {
+        prefix = (<div className="hc-sider-fold"><Icon
+          type={collapsed ? 'menu-unfold' : 'menu-fold'}
+          onClick={this.toggleClick} /></div>);
       }
     }
     return (
@@ -329,6 +347,7 @@ export class Sider extends React.PureComponent {
             <h1 className="hc-sider-menu-text">{brand.title}</h1>
           </Link>
         </div>) :  null}
+        {prefix}
         <Menu
           onOpenChange={(openKeys) => this.setState({openKeys: openKeys})}
           onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
