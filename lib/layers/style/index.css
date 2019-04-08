@@ -31,7 +31,7 @@
 .hc-layer-layerItem.ant-card:last-child {
   margin-bottom: 0;
 }
-.'hc'-spin-container {
+.hc-spin-container {
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
