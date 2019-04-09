@@ -6,7 +6,9 @@ import Dropdown from 'antd/lib/dropdown';
 import Icon from 'antd/lib/icon';
 import {localeContext} from '../../core/localeContext';
 
-@localeContext('NavLink')
+@localeContext('NavLink', {
+  more: '更多'
+})
 export class NavLink extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,

@@ -6,7 +6,10 @@ import message from 'antd/lib/message';
 import Button from 'antd/lib/button';
 import {localeContext} from '../../core/localeContext';
 
-@localeContext('CopyLogger')
+@localeContext('CopyLogger', {
+  copy: '复制',
+  copySuccess: '复制成功'
+})
 export class CopyLogger extends React.PureComponent {
   static propTypes = {
     rid: PropTypes.string,

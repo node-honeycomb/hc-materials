@@ -5,7 +5,13 @@ import {localeContext} from '../../core/localeContext';
 
 const types = ['continuous', 'single'];
 
-@localeContext('Tour')
+@localeContext('Tour', {
+  back: '后退',
+  close: '关闭',
+  last: '完成',
+  next: '下一个',
+  skip: '跳过'
+})
 export class Tour extends React.Component {
   static contextTypes = {
     history: PropTypes.object

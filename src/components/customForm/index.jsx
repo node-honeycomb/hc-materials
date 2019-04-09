@@ -21,7 +21,14 @@ import isPlainObject from 'lodash/isPlainObject';
 import {localeContext} from '../../core/localeContext';
 import moment from 'moment';
 
-@localeContext('CustomForm')
+@localeContext('CustomForm', {
+  illegal: '表单校验失败',
+  dataIndex: '数据项',
+  legend: '数据结构',
+  upload: '上传文件',
+  save: '保存',
+  cancel: '取消'
+})
 class CustomFormBase extends React.PureComponent {
   static contextTypes = {
     router: PropTypes.object
