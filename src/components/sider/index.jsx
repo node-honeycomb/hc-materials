@@ -36,6 +36,7 @@ export class Sider extends React.PureComponent {
     subMenus: PropTypes.object,
     getResolvePath: PropTypes.func,
     menu: PropTypes.object,
+    prefix: PropTypes.any,
 
     width: PropTypes.any,
     collapsedWidth: PropTypes.any,
@@ -293,7 +294,7 @@ export class Sider extends React.PureComponent {
       inlineIndent: 24
     }, this.props.menu);
     let flexDiv;
-    let prefix = (<div className="hc-sider-fold"></div>);
+    let prefix = this.props.prefix;
     if (menuOption.mode === 'horizontal') {
       Conn = Layout.Header;
       connProps = header || {};
@@ -338,6 +339,9 @@ export class Sider extends React.PureComponent {
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={this.toggleClick} /></div>);
       }
+    }
+    if (!prefix) {
+      prefix = (<div className="hc-sider-fold"></div>);
     }
     return (
       <Conn {...connProps}>
