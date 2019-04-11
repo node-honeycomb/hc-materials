@@ -1,5 +1,6 @@
 import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
+import isReactComponent from '../core/isReactComponent';
 
 export function getComponent(option, getProps) {
   if (option === false) {
@@ -9,7 +10,7 @@ export function getComponent(option, getProps) {
   }
   let AppointComponent;
   let propValues = {};
-  if (option && option.prototype  && option.prototype.isReactComponent) {
+  if (option && isReactComponent(option)) {
     AppointComponent = option;
   } else {
     propValues = option || {};
@@ -20,7 +21,7 @@ export function getComponent(option, getProps) {
     class Component extends React.PureComponent {
       constructor(props) {
         super(props);
-        if (BaseComponent && !BaseComponent.prototype.isReactComponent) {
+        if (BaseComponent && !isReactComponent(BaseComponent)) {
           this.state = {
             stateProps: {},
             Component: EmptyComponent

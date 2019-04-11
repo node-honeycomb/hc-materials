@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {getComponent} from './getComponent';
+import isReactComponent from '../core/isReactComponent';
 
 function loop(arrOrMap, callback) {
   if (Array.isArray(arrOrMap)) {
@@ -10,7 +11,7 @@ function loop(arrOrMap, callback) {
       const item = arrOrMap[key];
       const newItem = {key: key};
       if (typeof item === 'function') {
-        if (item.prototype && item.prototype.isReactComponent) {
+        if (isReactComponent(item)) {
           newItem.component = item;
         } else {
           newItem.getProps = item;

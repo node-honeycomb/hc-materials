@@ -250,7 +250,7 @@
 .hc-layout-console .ant-layout {
   overflow-x: hidden;
 }
-.hc-layout-console .ant-layout-content {
+.hc-layout-console-body {
   margin: 10px 20px;
 }
 .hc-layout-console .hc-header .hc-sider-logo {
