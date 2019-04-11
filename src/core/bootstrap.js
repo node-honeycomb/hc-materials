@@ -39,7 +39,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
     .ajax
     .set('beforeRequest', (ajaxOption) => {
       if (ajaxOption.getMock || ajaxOption.mock) {
-        return Promise.resolve(ajaxOption.getMock ? ajaxOption.getMock(ajaxOption) : ajaxOption.mock);
+        return ajaxOption.getMock ? Promise.resolve(ajaxOption.getMock(ajaxOption)) : Object.assign(ajaxOption, ajaxOption.mock);
       } else {
         return ajaxOption;
       }
