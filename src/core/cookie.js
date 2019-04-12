@@ -19,7 +19,7 @@ function isNotEmptyString(val) {
  * @class Cookie
  * @singleton
  */
-export default {
+export const cookie = {
 
   /**
    * Returns the cookie value for given name
