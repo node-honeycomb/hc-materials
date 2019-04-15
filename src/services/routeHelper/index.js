@@ -27,6 +27,9 @@ export class RouteHelper {
 
   push(url, query) {
     // 解析url，并把queryStr解析为object
+    if (Object(url) === url) {
+      url = url.pathname + url.search;
+    }
     if (query) {
       const u = urllib.parse(url, true);
       u.search = qs.stringify(Object.assign(u.query || {}, query));
