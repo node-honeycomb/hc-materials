@@ -1,6 +1,6 @@
 {
   "name": "hc-materials",
-  "version": "0.0.1-rc.15",
+  "version": "0.0.1-rc.16",
   "main": "./lib/index.js",
   "author": "dtboost <dtboost@aliyun.com>",
   "description": "基于react的通用组件库",
@@ -24,7 +24,8 @@
     "lodash": "4.17.11",
     "async-validator": "1.11.0",
     "classnames": "2.2.5",
-    "url": "0.11.0"
+    "url": "0.11.0",
+    "qs": "6.5.2"
   },
   "peerDependencies": {
     "react": ">=15.0.0",

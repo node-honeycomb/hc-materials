@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import urllib from 'url';
 import {createLocation} from 'history';
-
+import qs from 'qs';
 export class RouteHelper {
   static contextTypes = {
     history: PropTypes.object.isRequired
@@ -25,8 +25,17 @@ export class RouteHelper {
     this.history.replace(newLocation);
   }
 
-  push(url) {
-    this.history.push(url);
+  push(url, query) {
+    // 解析url，并把queryStr解析为object
+    if (query) {
+      const u = urllib.parse(url, true);
+      u.search = qs.stringify(Object.assign(u.query || {}, query));
+      delete u.query;
+      url = urllib.format(u);
+    }
+
+    // 得到最后的url
+    this.history.push(url, query);
   }
 
   watch(watcher, callback) {
