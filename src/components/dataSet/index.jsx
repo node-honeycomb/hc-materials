@@ -75,10 +75,17 @@ export class DataSet extends React.PureComponent {
   }
 
   componentDidMount() {
+    this.mounted = true;
     this._resolver && this._resolver.then(iState => {
-      iState.pending = false;
-      this.setState(iState, this.props.onChange);
+      if (this.mounted) {
+        iState.pending = false;
+        this.setState(iState, this.props.onChange);
+      }
     });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleResolve = (value, params) => {
@@ -90,8 +97,10 @@ export class DataSet extends React.PureComponent {
     if (this.props.getResolver) {
       const resolver = this.props.getResolver(value, params);
       resolver.then(iState => {
-        iState.pending = false;
-        this.setState(iState, this.props.onChange);
+        if (this.mounted) {
+          iState.pending = false;
+          this.setState(iState, this.props.onChange);
+        }
       });
     }
   }
