@@ -12,10 +12,10 @@ export class RouteHelper {
     this._fns = [];
     this.location = this.history.location;
 
-    this.applyChange(null, location.href);
+    this.applyChange(null, location.pathname + location.search + location.hash);
     this.history.listen((location) => {
       this.location = location;
-      this.applyChange(null, location.href);
+      this.applyChange(null, location.pathname + location.search + location.hash);
     });
   }
 
@@ -28,7 +28,7 @@ export class RouteHelper {
   push(url, query) {
     // 解析url，并把queryStr解析为object
     if (Object(url) === url) {
-      url = url.pathname + url.search;
+      url = url.pathname + url.search + url.hash;
     }
     if (query) {
       const u = urllib.parse(url, true);
