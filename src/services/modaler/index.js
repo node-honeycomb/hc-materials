@@ -9,7 +9,7 @@ export class Modaler {
   }
 
   constructor(context) {
-    this._mdoals = [];
+    this._modals = [];
     ['info', 'success', 'error', 'warning', 'confirm'].forEach(action => {
       this[action] = (dialogProps) => {
         if (!dialogProps.getContainer) {

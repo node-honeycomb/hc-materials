@@ -7,9 +7,9 @@ export class HocCreator {
     modaler: PropTypes.object.isRequired
   }
 
-  _modals = [];
   constructor(context) {
     this.context = context;
+    this._modals = [];
   }
   /**
    * modalOption = {
