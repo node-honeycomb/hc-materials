@@ -3,7 +3,7 @@
 @archive-prefix-cls: ~'@{hc-prefix}-archive';
 
 .@{archive-prefix-cls}{
-  &.ant-form {
+  &.ant-form-vertical {
     padding: 10px 12px 0;
     .ant-form-item {
       display: flex;
@@ -12,6 +12,8 @@
     .ant-form-item-control-wrapper {
       flex: 1;
     }
+  }
+  &.ant-form{
     &-expand {
       font-size: 12px;
       position: absolute;
@@ -22,5 +24,4 @@
       margin-right: 10px;
     }
   }
-  
 }

@@ -8,7 +8,9 @@ export class HocCreator {
   }
 
   _modals = [];
-
+  constructor(context) {
+    this.context = context;
+  }
   /**
    * modalOption = {
    *  // 对话框的配置
@@ -31,7 +33,7 @@ export class HocCreator {
       content: (<Widget {...modalOption.childProps} />),
     }, modalOption.modalProps);
 
-    const modal = this.context.modal[modalType](option);
+    const modal = this.context.modaler[modalType](option);
 
     // 多个对话框可以叠加
     if (modalOption.standalone) {
