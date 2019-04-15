@@ -38,8 +38,10 @@ export function bootstrap(app, getInitData, versionKey, inters) {
   app
     .ajax
     .set('beforeRequest', (ajaxOption) => {
-      if (ajaxOption.getMock || ajaxOption.mock) {
-        return ajaxOption.getMock ? Promise.resolve(ajaxOption.getMock(ajaxOption)) : Object.assign(ajaxOption, ajaxOption.mock);
+      if (ajaxOption.getMock) {
+        return ajaxOption.getMock(ajaxOption);
+      } else if (ajaxOption.mock) {
+        Object.assign(ajaxOption, ajaxOption.mock);
       } else {
         return ajaxOption;
       }
