@@ -13,6 +13,25 @@ import {Sider} from '../sider';
 
 import {localeContext} from '../../core/localeContext';
 
+
+/* eslint-disable react/prop-types */
+function Profile({nick, hasSetting, avatar, dropdownProps, onClick, msgs}) {
+  return nick ? (
+    <Dropdown
+      overlay={(
+        <Menu className='hc-header-menu' selectedKeys={[]} onClick={onClick} {...dropdownProps}>
+          <Menu.Item key="profile"><Icon type="user" />{msgs.profile}</Menu.Item>
+          {hasSetting ? (<Menu.Item key="setting"><Icon type="setting" />{msgs.setting}</Menu.Item>) : null}
+          <Menu.Divider />
+          <Menu.Item key="logout"><Icon type="logout" />{msgs.logout}</Menu.Item>
+        </Menu>
+      )}>
+      <span className='hc-header-account'>
+        {avatar && (<Avatar size="small" className='hc-header-avatar' src={avatar} />)} {nick}
+      </span>
+    </Dropdown>
+  ) : (<Spin size="small" style={{marginLeft: 8}} />)
+}
 @localeContext('Header', {
   searchPlaceholder: '输入关键字进行搜索',
   profile: '个人信息',
@@ -31,6 +50,7 @@ export class Header extends React.PureComponent {
     onChange: PropTypes.func,
     search: PropTypes.any,
     menuProps: PropTypes.object,
+    profile: PropTypes.any,
     profileProps: PropTypes.object,
     searchProps: PropTypes.object,
   }
@@ -85,8 +105,7 @@ export class Header extends React.PureComponent {
   }
 
   render() {
-    const {project, className, search, style, collapsed, noSider,  theme, searchProps, menuProps, profileProps} = this.props;
-    const {nick, avatar, dropdownProps, hasSetting} = profileProps;
+    const {project, className, search, style, collapsed, noSider,  theme, searchProps, menuProps, profile, profileProps} = this.props;
     searchProps.inputProps = Object.assign(searchProps.inputProps || {}, {ref: this._inputRef, onBlur: this.leaveSearchMode});
 
     return (
@@ -96,7 +115,7 @@ export class Header extends React.PureComponent {
           className='hc-header-trigger'
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={this.toggleClick} />)}
-        <div className='hc-header-right' style={{display: nick === false ? 'none' : ''}}>
+        <div className='hc-header-right' style={{display: profileProps.nick === false ? 'none' : ''}}>
           {search !== undefined ? search : (<span
             className={'hc-header-search ' + (this.state.searchMode ? 'hc-header-search-show' : '')}
             onClick={this.enterSearchMode}>
@@ -105,21 +124,8 @@ export class Header extends React.PureComponent {
               onSelect={v => this.handleChange({value: v, key: 'search'})}
               {...searchProps}
             /></span>)
-          }{nick ? (
-            <Dropdown
-              overlay={(
-                <Menu className='hc-header-menu' selectedKeys={[]} onClick={this.handleChange} {...dropdownProps}>
-                  <Menu.Item key="profile"><Icon type="user" />{this.getLocale('profile')}</Menu.Item>
-                  {hasSetting ? (<Menu.Item key="setting"><Icon type="setting" />{this.getLocale('setting')}</Menu.Item>) : null}
-                  <Menu.Divider />
-                  <Menu.Item key="logout"><Icon type="logout" />{this.getLocale('logout')}</Menu.Item>
-                </Menu>
-              )}>
-              <span className='hc-header-account'>
-                {avatar && (<Avatar size="small" className='hc-header-avatar' src={avatar} />)} {nick}
-              </span>
-            </Dropdown>
-          ) : (<Spin size="small" style={{marginLeft: 8}} />)}
+          }
+          {profile || (<Profile {...profileProps} onClick={this.handleChange} msgs={this.getLocale()} />)}
         </div>
         {menuProps ? (<Sider {...menuProps} />) : null}
       </Layout.Header>
