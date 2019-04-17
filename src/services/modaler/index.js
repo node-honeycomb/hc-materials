@@ -8,14 +8,23 @@ export class Modaler {
     app: PropTypes.object.isRequired
   }
 
+  set(name, value) {
+    this._cfg[name] = value;
+  }
+
   constructor(context) {
     this.context = context;
     this._modals = [];
+    this._cfg = {
+      width: null,
+      container: this.context.app.storeContainer
+    };
     ['info', 'success', 'error', 'warning', 'confirm'].forEach(action => {
       this[action] = (dialogProps) => {
         if (!dialogProps.getContainer) {
           dialogProps.getContainer = () => context.app.storeContainer;
         }
+        dialogProps.width = dialogProps.width || this._cfg.width;
         const closeModal = Modal[action](dialogProps);
 
         this._modals.push({destroy: closeModal});
@@ -30,9 +39,10 @@ export class Modaler {
     const Dialog = () => {
       const [state, setState] = useState({
         visible: true,
-        getContainer: () => this.context.app.storeContainer,
+        getContainer: () => this._cfg.container,
         onOk: () => this.trigger(dialogProps.onOk, setState),
-        onCancel: () => this.trigger(dialogProps.onCancel, setState)
+        onCancel: () => this.trigger(dialogProps.onCancel, setState),
+        width: dialogProps.width || this._cfg.width
       });
       this._modals.push({
         destroy: () => setState({visible: false})
