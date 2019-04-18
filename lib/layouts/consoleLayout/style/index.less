@@ -1,0 +1,43 @@
+@import '../../../components/header/style/index.less';
+@import '../../../components/sider/style/index.less';
+
+@layout-console-prefix-cls: ~'@{hc-prefix}-layout-console';
+
+.@{layout-console-prefix-cls} {
+  .ant-layout {
+    overflow-x: hidden;
+  }
+  &-body{
+    margin: 10px 20px;
+  }
+
+  .@{header-prefix-cls}{
+    .@{sider-prefix-cls}-logo{
+      background: transparent;
+      float: left;
+      padding: 0;
+      line-height: 52px;
+      margin-right: 30px;
+    }
+    .ant-menu-horizontal{
+      line-height: 64px;
+      height: 64px;
+    }
+  }
+
+  .@{sider-collapse-prefix-cls} {
+    &.@{sider-prefix-cls} {
+      &-logo {
+        padding-left: 24px;
+        padding-top: 20px;
+        > a {
+          width: 32px;
+        }
+      }
+      &-menu-text{
+        font-size: 0;
+      }
+    }
+  }
+}
+

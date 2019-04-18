@@ -1,0 +1,143 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-sider {
+  min-height: 100vh;
+  -webkit-box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+          box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  position: relative;
+  z-index: 10;
+}
+.hc-sider-logo {
+  height: 64px;
+  position: relative;
+  padding-left: 24px;
+  padding-top: 20px;
+  line-height: 0;
+  vertical-align: middle;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #002140;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.hc-sider-logo img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+}
+.hc-sider-logo h1 {
+  padding-top: 4px;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  margin-left: 12px;
+  font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+.hc-sider-fold {
+  height: 20px;
+  text-align: center;
+  color: white;
+}
+.hc-sider-collapse-outer {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 20px;
+  height: 50px;
+  z-index: 3;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.hc-sider-collapse-inner {
+  top: -50%;
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+}
+.hc-sider-collapse-bg {
+  height: 50px;
+  right: 0;
+  left: auto;
+  border-bottom: 9px solid transparent;
+  border-left: none;
+  border-right: 13px solid #f7f7f7;
+  border-top: 9px solid transparent;
+}
+.hc-sider-collapse {
+  color: #546478;
+  height: 50px;
+  position: relative;
+  top: -35px;
+  right: -7px;
+  left: auto;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease, 0.1s ease;
+  -o-transition: all 0.1s ease, 0.1s ease;
+  -ms-transition: all 0.1s ease, 0.1s ease;
+  -moz-transition: all 0.1s ease, 0.1s ease;
+  -webkit-transition: all 0.1s ease, 0.1s ease;
+}
+.hc-sider-collapse-inner:hover .hc-sider-collapse-bg {
+  border-bottom: 8px solid transparent;
+  border-left: none;
+  border-right: 20px solid #f7f7f7;
+  border-top: 8px solid transparent;
+}
+.hc-sider-collapse-inner:hover .hc-sider-collapse {
+  right: 0;
+}
+.hc-sider-collapse.hc-sider-collapse-outer {
+  left: 0;
+  right: auto;
+}
+.hc-sider-collapse.hc-sider-collapse-bg {
+  width: 0;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 9px solid transparent;
+  border-left: 13px solid #D9DEE4;
+  border-top: 9px solid transparent;
+  border-right: 0 none;
+  transition: all 0.1s ease, 0.1s ease;
+  -o-transition: all 0.1s ease, 0.1s ease;
+  -ms-transition: all 0.1s ease, 0.1s ease;
+  -moz-transition: all 0.1s ease, 0.1s ease;
+  -webkit-transition: all 0.1s ease, 0.1s ease;
+}
+.hc-sider-collapse.hc-sider-collapse {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse-bg {
+  border-bottom: 8px solid transparent;
+  border-left: 20px solid #D9DEE4;
+  border-top: 8px solid transparent;
+}
+.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse {
+  left: 0;
+}
+.hc-sider-light.hc-sider {
+  background: white;
+}
+.hc-sider-light.hc-sider-logo {
+  background: white;
+}
+.hc-sider-light.hc-sider-logo h1 {
+  margin-bottom: 0;
+}
+.hc-sider-light.hc-sider-menu-text {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ant-layout-header .hc-sider-fold {
+  display: none;
+}

@@ -1,0 +1,38 @@
+@import '../../../theme.less';
+
+@customForm-prefix-cls: ~'@{hc-prefix}-customForm';
+@customForm-compact-prefix-cls: ~'@{hc-prefix}-customForm-compact';
+@customForm-card-prefix-cls: ~'@{hc-prefix}-customForm-card';
+
+
+.@{customForm-prefix-cls} {
+  .ant-radio-group {
+    margin-top: 4px;
+  }
+  .ant-form-extra .anticon{
+    position: absolute;
+    top: 10px;
+    right: -20px;
+  }
+}
+.@{customForm-compact-prefix-cls}{
+  .ant-form-item{
+    margin-top: 14px;
+    margin-bottom: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .ant-card.@{customForm-card-prefix-cls} {
+    margin-top: 14px;
+    padding-top: 0;
+    padding-bottom: 0;
+    .ant-form-item:first-child{
+      margin-top: 0;
+    }
+  }
+  &.ant-card{
+    margin-top: 14px;
+  }
+}
+

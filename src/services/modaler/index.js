@@ -9,14 +9,18 @@ export class Modaler {
   }
 
   set(name, value) {
-    this._cfg[name] = value;
+    if (Object(name) === name) {
+      Object.assign(this._cfg, name);
+    } else {
+      this._cfg[name] = value;
+    }
   }
 
   constructor(context) {
     this.context = context;
     this._modals = [];
     this._cfg = {
-      width: null,
+      width: 520,
       container: this.context.app.storeContainer
     };
     ['info', 'success', 'error', 'warning', 'confirm'].forEach(action => {

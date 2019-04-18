@@ -1,0 +1,27 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-footer {
+  padding: 0 16px;
+  margin: 48px 0 24px 0;
+  text-align: center;
+}
+.hc-footer-links {
+  margin-bottom: 8px;
+}
+.hc-footer-links a {
+  color: rgba(0, 0, 0, 0.45);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.hc-footer-links a:not(:last-child) {
+  margin-right: 40px;
+}
+.hc-footer-links a:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+.hc-footer-copyright {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
