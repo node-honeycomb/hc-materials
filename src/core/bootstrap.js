@@ -35,37 +35,41 @@ export function bootstrap(app, getInitData, versionKey, inters) {
     }
   }
 
-  app
-    .ajax
-    .set('beforeRequest', (ajaxOption) => {
-      if (ajaxOption.getMock) {
-        return ajaxOption.getMock(ajaxOption);
-      } else if (ajaxOption.mock) {
-        Object.assign(ajaxOption, ajaxOption.mock);
-      } else {
-        return ajaxOption;
-      }
-    });
-  app
-    .ajax
-    .set('afterResponse', (res, option, xhr) => {
-      xhr.catch(err => {
-        err.catched = true;
-        Notification.error({message: 'ApiException', description: err.message});
-      });
-
-      if (inters) {
-        for (let key in inters) {
-          res = inters[key](res, app);
-          if (res instanceof Error) {
-            return res;
-          }
+  if (!app.ajax.set('beforeRequest')) {
+    app
+      .ajax
+      .set('beforeRequest', (ajaxOption) => {
+        if (ajaxOption.getMock) {
+          return ajaxOption.getMock(ajaxOption);
+        } else if (ajaxOption.mock) {
+          Object.assign(ajaxOption, ajaxOption.mock);
+        } else {
+          return ajaxOption;
         }
-      } else {
-        res = proccessData(res, app);
-      }
-      return res;
-    });
+      });
+  }
+  if (!app.ajax.set('afterResponse')) {
+    app
+      .ajax
+      .set('afterResponse', (res, option, xhr) => {
+        xhr.catch(err => {
+          err.catched = true;
+          Notification.error({message: 'ApiException', description: err.message});
+        });
+
+        if (inters) {
+          for (let key in inters) {
+            res = inters[key](res, app);
+            if (res instanceof Error) {
+              return res;
+            }
+          }
+        } else {
+          res = proccessData(res, app);
+        }
+        return res;
+      });
+  }
 
   // fallback路由
   app.route(fallbackRoutes, false);
