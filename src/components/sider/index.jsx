@@ -33,6 +33,7 @@ export class Sider extends React.PureComponent {
     collapsed: PropTypes.bool,
     openLevel: PropTypes.number,
     brand: PropTypes.object,
+    getResolver: PropTypes.func,
     subMenus: PropTypes.object,
     getResolvePath: PropTypes.func,
     menu: PropTypes.object,
@@ -70,10 +71,29 @@ export class Sider extends React.PureComponent {
       openKeys: openKeys,
       subMenus: props.subMenus
     };
+    if (props.getResolver) {
+      this._resolver = props.getResolver();
+    }
+  }
+
+  handleResolve = (e, params) => {
+    if (this.props.getResolver) {
+      const resolver = this.props.getResolver(e, params);
+      resolver.then(iState => {
+        if (this.mounted) {
+          this.setState(iState);
+        }
+      });
+    }
   }
 
   componentDidMount() {
     this.mounted = true;
+    this._resolver && this._resolver.then(iState => {
+      if (this.mounted) {
+        this.setState(iState);
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -81,12 +101,12 @@ export class Sider extends React.PureComponent {
     clearTimeout(this._resizeTimer);
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.route !== this.props.route) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.route !== this.props.route || prevState.routes !== this.state.routes) {
       const resolvePath = this.props.getResolvePath(this.props.route);
       if (!this.state.selectedKeys || this.state.selectedKeys.indexOf(resolvePath) === -1) {
-        const routes = this.getRoutes(this.props.routes, this.props.orderKeys);
-        let openKeys = this.state.openKeys.length ? this.state.openKeys : this.props.route && this.getParentsResolvePaths(this.props.route);
+        const routes = this.getRoutes(this.state.routes || this.props.routes, this.props.orderKeys);
+        let openKeys = this.props.route && this.getParentsResolvePaths(this.props.route);
         if (!openKeys || !openKeys.length) {
           openKeys = this.getOpenKeys(routes, this.props.subMenus);
         }
