@@ -61,7 +61,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
           for (let key in inters) {
             res = inters[key](res, app);
             if (res instanceof Error) {
-              return res;
+              throw res;
             }
           }
         } else {

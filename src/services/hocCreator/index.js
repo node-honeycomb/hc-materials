@@ -56,12 +56,13 @@ export class HocCreator {
 
   getRichComponent(Widget, richProps) {
     class RichWidget extends React.PureComponent {
+      _wrapRef = React.createRef();
       getRealInstance() {
-        return this._wrappedComponent;
+        return this._wrapRef.current;
       }
 
       handleResolve(v, params) {
-        this._wrappedComponent.handleResolve(v, params);
+        this._wrapRef.current.handleResolve(v, params);
       }
 
       render() {
@@ -69,7 +70,7 @@ export class HocCreator {
           Object.assign(richProps.childProps, this.props);
         }
         return (<DataSet
-          ref={inst => this._wrappedComponent = inst}
+          ref={this._wrapRef}
           {...richProps}>
           <Widget />
         </DataSet>);

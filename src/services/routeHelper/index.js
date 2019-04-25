@@ -25,7 +25,7 @@ export class RouteHelper {
     this.history.replace(newLocation);
   }
 
-  push(url, query) {
+  push(url, query, force) {
     // 解析url，并把queryStr解析为object
     if (Object(url) === url) {
       url = url.pathname + url.search + url.hash;
@@ -38,7 +38,7 @@ export class RouteHelper {
     }
 
     // 得到最后的url
-    this.history.push(url, query);
+    this.history.push(url, force ? query : null);
   }
 
   watch(watcher, callback) {
