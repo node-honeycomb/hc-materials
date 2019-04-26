@@ -11,11 +11,7 @@ export function versionDetector(tmpVersionKey, appVersion) {
       var date = new Date();
       date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
       val += '; expires=' + date.toUTCString();
-      if (window.location.pathname.indexOf('/portal/publisher/') === 0) {
-        val += '; domain=' + document.domain.split('.').slice(1).join('.');
-      } else {
-        val += '; domain=' + document.domain;
-      }
+      val += '; domain=' + document.domain;
       val += '; path=/';
 
       document.cookie = tmpVersionKey + '=' + val;

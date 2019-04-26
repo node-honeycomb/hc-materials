@@ -120,7 +120,7 @@ class IArchive extends React.PureComponent {
       return form.getFieldDecorator(name, decorator)(fieldInput);
     } else {
       const value = this.getFieldValue(name, option);
-      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value}</span>));
+      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value || ' '}</span>));
     }
   }
 
@@ -160,7 +160,13 @@ class IArchive extends React.PureComponent {
   }
 
   handleSubmit = (e) => {
-    e && e.preventDefault();
+    let onSubmit = this.props.onSubmit;
+    if (typeof e === 'function') {
+      onSubmit = e;
+    } else {
+      e && e.preventDefault();
+    }
+
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.options.forEach(option => {
@@ -169,7 +175,7 @@ class IArchive extends React.PureComponent {
             values[name] = option.getValue(values[name]);
           }
         });
-        this.props.onSubmit && this.props.onSubmit(values);
+        onSubmit && onSubmit(values);
       }
     });
   }
