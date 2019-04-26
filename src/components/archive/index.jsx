@@ -119,7 +119,8 @@ class IArchive extends React.PureComponent {
       const fieldInput = CustomForm.getFieldInput(option, option.props, stateProps || {}, decorator);
       return form.getFieldDecorator(name, decorator)(fieldInput);
     } else {
-      return this.getFieldValue(name, option);
+      const value = this.getFieldValue(name, option);
+      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value}</span>));
     }
   }
 
@@ -140,7 +141,7 @@ class IArchive extends React.PureComponent {
         name = item.dataIndex || item.name;
         label = noLabel ? null :  (item.title || item.name);
         input = this.getFieldInput(name, item);
-        if (input) {
+        if (input !== undefined) {
           fields.push(
             <Col span={item.col ? item.col * span : item.span || span} key={name} style={{display: i < count ? 'block' : 'none'}}>
               <Form.Item {...formItemLayout} {...item.attrs} label={label} style={itemStyle}>
