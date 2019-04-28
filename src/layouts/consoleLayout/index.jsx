@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Layout from 'antd/lib/layout';
+import {Layout} from 'antd';
 
 import {Sider} from '../../components/sider';
 import {Header} from '../../components/header';

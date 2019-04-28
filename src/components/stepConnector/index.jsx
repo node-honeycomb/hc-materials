@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Anchor from 'antd/lib/anchor';
+import {Anchor} from 'antd';
 
 export class StepConnector extends React.PureComponent {
   static propTypes = {

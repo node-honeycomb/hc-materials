@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Form from 'antd/lib/form';
-import Row from 'antd/lib/row';
-import Col from 'antd/lib/col';
-import Icon from 'antd/lib/icon';
-import Divider from 'antd/lib/divider';
+import {Form, Row, Col, Icon, Divider} from 'antd';
 
 import {CustomForm} from '../customForm';
 

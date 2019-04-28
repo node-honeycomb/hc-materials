@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import {Link} from 'react-router-dom';
 
-import Layout from 'antd/lib/layout';
-import Menu from 'antd/lib/menu';
-import Icon from 'antd/lib/icon';
+import {Layout, Menu, Icon} from 'antd';
 
 const HTTP_PATTERN = /^https?:\/\//;
 

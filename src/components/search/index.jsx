@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AutoComplete from 'antd/lib/auto-complete';
-import Input from 'antd/lib/input';
-import Icon from 'antd/lib/icon';
+import {AutoComplete, Input, Icon} from 'antd';
 
 /**
  * Search搜索组件

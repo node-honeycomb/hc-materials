@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from 'antd/lib/layout';
-import Icon from 'antd/lib/icon';
-import Dropdown from 'antd/lib/dropdown';
-import Spin from 'antd/lib/spin';
-import Menu from 'antd/lib/menu';
-import Avatar from 'antd/lib/avatar';
+import {Layout, Icon, Dropdown, Spin, Menu, Avatar} from 'antd';
 
 import {Search} from '../search';
 import {Sider} from '../sider';

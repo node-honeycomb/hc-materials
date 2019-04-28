@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from 'antd/lib/layout';
+import {Layout} from 'antd';
 import {Link} from 'react-router-dom';
 import {Footer} from '../../components/footer';
 import {BasicLayout} from '../basicLayout';

@@ -12,7 +12,7 @@ import {getCombox} from './getCombox';
 import {getComponent} from '../layouts/getComponent';
 import {getLayout} from '../layouts';
 
-import Empty from 'antd/lib/empty';
+import {Empty} from 'antd';
 
 export class Layer {
   static resolveGallery = (callback) => callback({})

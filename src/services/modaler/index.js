@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Modal from 'antd/lib/modal';
+import {Modal} from 'antd';
 
 export class Modaler {
   static propTypes = {

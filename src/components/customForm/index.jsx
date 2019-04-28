@@ -1,21 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Form from 'antd/lib/form';
-import Input from 'antd/lib/input';
-import InputNumber from 'antd/lib/input-number';
-import Select from 'antd/lib/select';
-import DatePicker from 'antd/lib/date-picker';
-import TimePicker from 'antd/lib/time-picker';
-import Radio from 'antd/lib/radio';
-import Checkbox from 'antd/lib/checkbox';
-import Switch from 'antd/lib/switch';
-import Card from 'antd/lib/card';
-import Upload from 'antd/lib/upload';
-import Button from 'antd/lib/button';
-import Tabs from 'antd/lib/tabs';
-import Icon from 'antd/lib/icon';
-import message from 'antd/lib/message';
+import {Form, Input, InputNumber, Select, DatePicker, TimePicker, Radio, Checkbox, Switch, Card, Upload, Button, Tabs, Icon, message} from 'antd';
 
 import isPlainObject from 'lodash/isPlainObject';
 import {localeContext} from '../../core/localeContext';

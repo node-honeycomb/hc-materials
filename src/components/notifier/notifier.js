@@ -1,7 +1,6 @@
 import React from 'react';
 
-import message from 'antd/lib/message';
-import notification from 'antd/lib/notification';
+import {message, notification} from 'antd';
 import {CopyLogger} from './copyLogger';
 // 默认8秒
 notification.config({

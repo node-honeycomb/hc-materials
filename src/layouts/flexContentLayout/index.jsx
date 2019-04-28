@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Card from 'antd/lib/card';
-import Affix from 'antd/lib/affix';
-import Icon from 'antd/lib/icon';
-import Drawer from 'antd/lib/drawer';
-import Divider from 'antd/lib/divider';
+import {Card, Affix, Icon, Drawer, Divider} from 'antd';
 
 import {BreadCrumb} from '../../components/breadCrumb';
 import {Footer} from '../../components/footer';

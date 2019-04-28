@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Clipboard from 'clipboard';
-import message from 'antd/lib/message';
-import Button from 'antd/lib/button';
+import {Button, message} from 'antd';
 import {localeContext} from '../../core/localeContext';
 
 @localeContext('CopyLogger', {

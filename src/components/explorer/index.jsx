@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from 'antd/lib/input';
-import Tree from 'antd/lib/tree';
-import Radio from 'antd/lib/radio';
-import Icon from 'antd/lib/icon';
-import Alert from 'antd/lib/alert';
-import Spin from 'antd/lib/spin';
+import {Input, Tree, Radio, Icon, Alert, Spin} from 'antd';
 
 export class Explorer extends React.PureComponent {
   static propTypes = {

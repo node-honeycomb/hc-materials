@@ -1,5 +1,4 @@
-import Notification from 'antd/lib/notification';
-import message from 'antd/lib/message';
+import {notification, message} from 'antd';
 import {fallbackRoutes} from './fallbackRoutes';
 import {crud} from 'beatle';
 import {Layer} from '../layers';
@@ -14,10 +13,10 @@ export function bootstrap(app, getInitData, versionKey, inters) {
     error: (msg, err) => {
       if (err) {
         if (!err.catched) {
-          Notification.error({message: msg, description: err.message});
+          notification.error({message: msg, description: err.message});
         }
       } else {
-        Notification.error({message: 'ApiException', description: msg});
+        notification.error({message: 'ApiException', description: msg});
       }
     }
   };
@@ -54,7 +53,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       .set('afterResponse', (res, option, xhr) => {
         xhr.catch(err => {
           err.catched = true;
-          Notification.error({message: 'ApiException', description: err.message});
+          notification.error({message: 'ApiException', description: err.message});
         });
 
         if (inters) {

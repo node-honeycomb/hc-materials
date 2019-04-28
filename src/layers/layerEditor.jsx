@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Card from 'antd/lib/card';
+import {Card} from 'antd';
 // 有点问题
 const types = ['hc', 'custom', 'antd', 'material'];
 // https://github.com/swagger-api/swagger-editor/blob/2cc957f755a72fcc005c084f689810ce468d2571/src/plugins/editor/components/editor.jsx

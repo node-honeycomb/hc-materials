@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Menu from 'antd/lib/menu';
-import Button from 'antd/lib/button';
-import Dropdown from 'antd/lib/dropdown';
-import Icon from 'antd/lib/icon';
+import {Menu, Button, Dropdown, Icon} from 'antd';
+
 import {localeContext} from '../../core/localeContext';
 
 @localeContext('NavLink', {

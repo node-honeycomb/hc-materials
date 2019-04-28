@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import Breadcrumb from 'antd/lib/breadcrumb';
+import {Breadcrumb} from 'antd';
 
 import {NavLink} from '../navLink';
 

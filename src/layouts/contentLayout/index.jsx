@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from 'antd/lib/card';
+import {Card} from 'antd';
 import {Footer} from '../../components/footer';
 import {BreadCrumb} from '../../components/breadCrumb';
 import {BasicLayout} from '../basicLayout';

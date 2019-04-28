@@ -5,8 +5,7 @@
  */
 import AsyncValidator from 'async-validator';
 import hoistNonReactStatics from 'hoist-non-react-statics';
-import Form from 'antd/lib/form';
-import message from 'antd/lib/message';
+import {Form, message} from 'antd';
 import {Deferred} from '../../core/defer';
 
 /**
