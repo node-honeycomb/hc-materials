@@ -16,7 +16,7 @@ export class DataSet extends React.PureComponent {
     format: PropTypes.string,
     formatter: PropTypes.func,
     children: PropTypes.any,
-    spin: PropTypes.bool,
+    loading: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -28,7 +28,7 @@ export class DataSet extends React.PureComponent {
     super(props, context);
 
     this.state = {
-      pending: props.spin
+      loading: props.loading
     };
     this.stateUpdater = {};
 
@@ -78,7 +78,7 @@ export class DataSet extends React.PureComponent {
     this.mounted = true;
     this._resolver && this._resolver.then(iState => {
       if (this.mounted) {
-        iState.pending = false;
+        iState.loading = false;
         this.setState(iState, this.props.onChange);
       }
     });
@@ -91,14 +91,14 @@ export class DataSet extends React.PureComponent {
   handleResolve = (value, params) => {
     if (this.props.spin) {
       this.setState({
-        pending: true
+        loading: true
       });
     }
     if (this.props.getResolver) {
       const resolver = this.props.getResolver(value, params);
       resolver.then(iState => {
         if (this.mounted) {
-          iState.pending = false;
+          iState.loading = false;
           this.setState(iState, this.props.onChange);
         }
       });

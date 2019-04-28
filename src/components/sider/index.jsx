@@ -309,13 +309,15 @@ export class Sider extends React.PureComponent {
     const menuOption = Object.assign({
       mode: 'inline',
       theme: 'dark',
-      inlineIndent: 24
+      inlineIndent: 24,
+      inlineCollapsed: this.state.collapsed
     }, this.props.menu);
     let flexDiv;
     let prefix = this.props.prefix;
     if (menuOption.mode === 'horizontal') {
       Conn = Layout.Header;
       connProps = header || {};
+      delete menuOption.inlineCollapsed;
     } else {
       menuOption.style = menuOption.style || {
         width: '100%'
@@ -374,7 +376,6 @@ export class Sider extends React.PureComponent {
           onOpenChange={(openKeys) => this.setState({openKeys: openKeys})}
           onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
           selectedKeys={this.state.selectedKeys}
-          inlineCollapsed={this.state.collapsed}
           {...menuOption}>
           {this.getNavMenuItems(this.state.routes)}
         </Menu>
