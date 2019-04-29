@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, Row, Col, Icon, Divider} from 'antd';
+import {Form, Row, Col, Icon, Divider, message} from 'antd';
 
 import {CustomForm} from '../customForm';
-
-
+import {localeContext} from '../../core/localeContext';
+@localeContext('Archive', {
+  illegal: '表单校验失败',
+})
 class IArchive extends React.PureComponent {
   static propTypes = {
     options: PropTypes.array,
@@ -163,16 +165,21 @@ class IArchive extends React.PureComponent {
       e && e.preventDefault();
     }
 
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.props.options.forEach(option => {
-          if (option.getValue) {
-            const name = option.dataIndex || option.name;
-            values[name] = option.getValue(values[name]);
-          }
-        });
-        onSubmit && onSubmit(values);
-      }
+    return new Promise((resolve, reject) => {
+      this.props.form.validateFields((err, values) => {
+        if (err) {
+          message.error(this.getLocale('illegal'));
+          reject(err);
+        } else {
+          this.props.options.forEach(option => {
+            if (option.getValue) {
+              const name = option.dataIndex || option.name;
+              values[name] = option.getValue(values[name]);
+            }
+          });
+          resolve(onSubmit && onSubmit(values));
+        }
+      });
     });
   }
 

@@ -53,8 +53,13 @@ export class NavLink extends React.PureComponent {
       this.setAction(item, false);
     };
     if (action) {
-      if (!action(e, this.props.data, cancelCallback)) {
-        cancelCallback();
+      const ret = action(e, this.props.data, cancelCallback);
+      if (ret !== undefined) {
+        if (ret.then) {
+          ret.then(cancelCallback);
+        } else {
+          cancelCallback();
+        }
       }
     } else {
       cancelCallback();
@@ -69,7 +74,7 @@ export class NavLink extends React.PureComponent {
     const menu = (
       <Menu onClick={(e) => handleClick(e)} className="hc-navLink-dropdown_link">
         {menus.map((item, index) => {
-          const propsByState = item.getProps ? item.getProps(data) : {};
+          const propsByState = item.getProps ? item.getProps(item, data) : {};
           return (
             <Menu.Item
               key={item.key || index}
