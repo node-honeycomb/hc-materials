@@ -47,20 +47,23 @@ export function bootstrap(app, getInitData, versionKey, inters) {
         }
       });
   }
+  if (!app.ajax.set('catchError')) {
+    app
+      .ajax
+      .set('catchError', (err) => {
+        err.catched = true;
+        notification.error({message: 'ApiException', description: err.message});
+      });
+  }
   if (!app.ajax.set('afterResponse')) {
     app
       .ajax
-      .set('afterResponse', (res, option, xhr) => {
-        xhr.catch(err => {
-          err.catched = true;
-          notification.error({message: 'ApiException', description: err.message});
-        });
-
+      .set('afterResponse', (res) => {
         if (inters) {
           for (let key in inters) {
             res = inters[key](res, app);
             if (res instanceof Error) {
-              throw res;
+              return res;
             }
           }
         } else {
