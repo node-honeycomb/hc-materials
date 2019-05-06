@@ -89,7 +89,7 @@ export class DataSet extends React.PureComponent {
   }
 
   handleResolve = (value, params) => {
-    if (this.props.spin) {
+    if (this.props.loading) {
       this.setState({
         loading: true
       });

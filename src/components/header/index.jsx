@@ -25,7 +25,7 @@ function Profile({nick, hasSetting, avatar, dropdownProps, onClick, msgs}) {
         {avatar && (<Avatar size="small" className='hc-header-avatar' src={avatar} />)} {nick}
       </span>
     </Dropdown>
-  ) : (<Spin size="small" style={{marginLeft: 8}} />)
+  ) : (<Spin size="small" style={{marginLeft: 8}} />);
 }
 @localeContext('Header', {
   searchPlaceholder: '输入关键字进行搜索',

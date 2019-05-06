@@ -2,7 +2,7 @@ import React from 'react';
 import upperFirst from 'lodash/upperFirst';
 import defaultsDeep from 'lodash/defaultsDeep';
 
-const context = require.context('./', true, /\w+\/\w+\.(jsx|js)$/);
+const context = require.context('./', true, /^((?!style).)+\/\w+\.jsx?$/);
 
 const exportObj = {};
 context

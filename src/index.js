@@ -1,6 +1,6 @@
 import path from 'path';
 import {setGallery} from './layers/galleryResolver';
-const context = require.context('./', true, /\w+\/\w+\.jsx?$/);
+const context = require.context('./', true, /^((?!style).)+\/\w+\.jsx?$/);
 
 const exportObj = {};
 const gallery = {
@@ -14,7 +14,8 @@ context
   .forEach(key => {
     const ks = key.split('/');
     const filename = ks.pop();
-    const dirname = ks[ks.length - 2];
+    const len = ks.length;
+    const dirname = ks[len - 2];
     if (gallery[dirname] && path.basename(filename, path.extname(filename)) === 'index') {
       Object.assign(gallery[dirname], context(key));
     }
