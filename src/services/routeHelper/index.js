@@ -38,7 +38,7 @@ export class RouteHelper {
     }
 
     // 得到最后的url
-    this.history.push(url, force ? query : null);
+    this.history.push(url, force ? query : this.location.state);
   }
 
   watch(watcher, callback) {
