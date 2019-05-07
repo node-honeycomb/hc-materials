@@ -48,11 +48,22 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       });
   }
   if (!app.ajax.set('catchError')) {
+    let cacheMsg;
+    let timer;
     app
       .ajax
       .set('catchError', (err) => {
         err.catched = true;
-        notification.error({message: 'ApiException', description: err.message});
+        if (cacheMsg === err.message) {
+          clearTimeout(timer);
+        }
+        cacheMsg = err.message;
+        timer = setTimeout(() => {
+          notification.error({
+            message: 'ApiException',
+            description: err.message
+          });
+        }, 10);
       });
   }
   if (!app.ajax.set('afterResponse')) {
