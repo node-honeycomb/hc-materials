@@ -181,7 +181,7 @@ export class FlexContentLayout extends BasicLayout {
       <BreadCrumb className="hc-layout-flexContent-breadCrumb" style={{marginLeft: hasLeftDrawer ? 35 : 0, marginRight: hasRightDrawer ? 35 : 0}} />
     </div>);
     return (
-      <div className={'hc-layout-flexContent ' + className} style={Object.assign(style, styles.root)}>
+      <div className={'hc-layout-flexContent ' + className} style={Object.assign({}, style, styles.root)}>
         {affix ? (<Affix>{Head}</Affix>) : Head}
         <div style={styles.appFrame}>
           {beforeDrawer}
