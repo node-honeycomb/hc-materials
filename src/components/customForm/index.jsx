@@ -664,6 +664,7 @@ CustomForm.getButtons = function getButtons(buttons, props) {
  * }
  */
 CustomForm.getFieldInput = function getFieldInput(option, props, stateProps, decorator) {
+  delete decorator.initialValue;
   let input;
   let dataFormat;
   if (option.enum) {
