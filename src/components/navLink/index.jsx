@@ -98,7 +98,10 @@ export class NavLink extends React.PureComponent {
             key={item.key || index}
             disabled={item.disabled}
             loading={item.loading}
-            onClick={() => handleClick(item)}
+            onClick={(e) => {
+              e.key = item.key;
+              handleClick(e);
+            }}
             {...propsByState}
           >{item.href ?
               (
