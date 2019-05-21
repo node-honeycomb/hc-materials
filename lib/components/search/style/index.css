@@ -2,10 +2,6 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -29,16 +25,6 @@
   border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
-.ant-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-input::-webkit-input-placeholder {
-  color: #bfbfbf;
 }
 .ant-input::-moz-placeholder {
   color: #bfbfbf;
@@ -255,14 +241,6 @@ textarea.ant-input {
 .ant-input-group.ant-input-group-compact {
   display: block;
   zoom: 1;
-}
-.ant-input-group.ant-input-group-compact::before,
-.ant-input-group.ant-input-group-compact::after {
-  content: '';
-  display: table;
-}
-.ant-input-group.ant-input-group-compact::after {
-  clear: both;
 }
 .ant-input-group.ant-input-group-compact::before,
 .ant-input-group.ant-input-group-compact::after {

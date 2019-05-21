@@ -2,10 +2,6 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-menu {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -28,14 +24,6 @@
   -webkit-transition: background 0.3s, width 0.2s;
   transition: background 0.3s, width 0.2s;
   zoom: 1;
-}
-.ant-menu::before,
-.ant-menu::after {
-  content: '';
-  display: table;
-}
-.ant-menu::after {
-  clear: both;
 }
 .ant-menu::before,
 .ant-menu::after {
@@ -1939,9 +1927,6 @@ a.ant-btn-sm {
 :root .ant-dropdown-wrap .ant-btn > .anticon-down {
   font-size: 12px;
 }
-:root .ant-dropdown-wrap .ant-btn > .anticon-down {
-  font-size: 12px;
-}
 .ant-dropdown-wrap .anticon-down::before {
   -webkit-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
@@ -2068,10 +2053,6 @@ a.ant-btn-sm {
 :root .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-arrow-icon {
   font-size: 12px;
 }
-:root .ant-dropdown-menu-item .ant-dropdown-menu-submenu-arrow-icon,
-:root .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-arrow-icon {
-  font-size: 12px;
-}
 .ant-dropdown-menu-submenu-title {
   padding-right: 26px;
 }
@@ -2137,10 +2118,6 @@ a.ant-btn-sm {
 :root .ant-dropdown-link > .anticon.anticon-down {
   font-size: 12px;
 }
-:root .ant-dropdown-trigger > .anticon.anticon-down,
-:root .ant-dropdown-link > .anticon.anticon-down {
-  font-size: 12px;
-}
 .ant-dropdown-button {
   white-space: nowrap;
 }
@@ -2155,9 +2132,6 @@ a.ant-btn-sm {
   -webkit-transform: scale(0.83333333) rotate(0deg);
       -ms-transform: scale(0.83333333) rotate(0deg);
           transform: scale(0.83333333) rotate(0deg);
-}
-:root .ant-dropdown-button .anticon.anticon-down {
-  font-size: 12px;
 }
 :root .ant-dropdown-button .anticon.anticon-down {
   font-size: 12px;

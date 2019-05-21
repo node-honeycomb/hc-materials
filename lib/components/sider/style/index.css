@@ -2,10 +2,6 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-layout {
   display: -webkit-box;
   display: -webkit-flex;
@@ -160,14 +156,6 @@
   -webkit-transition: background 0.3s, width 0.2s;
   transition: background 0.3s, width 0.2s;
   zoom: 1;
-}
-.ant-menu::before,
-.ant-menu::after {
-  content: '';
-  display: table;
-}
-.ant-menu::after {
-  clear: both;
 }
 .ant-menu::before,
 .ant-menu::after {

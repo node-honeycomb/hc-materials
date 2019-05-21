@@ -25,10 +25,6 @@
   color: rgba(0, 0, 0, 0.45);
   font-size: 14px;
 }
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -52,16 +48,6 @@
   border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
-.ant-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-input::-webkit-input-placeholder {
-  color: #bfbfbf;
 }
 .ant-input::-moz-placeholder {
   color: #bfbfbf;
@@ -278,14 +264,6 @@ textarea.ant-input {
 .ant-input-group.ant-input-group-compact {
   display: block;
   zoom: 1;
-}
-.ant-input-group.ant-input-group-compact::before,
-.ant-input-group.ant-input-group-compact::after {
-  content: '';
-  display: table;
-}
-.ant-input-group.ant-input-group-compact::after {
-  clear: both;
 }
 .ant-input-group.ant-input-group-compact::before,
 .ant-input-group.ant-input-group-compact::after {
@@ -639,9 +617,6 @@ textarea.ant-input {
 :root .ant-dropdown-wrap .ant-btn > .anticon-down {
   font-size: 12px;
 }
-:root .ant-dropdown-wrap .ant-btn > .anticon-down {
-  font-size: 12px;
-}
 .ant-dropdown-wrap .anticon-down::before {
   -webkit-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
@@ -768,10 +743,6 @@ textarea.ant-input {
 :root .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-arrow-icon {
   font-size: 12px;
 }
-:root .ant-dropdown-menu-item .ant-dropdown-menu-submenu-arrow-icon,
-:root .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-arrow-icon {
-  font-size: 12px;
-}
 .ant-dropdown-menu-submenu-title {
   padding-right: 26px;
 }
@@ -837,10 +808,6 @@ textarea.ant-input {
 :root .ant-dropdown-link > .anticon.anticon-down {
   font-size: 12px;
 }
-:root .ant-dropdown-trigger > .anticon.anticon-down,
-:root .ant-dropdown-link > .anticon.anticon-down {
-  font-size: 12px;
-}
 .ant-dropdown-button {
   white-space: nowrap;
 }
@@ -855,9 +822,6 @@ textarea.ant-input {
   -webkit-transform: scale(0.83333333) rotate(0deg);
       -ms-transform: scale(0.83333333) rotate(0deg);
           transform: scale(0.83333333) rotate(0deg);
-}
-:root .ant-dropdown-button .anticon.anticon-down {
-  font-size: 12px;
 }
 :root .ant-dropdown-button .anticon.anticon-down {
   font-size: 12px;
@@ -1127,14 +1091,6 @@ textarea.ant-input {
   -webkit-transition: background 0.3s, width 0.2s;
   transition: background 0.3s, width 0.2s;
   zoom: 1;
-}
-.ant-menu::before,
-.ant-menu::after {
-  content: '';
-  display: table;
-}
-.ant-menu::after {
-  clear: both;
 }
 .ant-menu::before,
 .ant-menu::after {

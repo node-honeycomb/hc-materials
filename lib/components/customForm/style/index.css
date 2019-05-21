@@ -2,10 +2,6 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-form {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -120,14 +116,6 @@ input[type='checkbox'].disabled {
   position: relative;
   line-height: 40px;
   zoom: 1;
-}
-.ant-form-item-control::before,
-.ant-form-item-control::after {
-  content: '';
-  display: table;
-}
-.ant-form-item-control::after {
-  clear: both;
 }
 .ant-form-item-control::before,
 .ant-form-item-control::after {
@@ -743,37 +731,6 @@ form .ant-input-group-wrapper {
 }
 .show-help-enter,
 .show-help-appear {
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-.show-help-leave {
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-.show-help-enter.show-help-enter-active,
-.show-help-appear.show-help-appear-active {
-  -webkit-animation-name: antShowHelpIn;
-          animation-name: antShowHelpIn;
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
-}
-.show-help-leave.show-help-leave-active {
-  -webkit-animation-name: antShowHelpOut;
-          animation-name: antShowHelpOut;
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
-  pointer-events: none;
-}
-.show-help-enter,
-.show-help-appear {
   opacity: 0;
   -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
           animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -1099,16 +1056,6 @@ form .ant-input-group-wrapper {
 .ant-input::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.ant-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-input::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
 .ant-input:hover {
   border-color: #40a9ff;
   border-right-width: 1px !important;
@@ -1314,14 +1261,6 @@ textarea.ant-input {
 .ant-input-group.ant-input-group-compact {
   display: block;
   zoom: 1;
-}
-.ant-input-group.ant-input-group-compact::before,
-.ant-input-group.ant-input-group-compact::after {
-  content: '';
-  display: table;
-}
-.ant-input-group.ant-input-group-compact::after {
-  clear: both;
 }
 .ant-input-group.ant-input-group-compact::before,
 .ant-input-group.ant-input-group-compact::after {
@@ -1862,16 +1801,6 @@ span.ant-radio + * {
 .ant-input-number::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.ant-input-number::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-input-number:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-input-number::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
 .ant-input-number:hover {
   border-color: #40a9ff;
   border-right-width: 1px !important;
@@ -1983,24 +1912,6 @@ textarea.ant-input-number {
 .ant-input-number-handler-down-inner .ant-input-number-handler-down-inner-icon {
   display: block;
 }
-.ant-input-number-handler-up-inner > *,
-.ant-input-number-handler-down-inner > * {
-  line-height: 1;
-}
-.ant-input-number-handler-up-inner svg,
-.ant-input-number-handler-down-inner svg {
-  display: inline-block;
-}
-.ant-input-number-handler-up-inner::before,
-.ant-input-number-handler-down-inner::before {
-  display: none;
-}
-.ant-input-number-handler-up-inner .ant-input-number-handler-up-inner-icon,
-.ant-input-number-handler-up-inner .ant-input-number-handler-down-inner-icon,
-.ant-input-number-handler-down-inner .ant-input-number-handler-up-inner-icon,
-.ant-input-number-handler-down-inner .ant-input-number-handler-down-inner-icon {
-  display: block;
-}
 .ant-input-number:hover {
   border-color: #40a9ff;
   border-right-width: 1px !important;
@@ -2051,16 +1962,6 @@ textarea.ant-input-number {
 .ant-input-number-input::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.ant-input-number-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-input-number-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-input-number-input::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
 .ant-input-number-lg {
   padding: 0;
   font-size: 16px;
@@ -2098,10 +1999,6 @@ textarea.ant-input-number {
           transform: scale(0.58333333) rotate(0deg);
   min-width: auto;
   margin-right: 0;
-}
-:root .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-up-inner,
-:root .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-down-inner {
-  font-size: 12px;
 }
 :root .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-up-inner,
 :root .ant-input-number-handler-wrap .ant-input-number-handler .ant-input-number-handler-down-inner {
@@ -2192,18 +2089,6 @@ textarea.ant-input-number {
   -webkit-transform-origin: 50% 50%;
       -ms-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
-}
-.ant-select-arrow > * {
-  line-height: 1;
-}
-.ant-select-arrow svg {
-  display: inline-block;
-}
-.ant-select-arrow::before {
-  display: none;
-}
-.ant-select-arrow .ant-select-arrow-icon {
-  display: block;
 }
 .ant-select-arrow > * {
   line-height: 1;
@@ -2456,14 +2341,6 @@ textarea.ant-input-number {
 .ant-select-selection--multiple::after {
   clear: both;
 }
-.ant-select-selection--multiple::before,
-.ant-select-selection--multiple::after {
-  content: '';
-  display: table;
-}
-.ant-select-selection--multiple::after {
-  clear: both;
-}
 .ant-select-selection--multiple .ant-select-search--inline {
   position: static;
   float: left;
@@ -2552,21 +2429,6 @@ textarea.ant-input-number {
 }
 .ant-select-selection--multiple .ant-select-selection__choice__remove .ant-select-selection--multiple .ant-select-selection__choice__remove-icon {
   display: block;
-}
-.ant-select-selection--multiple .ant-select-selection__choice__remove > * {
-  line-height: 1;
-}
-.ant-select-selection--multiple .ant-select-selection__choice__remove svg {
-  display: inline-block;
-}
-.ant-select-selection--multiple .ant-select-selection__choice__remove::before {
-  display: none;
-}
-.ant-select-selection--multiple .ant-select-selection__choice__remove .ant-select-selection--multiple .ant-select-selection__choice__remove-icon {
-  display: block;
-}
-:root .ant-select-selection--multiple .ant-select-selection__choice__remove {
-  font-size: 12px;
 }
 :root .ant-select-selection--multiple .ant-select-selection__choice__remove {
   font-size: 12px;
@@ -2924,16 +2786,6 @@ textarea.ant-input-number {
   border: 0;
   outline: 0;
   cursor: auto;
-}
-.ant-calendar-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-calendar-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-calendar-input::-webkit-input-placeholder {
-  color: #bfbfbf;
 }
 .ant-calendar-input::-moz-placeholder {
   color: #bfbfbf;
@@ -3469,16 +3321,6 @@ textarea.ant-input-number {
 .ant-calendar-range-picker-input::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.ant-calendar-range-picker-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-calendar-range-picker-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-calendar-range-picker-input::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
 .ant-calendar-range-picker-input[disabled] {
   cursor: not-allowed;
 }
@@ -3570,19 +3412,6 @@ textarea.ant-input-number {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-.ant-calendar-range .ant-calendar-input::-moz-placeholder,
-.ant-calendar-range .ant-calendar-time-picker-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-calendar-range .ant-calendar-input:-ms-input-placeholder,
-.ant-calendar-range .ant-calendar-time-picker-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-calendar-range .ant-calendar-input::-webkit-input-placeholder,
-.ant-calendar-range .ant-calendar-time-picker-input::-webkit-input-placeholder {
-  color: #bfbfbf;
 }
 .ant-calendar-range .ant-calendar-input::-moz-placeholder,
 .ant-calendar-range .ant-calendar-time-picker-input::-moz-placeholder {
@@ -4442,16 +4271,6 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
 .ant-time-picker-panel-input::-webkit-input-placeholder {
   color: #bfbfbf;
 }
-.ant-time-picker-panel-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-time-picker-panel-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-time-picker-panel-input::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
 .ant-time-picker-panel-input-wrap {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -4543,14 +4362,6 @@ li.ant-time-picker-panel-select-option-disabled:hover {
 .ant-time-picker-panel-combobox::after {
   clear: both;
 }
-.ant-time-picker-panel-combobox::before,
-.ant-time-picker-panel-combobox::after {
-  content: '';
-  display: table;
-}
-.ant-time-picker-panel-combobox::after {
-  clear: both;
-}
 .ant-time-picker-panel-addon {
   padding: 8px;
   border-top: 1px solid #e8e8e8;
@@ -4614,16 +4425,6 @@ li.ant-time-picker-panel-select-option-disabled:hover {
   border-radius: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
-.ant-time-picker-input::-moz-placeholder {
-  color: #bfbfbf;
-  opacity: 1;
-}
-.ant-time-picker-input:-ms-input-placeholder {
-  color: #bfbfbf;
-}
-.ant-time-picker-input::-webkit-input-placeholder {
-  color: #bfbfbf;
 }
 .ant-time-picker-input::-moz-placeholder {
   color: #bfbfbf;
@@ -4913,14 +4714,6 @@ textarea.ant-time-picker-input {
 .ant-tabs::after {
   clear: both;
 }
-.ant-tabs::before,
-.ant-tabs::after {
-  content: '';
-  display: table;
-}
-.ant-tabs::after {
-  clear: both;
-}
 .ant-tabs-ink-bar {
   position: absolute;
   bottom: 1px;
@@ -4953,14 +4746,6 @@ textarea.ant-time-picker-input {
   -webkit-transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   zoom: 1;
-}
-.ant-tabs-nav-container::before,
-.ant-tabs-nav-container::after {
-  content: '';
-  display: table;
-}
-.ant-tabs-nav-container::after {
-  clear: both;
 }
 .ant-tabs-nav-container::before,
 .ant-tabs-nav-container::after {
@@ -5043,10 +4828,6 @@ textarea.ant-time-picker-input {
   -webkit-transform: scale(0.83333333) rotate(0deg);
       -ms-transform: scale(0.83333333) rotate(0deg);
           transform: scale(0.83333333) rotate(0deg);
-}
-:root .ant-tabs-tab-prev-icon-target,
-:root .ant-tabs-tab-next-icon-target {
-  font-size: 12px;
 }
 :root .ant-tabs-tab-prev-icon-target,
 :root .ant-tabs-tab-next-icon-target {
@@ -5398,14 +5179,6 @@ textarea.ant-time-picker-input {
 .ant-card-head::after {
   clear: both;
 }
-.ant-card-head::before,
-.ant-card-head::after {
-  content: '';
-  display: table;
-}
-.ant-card-head::after {
-  clear: both;
-}
 .ant-card-head-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5457,14 +5230,6 @@ textarea.ant-time-picker-input {
 .ant-card-body::after {
   clear: both;
 }
-.ant-card-body::before,
-.ant-card-body::after {
-  content: '';
-  display: table;
-}
-.ant-card-body::after {
-  clear: both;
-}
 .ant-card-contain-grid:not(.ant-card-loading) .ant-card-body {
   margin: -1px 0 0 -1px;
   padding: 0;
@@ -5507,14 +5272,6 @@ textarea.ant-time-picker-input {
   background: #fafafa;
   border-top: 1px solid #e8e8e8;
   zoom: 1;
-}
-.ant-card-actions::before,
-.ant-card-actions::after {
-  content: '';
-  display: table;
-}
-.ant-card-actions::after {
-  clear: both;
 }
 .ant-card-actions::before,
 .ant-card-actions::after {
@@ -5587,14 +5344,6 @@ textarea.ant-time-picker-input {
 .ant-card-meta {
   margin: -4px 0;
   zoom: 1;
-}
-.ant-card-meta::before,
-.ant-card-meta::after {
-  content: '';
-  display: table;
-}
-.ant-card-meta::after {
-  clear: both;
 }
 .ant-card-meta::before,
 .ant-card-meta::after {
@@ -5817,14 +5566,6 @@ textarea.ant-time-picker-input {
 .ant-upload-list::after {
   clear: both;
 }
-.ant-upload-list::before,
-.ant-upload-list::after {
-  content: '';
-  display: table;
-}
-.ant-upload-list::after {
-  clear: both;
-}
 .ant-upload-list-item {
   position: relative;
   height: 22px;
@@ -5871,9 +5612,6 @@ textarea.ant-time-picker-input {
   opacity: 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
-:root .ant-upload-list-item .anticon-close {
-  font-size: 12px;
 }
 :root .ant-upload-list-item .anticon-close {
   font-size: 12px;
