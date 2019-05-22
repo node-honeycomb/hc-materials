@@ -10,7 +10,7 @@ export function getComponent(option, getProps) {
   }
   let AppointComponent;
   let propValues = {};
-  if (option && isReactComponent(option)) {
+  if (option && typeof option === 'function') {
     AppointComponent = option;
   } else {
     propValues = option || {};

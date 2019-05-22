@@ -302,7 +302,7 @@ export class Layer {
   }
 
   render(opt, staticProps) {
-    if (opt.then || opt.layer) {
+    if (opt.then || opt.layer || opt.cname) {
       return this.context.app.observer(this.getLayer(opt, staticProps)).render(this.renderLayer);
     } else {
       return (<div className="hc-spin-container">
