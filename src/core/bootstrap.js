@@ -96,7 +96,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       app.setRoutes(routes, null, route);
     } else {
       if (route.routes) {
-        fallbackRoutes.forEach(route => route.routes.push(route));
+        fallbackRoutes.forEach(item => route.routes.push(item));
       } else {
         route.routes = fallbackRoutes;
       }
