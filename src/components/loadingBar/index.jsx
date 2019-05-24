@@ -225,6 +225,7 @@ export class LoadingBar extends React.Component {
   }
 
   resetProgress() {
+    this._progressInterval = null;
     this.setState(initialState);
   }
 
