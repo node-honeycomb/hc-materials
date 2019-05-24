@@ -330,12 +330,13 @@ export class Layer {
               com.props = extra.props;
             }
           } else if (extra.getProps) {
-            if (com.getProps) {
+            if (com.getProps && !com.getProps._overrided) {
               const getProps = com.getProps;
               com.getProps = (props, context) => {
                 const _props = extra.getProps(props, context);
                 return Object.assign(_props, getProps(props, context));
               }
+              com.getProps._overrided = true;;
             } else {
               com.getProps = extra.getProps;
             }
