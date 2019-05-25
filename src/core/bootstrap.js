@@ -54,14 +54,15 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       .ajax
       .set('catchError', (err) => {
         err.catched = true;
-        if (cacheMsg === err.message) {
+        const message = err.response ? err.response.message : err.message;
+        if (cacheMsg === message) {
           clearTimeout(timer);
         }
-        cacheMsg = err.message;
+        cacheMsg = message;
         timer = setTimeout(() => {
           notification.error({
             message: 'ApiException',
-            description: err.message
+            description: message
           });
         }, 10);
       });
