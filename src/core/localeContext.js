@@ -2,14 +2,15 @@ import propTypes from 'prop-types';
 
 export function localeContext(name, defaultLocale) {
   return BaseComponent => {
-    BaseComponent.contextTypes = Object.assign(BaseComponent.contextTypes || {}, {hcLocale: propTypes.object});
+    BaseComponent.contextTypes = Object.assign(BaseComponent.contextTypes || {}, {hcLocale: propTypes.object, antLocale: propTypes.object});
 
     BaseComponent.prototype.getLocale = function (key) {
       let locale;
       if (this._locale) {
         locale = this._locale;
       } else {
-        locale = this._locale = Object.assign(this.context.hcLocale && this.context.hcLocale[name] || {}, defaultLocale, this.props && this.props.locale);
+        const hcLocale = this.context.hcLocale || this.context.antLocale || {};
+        locale = this._locale = Object.assign(defaultLocale, hcLocale[name], this.props && this.props.locale);
       }
 
       if (key) {
