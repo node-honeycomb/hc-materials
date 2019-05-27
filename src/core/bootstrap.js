@@ -85,8 +85,6 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       });
   }
 
-  // fallback路由
-  // app.route(fallbackRoutes, false);
   let promise = getInitData && getInitData() || Promise.resolve({});
   promise = promise.then((ret = {}) => {
     const route = app.route('/');
@@ -95,6 +93,10 @@ export function bootstrap(app, getInitData, versionKey, inters) {
       routes = Layer.createLayerRoutes(ret.scenes);
       route.routes = routes;
       app.setRoutes(routes, null, route);
+    }
+    // fallback路由
+    if (app.setting.level > 1) {
+      app.route(fallbackRoutes, false);
     } else {
       if (route.routes) {
         fallbackRoutes.forEach(item => route.routes.push(item));
@@ -102,6 +104,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
         route.routes = fallbackRoutes;
       }
     }
+
     return {
       versionKey: versionKey,
       prefix: bootstrap.getPrefix(app),
