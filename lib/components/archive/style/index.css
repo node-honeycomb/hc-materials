@@ -15,8 +15,14 @@
 .hc-archive.ant-form-horizontal .ant-form-item.ant-form-item-with-help {
   margin-bottom: 0;
 }
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children {
+  display: block;
+}
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children > * {
   width: 100%;
+}
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children .ant-form-item-children-icon {
+  width: auto;
 }
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-explain,
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-extra {
