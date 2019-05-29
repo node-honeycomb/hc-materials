@@ -93,8 +93,7 @@ export class FlexContentLayout extends BasicLayout {
     overviewWidth: 250,
     affix: true,
     style: {},
-    mainStyle: {},
-    contentStyle: {}
+    mainStyle: {}
   }
 
   constructor(props) {
@@ -146,7 +145,7 @@ export class FlexContentLayout extends BasicLayout {
     const StepConnector = this.getComponent('StepConnector');
     const hasStepConnector = this.hasComponent('StepConnector');
 
-    contentStyle.minHeight = this.hasComponent('Footer') ? 'calc(100% - 142px)' : 'calc(100% - 62px)';
+    const _contentStyle = Object.assign({minHeight: this.hasComponent('Footer') ? 'calc(100% - 142px)' : 'calc(100% - 62px)'}, contentStyle);
     const beforeDrawer = hasLeftDrawer ? (
       <Drawer
         placement="left"
@@ -209,7 +208,7 @@ export class FlexContentLayout extends BasicLayout {
             )}
           >
             <div style={styles.drawerHeader} />
-            <Card bordered={false} className="hc-layout-flexContent-body" style={contentStyle}>
+            <Card bordered={false} className="hc-layout-flexContent-body" style={_contentStyle}>
               <div className="hc-layout-flexContent-body_wrap" style={{width: hasOverview ? 'calc(100% - ' + overviewWidth + 'px)' : ''}}>{this.props.viewContent || this.props.children}</div>
               <div  className="hc-layout-flexContent-body_overview" style={{flexBasis: overviewWidth, display: hasOverview ? '' : 'none'}}>
                 <Overview />
