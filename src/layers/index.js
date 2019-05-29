@@ -190,6 +190,7 @@ export class Layer {
       newComponent = this.toView(newComponent, layer.view, layerProps, getProps);
     } else {
       const view = opt.view;
+      opt = this.enhanceComponent(opt, staticProps && (staticProps[0] || staticProps[cname] || staticProps[componentOption.key]));
       if (Array.isArray(cname)) {
         newComponent = getCombox(opt, findComponent, () => {
           return view ? newComponent.childContextTypes : newComponent.contextTypes;
@@ -207,7 +208,6 @@ export class Layer {
       }
     }
     componentOption.component = newComponent;
-
     return componentOption;
   }
 
@@ -311,6 +311,33 @@ export class Layer {
     }
   }
 
+  enhanceComponent(com, extra) {
+    // 可能不太好！！
+    if (extra) {
+      if (extra.props) {
+        if (com.props) {
+          Object.assign(com.props, extra.props);
+        } else {
+          com.props = extra.props;
+        }
+      } else if (extra.getProps) {
+        if (com.getProps) {
+          if (!com.getProps._overrided) {
+            const getProps = com.getProps;
+            com.getProps = (props, context) => {
+              const _props = extra.getProps(props, context);
+              return Object.assign(_props, getProps(props, context));
+            }
+            com.getProps._overrided = true;;
+          }
+        } else {
+          com.getProps = extra.getProps;
+        }
+      }
+    }
+    return com;
+  }
+
   parseLayer(components, props = {}, layerGrid, layerItem, staticProps = []) {
     const layerProps = cloneDeep(props);
     // TODO LayerItem提供了拖拽功能
@@ -320,29 +347,8 @@ export class Layer {
 
     if (components) {
       forEach(components, (com, key) => {
-        const extra = staticProps[key] || staticProps[com.key] || staticProps[com.cname];
-        // 可能不太好！！
-        if (extra) {
-          if (extra.props) {
-            if (com.props) {
-              Object.assign(com.props, extra.props);
-            } else {
-              com.props = extra.props;
-            }
-          } else if (extra.getProps) {
-            if (com.getProps && !com.getProps._overrided) {
-              const getProps = com.getProps;
-              com.getProps = (props, context) => {
-                const _props = extra.getProps(props, context);
-                return Object.assign(_props, getProps(props, context));
-              }
-              com.getProps._overrided = true;;
-            } else {
-              com.getProps = extra.getProps;
-            }
-          }
-        }
-        
+        const extra = staticProps[key] || staticProps[com.key] || staticProps[com.cname]
+        com = this.enhanceComponent(com, extra);
         const newCom = this.parseComponent(com, extra && extra.staticProps);
         layerProps.components.push(newCom);
       });
