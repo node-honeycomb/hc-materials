@@ -432,9 +432,13 @@ export const converter = {
       window.console.error(e);
     }
   },
-  parseAsync: (obj) => {
+  parseAsync: (obj, callback) => {
     return defer.promise.then(() => {
-      return converter.parse(obj);
+      if (callback) {
+        return callback(converter.parse(obj))
+      } else {
+        return converter.parse(obj);
+      }
     });
   }
 };
