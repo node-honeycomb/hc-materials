@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {getComponent} from '../layouts/getComponent';
 import {converter} from './layerConvertor';
 
-export function getCombox({cname, componentType, props, getProps, hoc, className}, findComponent) {
+export function getCombox({cname, componentType, props, getProps, hoc, className, contextTypes}, findComponent) {
   class Combox extends React.PureComponent {
     constructor(tprops, context) {
       super(tprops);
@@ -35,6 +36,12 @@ export function getCombox({cname, componentType, props, getProps, hoc, className
         return (<item.Component key={item.key} {...this.props} />);
       })}</div>);
     }
+  }
+  if (contextTypes) {
+    Combox.contextTypes = {};
+    contextTypes.forEach(name => {
+      Combox.contextTypes[name] = PropTypes.object;
+    });
   }
   if (hoc) {
     const Com = findComponent(hoc);

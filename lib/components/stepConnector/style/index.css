@@ -106,7 +106,7 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 40px;
+  height: 38px;
 }
 .hc-stepConnector.ant-anchor-wrapper .ant-anchor-ink {
   display: none;

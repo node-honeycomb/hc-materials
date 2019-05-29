@@ -717,7 +717,6 @@
   padding: 10px;
 }
 .hc-layout-flexContent-body {
-  max-height: calc(100% - 142px);
   margin: 20px 20px 0;
   background: transparent;
 }
@@ -787,5 +786,5 @@
   position: absolute;
   left: 30%;
   top: 0;
-  height: 42px;
+  height: 38px;
 }

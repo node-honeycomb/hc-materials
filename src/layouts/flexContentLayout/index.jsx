@@ -93,17 +93,20 @@ export class FlexContentLayout extends BasicLayout {
     overviewWidth: 250,
     affix: true,
     style: {},
-    mainStyle: {}
+    mainStyle: {},
+    contentStyle: {}
   }
 
   constructor(props) {
     super(props);
-    const drawerStyle = Object.assign({zIndex: this.props.zIndex || 1000}, props.drawerStyle);
+    const drawerStyle = Object.assign({zIndex: this.props.zIndex || 1000, position: 'absolute'}, props.drawerStyle);
     this.state = {
       openLeft: !!this.props.openLeft,
       openRight: !!this.props.openRight,
       drawerStyle: drawerStyle
     };
+    this._beforeDrawer = React.createRef();
+    this._afterDrawer = React.createRef();
   }
 
   handleLeftDrawer = (open) => {
@@ -134,7 +137,7 @@ export class FlexContentLayout extends BasicLayout {
     const RightDrawer = this.getComponent('RightDrawer');
     const Overview = this.getComponent('Overview');
     const Combox = this.getComponent('Combox');
-    const {className, drawerWidth, overviewWidth, leftTitle, rightTitle, affix, style, mainStyle} = this.props;
+    const {className, drawerWidth, contentStyle, overviewWidth, leftTitle, rightTitle, affix, style, mainStyle} = this.props;
     const {drawerStyle, openLeft, openRight} = this.state;
     const hasOverview = this.hasComponent('Overview');
     const hasLeftDrawer = this.hasComponent('LeftDrawer');
@@ -143,12 +146,17 @@ export class FlexContentLayout extends BasicLayout {
     const StepConnector = this.getComponent('StepConnector');
     const hasStepConnector = this.hasComponent('StepConnector');
 
+    contentStyle.minHeight = this.hasComponent('Footer') ? 'calc(100% - 142px)' : 'calc(100% - 62px)';
     const beforeDrawer = hasLeftDrawer ? (
       <Drawer
-        open={openLeft}
-        style={styles.drawerPaper}
+        placement="left"
+        mask={false}
+        closable={false}
+        visible={openLeft}
+        getContainer={() => this._beforeDrawer.current}
+        bodyStyle={styles.drawerPaper}
         width={drawerWidth}
-        containerStyle={drawerStyle}
+        style={drawerStyle}
       >
         <div style={styles.drawerHeader}>
           <div style={styles.title}>{leftTitle}</div>
@@ -160,11 +168,14 @@ export class FlexContentLayout extends BasicLayout {
     ) : null;
     const afterDrawer = hasRightDrawer ? (
       <Drawer
-        openSecondary={true}
-        open={openRight}
-        style={styles.drawerPaper}
+        placement="right"
+        mask={false}
+        closable={false}
+        visible={openRight}
+        getContainer={() => this._afterDrawer.current}
+        bodyStyle={styles.drawerPaper}
         width={drawerWidth}
-        containerStyle={drawerStyle}
+        style={drawerStyle}
       >
         <div style={styles.drawerHeaderRight}>
           <Icon type="right-square-o" onClick={() => this.handleRightDrawer(false)} />
@@ -178,12 +189,13 @@ export class FlexContentLayout extends BasicLayout {
       {hasLeftDrawer ? (<Icon type="compass" onClick={this.handleLeftDrawer} style={openLeft ? styles.iconSelected : {}} />) : null}
       {hasRightDrawer ? (<Icon type="appstore-o" onClick={this.handleRightDrawer} style={openRight ? styles.iconSelected : {}} />) : null}
       {hasStepConnector ? (<div className="hc-layout-flexContent-connector"><StepConnector /></div>) : null}
-      <BreadCrumb className="hc-layout-flexContent-breadCrumb" style={{marginLeft: hasLeftDrawer ? 35 : 0, marginRight: hasRightDrawer ? 35 : 0}} />
+      <BreadCrumb className="hc-layout-flexContent-breadCrumb" style={{marginLeft: hasLeftDrawer ? 35 : 0, marginRight: hasRightDrawer ? 35 : 0, paddingTop: 8}} />
     </div>);
     return (
       <div className={'hc-layout-flexContent ' + className} style={Object.assign({}, style, styles.root)}>
         {affix ? (<Affix>{Head}</Affix>) : Head}
         <div style={styles.appFrame}>
+          <div ref={this._beforeDrawer}></div>
           {beforeDrawer}
           <main
             style={Object.assign(
@@ -197,7 +209,7 @@ export class FlexContentLayout extends BasicLayout {
             )}
           >
             <div style={styles.drawerHeader} />
-            <Card bordered={false} className="hc-layout-flexContent-body" style={this.props.contentStyle}>
+            <Card bordered={false} className="hc-layout-flexContent-body" style={contentStyle}>
               <div className="hc-layout-flexContent-body_wrap" style={{width: hasOverview ? 'calc(100% - ' + overviewWidth + 'px)' : ''}}>{this.props.viewContent || this.props.children}</div>
               <div  className="hc-layout-flexContent-body_overview" style={{flexBasis: overviewWidth, display: hasOverview ? '' : 'none'}}>
                 <Overview />
@@ -206,6 +218,7 @@ export class FlexContentLayout extends BasicLayout {
             <Combox />
             <Footer className="hc-layout-flexContent-footer" />
           </main>
+          <div ref={this._afterDrawer}></div>
           {afterDrawer}
         </div>
       </div>
