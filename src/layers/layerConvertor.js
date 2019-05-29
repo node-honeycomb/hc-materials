@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 // see: http://gitlab.alibaba-inc.com/openad/oa-ui/issues/57723
 import React from 'react';
+import {Deferred} from '../core/defer';
 import PropTypes from 'prop-types';
 
 function safeMerge(o, b) {
@@ -391,8 +392,9 @@ function formatLayerLoop(modules, layerOption, widgetsOption, dataQuery) {
   });
 }
 
-
+const defer = new Deferred();
 export const converter = {
+  $defer: defer,
   transform: (code) => code,
   stringify: (obj) => {
     try {
@@ -429,6 +431,11 @@ export const converter = {
     } catch (e) {
       window.console.error(e);
     }
+  },
+  parseAsync: (obj) => {
+    return defer.promise.then(() => {
+      return converter.parse(obj);
+    });
   }
 };
 
