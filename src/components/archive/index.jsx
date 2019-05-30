@@ -118,7 +118,7 @@ class IArchive extends React.PureComponent {
       return form.getFieldDecorator(name, decorator)(fieldInput);
     } else {
       const value = this.getFieldValue(name, option);
-      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value || ' '}</span>));
+      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value || 'N/A'}</span>));
     }
   }
 
