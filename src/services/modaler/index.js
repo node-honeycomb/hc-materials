@@ -40,7 +40,10 @@ export class Modaler {
   }
 
   open({content, ...dialogProps}) {
+    const cfg = this._cfg;
     const context = this.context;
+    const trigger = this.trigger.bind(this);
+    const modals = this._modals;
     class Dialog extends React.PureComponent {
       getChildContext() {
         return context;
@@ -50,13 +53,13 @@ export class Modaler {
         super(props);
         this.state = {
           visible: true,
-          getContainer: () => this._cfg.container,
-          onOk: () => this.trigger(dialogProps.onOk, this.setState.bind(this)),
-          onCancel: () => this.trigger(dialogProps.onCancel, this.setState.bind(this)),
-          width: dialogProps.width || this._cfg.width
+          getContainer: () => cfg.container,
+          onOk: () => trigger(dialogProps.onOk, this.setState.bind(this)),
+          onCancel: () => trigger(dialogProps.onCancel, this.setState.bind(this)),
+          width: dialogProps.width || cfg.width
         };
 
-        this._modals.push({
+        modals.push({
           destroy: () => this.setState({visible: false})
         });
       }
