@@ -40,19 +40,32 @@ export class Modaler {
   }
 
   open({content, ...dialogProps}) {
-    const Dialog = () => {
-      const [state, setState] = useState({
-        visible: true,
-        getContainer: () => this._cfg.container,
-        onOk: () => this.trigger(dialogProps.onOk, setState),
-        onCancel: () => this.trigger(dialogProps.onCancel, setState),
-        width: dialogProps.width || this._cfg.width
-      });
-      this._modals.push({
-        destroy: () => setState({visible: false})
-      });
-      return (<Modal {...dialogProps} {...state}>{content}</Modal>);
-    };
+    const context = this.context;
+    class Dialog extends React.PureComponent {
+      getChildContext() {
+        return context;
+      }
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          visible: true,
+          getContainer: () => this._cfg.container,
+          onOk: () => this.trigger(dialogProps.onOk, this.setState.bind(this)),
+          onCancel: () => this.trigger(dialogProps.onCancel, this.setState.bind(this)),
+          width: dialogProps.width || this._cfg.width
+        };
+
+        this._modals.push({
+          destroy: () => this.setState({visible: false})
+        });
+      }
+
+      render() {
+        return (<Modal {...dialogProps} {...this.state}>{content}</Modal>);
+      }
+    }
+
     ReactDOM.render((<Dialog />), this.wrapperDiv);
 
     return this._modals[this._modals.length - 1];
