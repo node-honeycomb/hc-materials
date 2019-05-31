@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Modal} from 'antd';
 
 export class Modaler {
-  static propTypes = {
+  static contextTypes = {
     app: PropTypes.object.isRequired
   }
 
@@ -45,6 +45,8 @@ export class Modaler {
     const trigger = this.trigger.bind(this);
     const modals = this._modals;
     class Dialog extends React.PureComponent {
+      static childContextTypes = Modaler.contextTypes;
+
       getChildContext() {
         return context;
       }
@@ -82,6 +84,7 @@ export class Modaler {
         ret.then(() => {
           // It's unnecessary to set loading=false, for the Modal will be unmounted after
           setState({confirmLoading: true});
+          closeModal();
         }, () => {
           setState({confirmLoading: false});
         }).catch(() => {
