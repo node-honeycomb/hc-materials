@@ -106,6 +106,7 @@ export class Search extends React.PureComponent {
     const inputSearch = input || (<Input {...inputProps} suffix={<Icon type="search" />} />);
 
     return (<AutoComplete
+      className="hc-search"
       allowClear={true}
       {...restProps}
       {...this.state.select}
