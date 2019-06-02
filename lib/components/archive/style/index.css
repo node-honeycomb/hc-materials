@@ -43,6 +43,9 @@
 .hc-archive.ant-form-vertical .ant-form-item {
   margin-bottom: 0;
 }
+.hc-archive.ant-form-vertical .ant-form-item .ant-form-item-children {
+  display: block;
+}
 .hc-archive.ant-form-expand {
   font-size: 12px;
   position: absolute;
