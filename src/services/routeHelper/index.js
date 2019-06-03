@@ -26,6 +26,9 @@ export class RouteHelper {
   }
 
   push(url, query, force) {
+    if (!url) {
+      url = this.location;
+    }
     // 解析url，并把queryStr解析为object
     if (Object(url) === url) {
       url = url.pathname + url.search + url.hash;

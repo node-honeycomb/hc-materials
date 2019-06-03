@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import cloneDeep from 'lodash/cloneDeep';
 import forEach from 'lodash/forEach';
+import isEqual from 'lodash/isEqual';
+import isEqualWith from 'lodash/isEqualWith';
 import {BaseSelector} from 'beatle';
 
 import {converter} from './layerConvertor';
@@ -157,7 +159,7 @@ export class Layer {
    *  attrs,          // 组件放在容器中的定位
    * }
    */
-  parseComponent(opt, staticProps) {
+  parseComponent(opt, state) {
     /**
      * com = {
      *  componentType: [antd|custom|hc|material],
@@ -186,11 +188,11 @@ export class Layer {
     if (opt.layer) {
       const layer = opt.layer;
       newComponent = findComponent(layer, true, 'layers');
-      const layerProps = this.parseLayer(layer.components, layer.props, layer.grid, layer.item, staticProps);
+      const layerProps = this.parseLayer(layer.components, layer.props, layer.grid, layer.item, state);
       newComponent = this.toView(newComponent, layer.view, layerProps, getProps);
     } else {
       const view = opt.view;
-      opt = this.enhanceComponent(opt, staticProps && (staticProps[0] || staticProps[cname] || staticProps[componentOption.key]));
+      opt = this.enhanceComponent(opt, state);
       if (Array.isArray(cname)) {
         newComponent = getCombox(opt, findComponent, () => {
           return view ? newComponent.childContextTypes : newComponent.contextTypes;
@@ -271,13 +273,31 @@ export class Layer {
    *  }
    * }
    */
-  getLayer(opt, staticProps) {
+  getLayer(opt, getState) {
     const promise = opt.then ? opt : Promise.resolve(opt);
-    return Promise.all([promise, this._promise]).then(([opt]) => this.getViewComponent(opt, staticProps));
+    return Promise.all([promise, this._promise]).then(([opt]) => {
+      const nextState = getState && getState();
+      if (isEqualWith(nextState, opt._prevState, this.customizer) && opt._children) {
+        return opt._children;
+      } else {
+        opt._prevState = nextState;
+        return opt._children = this.getViewComponent(opt, opt._prevState);
+      }
+    });
   }
 
-  getViewComponent(opt, staticProps) {
-    const ViewComponent = this.parseComponent(opt, staticProps).component;
+  customizer = (objValue, othValue) => {
+    if (Array.isArray(objValue)) {
+      return !objValue.some((item, index) => {
+        return !isEqual(item, othValue[index]);
+      });
+    } else {
+      return isEqual(objValue, othValue);
+    }
+  }
+
+  getViewComponent(opt, state) {
+    const ViewComponent = this.parseComponent(opt, state).component;
     // 默认加入app服务
     // LayerComponent.childContextTypes = LayerComponent.childContextTypes || {};
     // LayerComponent.childContextTypes.layer = PropTypes.object;
@@ -301,9 +321,9 @@ export class Layer {
     }
   }
 
-  render(opt, staticProps) {
+  render(opt, getState) {
     if (opt.then || opt.layer || opt.cname) {
-      return this.context.app.observer(this.getLayer(opt, staticProps)).render(this.renderLayer);
+      return this.context.app.observer(this.getLayer(opt, getState)).render(this.renderLayer);
     } else {
       return (<div className="hc-spin-container">
         <Empty />
@@ -311,34 +331,33 @@ export class Layer {
     }
   }
 
-  enhanceComponent(com, extra) {
-    // 可能不太好！！
-    if (extra) {
-      if (extra.props) {
-        if (com.props) {
-          Object.assign(com.props, extra.props);
-        } else {
-          com.props = extra.props;
-        }
-      } else if (extra.getProps) {
-        if (com.getProps) {
-          if (!com.getProps._overrided) {
-            const getProps = com.getProps;
-            com.getProps = (props, context) => {
-              const _props = extra.getProps(props, context);
-              return Object.assign(_props, getProps(props, context));
+  enhanceComponent(com, state) {
+    // ! 设计变更，由函数变为对象
+    if (state) {
+      if (com.getProps) {
+        if (!com.getProps._overrided) {
+          const getProps = com.getProps;
+          com.getProps = (props, context) => {
+            if (typeof state === 'function') {
+              state = state();
             }
-            com.getProps._overrided = true;;
+            return Object.assign(getProps(props, context), state);
           }
-        } else {
-          com.getProps = extra.getProps;
+          com.getProps._overrided = true;;
         }
+      } else if (com.props) {
+        if (typeof state === 'function') {
+          state = state();
+        }
+        Object.assign(com.props, state);
+      } else {
+        com.props = state;
       }
     }
     return com;
   }
 
-  parseLayer(components, props = {}, layerGrid, layerItem, staticProps = []) {
+  parseLayer(components, props = {}, layerGrid, layerItem, state) {
     const layerProps = cloneDeep(props);
     // TODO LayerItem提供了拖拽功能
     layerProps.LayerGrid = layerGrid && findComponent(layerGrid) || LayerGrid;
@@ -346,10 +365,11 @@ export class Layer {
     layerProps.components = [];
 
     if (components) {
+      let index = 0;
       forEach(components, (com, key) => {
-        const extra = staticProps[key] || staticProps[com.key] || staticProps[com.cname]
-        com = this.enhanceComponent(com, extra);
-        const newCom = this.parseComponent(com, extra && extra.staticProps);
+        const subState = Array.isArray(state) ? state[index ++] : state;
+        com = this.enhanceComponent(com, subState);
+        const newCom = this.parseComponent(com, subState);
         layerProps.components.push(newCom);
       });
     }
