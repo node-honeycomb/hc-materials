@@ -341,6 +341,8 @@ function formatLayerLoop(modules, layerOption, widgetsOption, dataQuery) {
                     parameters: getParameters(pm, state)
                   }, dataQuery)).then(ret => {
                     return dataRender(ret, structure, fields, dataFilter, dataPropName);
+                  }, () => {
+                    // handler
                   });
                 },
                 childProps: asyncProps
@@ -435,7 +437,7 @@ export const converter = {
   parseAsync: (obj, callback) => {
     return defer.promise.then(() => {
       if (callback) {
-        return callback(converter.parse(obj))
+        return callback(converter.parse(obj));
       } else {
         return converter.parse(obj);
       }
