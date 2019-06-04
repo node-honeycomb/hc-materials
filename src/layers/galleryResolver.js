@@ -112,11 +112,11 @@ export function findComponent(...args) {
       const childProps = hoc.childProps || {};
       class HocComponent extends React.PureComponent {
         render() {
-          const children = (<Com><newComponent.ChildComponent {...childProps} {...this.props} /></Com>);
+          const children = (<Com ref={inst => this._childRef = inst} ><newComponent.ChildComponent {...childProps} {...this.props} /></Com>);
           // #! 包裹
           const wrapper = converter.parse(hoc.wrapper);
           if (wrapper) {
-            return wrapper(children);
+            return wrapper(children, this._childRef.context);
           } else {
             return children;
           }

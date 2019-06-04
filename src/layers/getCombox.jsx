@@ -52,11 +52,11 @@ export function getCombox({cname, componentType, props, getProps, hoc, className
     const childProps = hoc.childProps || {};
     class HocCombox extends React.PureComponent {
       render() {
-        const children = (<Com><HocCombox.ChildComponent {...childProps} {...this.props} /></Com>);
+        const children = (<Com ref={inst => this._childRef = inst}><HocCombox.ChildComponent {...childProps} {...this.props} /></Com>);
         // #! 包裹
         const wrapper = converter.parse(hoc.wrapper);
         if (wrapper) {
-          return wrapper(children);
+          return wrapper(children, this._childRef.context);
         } else {
           return children;
         }

@@ -1789,13 +1789,13 @@ span.ant-radio + * {
   background-color: transparent;
   color: #108ee9;
 }
-.hc-explorer .ant-tree li:hover {
+.hc-explorer .ant-tree li.hc-explorer-leaf:hover {
   background: #fefefe;
 }
-.hc-explorer .ant-tree li:hover .hc-explorer_elem-btns {
+.hc-explorer .ant-tree li.hc-explorer-leaf:hover .hc-explorer_elem-btns {
   display: block;
 }
-.hc-explorer .ant-tree li.active {
+.hc-explorer .ant-tree li.hc-explorer-leaf.active {
   background: #fefefe;
 }
 .hc-explorer_elem-btns {

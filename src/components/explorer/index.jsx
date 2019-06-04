@@ -183,7 +183,7 @@ export class Explorer extends React.PureComponent {
           </Tree.TreeNode>
         );
       } else {
-        return <Tree.TreeNode key={item.id} title={title} className={activeKey === item.id ? 'active' : ''} />;
+        return <Tree.TreeNode key={item.id} title={title} className={activeKey === item.id ? 'active hc-explorer-leaf' : ' hc-explorer-leaf'} />;
       }
     });
     if (firstMatchId && this._lazySearch) {
