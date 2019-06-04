@@ -1803,7 +1803,6 @@ span.ant-radio + * {
   right: 0;
   display: none;
   background: white;
-  border: 1px solid #ddd;
   margin-top: -1px;
   z-index: 10;
 }

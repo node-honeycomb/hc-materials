@@ -2188,6 +2188,9 @@ a.ant-btn-sm {
   padding-left: 0;
   border-left: 0 none;
 }
+.hc-navLink .ant-btn-link:last-child {
+  margin-right: 0;
+}
 .hc-navLink-dropdown_link .ant-dropdown-menu-item {
   font-size: 12px;
 }
