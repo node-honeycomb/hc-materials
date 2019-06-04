@@ -717,7 +717,7 @@
   padding: 10px;
 }
 .hc-layout-flexContent-body {
-  margin: 20px 20px 0;
+  margin: 16px 16px 0;
   background: transparent;
 }
 .hc-layout-flexContent-body > .ant-card-body {
@@ -738,7 +738,7 @@
           flex: auto;
 }
 .hc-layout-flexContent-body > .ant-card-body .hc-layout-flexContent-body_overview {
-  margin-left: 20px;
+  margin-left: 16px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
