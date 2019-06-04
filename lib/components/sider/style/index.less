@@ -45,34 +45,7 @@
     color: white;
   }
 
-  &-collapse-outer{
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 20px;
-    height: 50px;
-    z-index: 3;
-    -o-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-  }
-  &-collapse-inner{
-    top: -50%;
-    position: relative;
-    overflow: hidden;
-    height: 50px;
-  }
-  &-collapse-bg{
-    height: 50px;
-    right: 0;
-    left: auto;
-    border-bottom: 9px solid transparent;
-    border-left: none;
-    border-right: 13px solid #f7f7f7;
-    border-top: 9px solid transparent;
-  }
-  &-collapse{
+  .@{sider-prefix-cls}{
     color: #546478;
     height: 50px;
     position: relative;
@@ -86,76 +59,101 @@
     -ms-transition: all 0.1s ease,0.1s ease;
     -moz-transition: all 0.1s ease,0.1s ease;
     -webkit-transition: all 0.1s ease,0.1s ease;
-  }
-  &-collapse-inner:hover &-collapse-bg{
-    border-bottom: 8px solid transparent;
-    border-left: none;
-    border-right: 20px solid #f7f7f7;
-    border-top: 8px solid transparent
-  }
-  &-collapse-inner:hover &-collapse{
-    right: 0;
-  }
-}
 
-.@{sider-collapse-prefix-cls} {
-  &.@{sider-prefix-cls} {
-    &-collapse-outer{
-      left: 0;
-      right: auto;
-    }
-    &-collapse-bg{
-      width: 0;
-      height: 50px;
+    &-outer{
       position: absolute;
-      top: 0;
-      left: 0;
-      border-bottom: 9px solid transparent;
-      border-left: 13px solid #D9DEE4;
-      border-top: 9px solid transparent;
-      border-right: 0 none;
-      transition: all 0.1s ease,0.1s ease;
-      -o-transition: all 0.1s ease,0.1s ease;
-      -ms-transition: all 0.1s ease,0.1s ease;
-      -moz-transition: all 0.1s ease,0.1s ease;
-      -webkit-transition: all 0.1s ease,0.1s ease;
+      right: 0;
+      top: 50%;
+      width: 20px;
+      height: 50px;
+      z-index: 3;
+      -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
     }
-    &-collapse{
-      top: 0;
-      left: 0;
-      right: auto;
-    } 
-    &-collapse-inner:hover &-collapse-bg{
+    &-inner{
+      top: -50%;
+      position: relative;
+      overflow: hidden;
+      height: 50px;
+    }
+    &-bg{
+      height: 50px;
+      right: 0;
+      left: auto;
+      border-bottom: 9px solid transparent;
+      border-left: none;
+      border-right: 13px solid #f7f7f7;
+      border-top: 9px solid transparent;
+    }
+    &-inner:hover &-bg{
       border-bottom: 8px solid transparent;
-      border-left: 20px solid #D9DEE4;
+      border-left: none;
+      border-right: 20px solid #f7f7f7;
       border-top: 8px solid transparent
     }
-    &-collapse-inner:hover &-collapse{
-      left: 0;
+    &-inner:hover &-trigger{
+      right: 0;
     }
   }
 }
 
-
 .@{sider-light-prefix-cls} {
-  &.@{sider-prefix-cls} {
-    background: white;
-    &-logo{
-      background: white;
-      h1 {
-        margin-bottom: 0;
-      }
-    }
-    &-menu-text {
-      color: rgba(0, 0, 0, 0.85);
-    }
-  }
+  background: white;
 }
 
 .ant-layout-header{
   .@{sider-prefix-cls} {
     &-fold{
       display: none;
+    }
+  }
+}
+
+.@{sider-collapse-prefix-cls} {
+  top: 0;
+  left: 0;
+  right: auto;
+  &-outer{
+    left: 0;
+    right: auto;
+  }
+  &-bg{
+    width: 0;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 9px solid transparent;
+    border-left: 13px solid #D9DEE4;
+    border-top: 9px solid transparent;
+    border-right: 0 none;
+    transition: all 0.1s ease,0.1s ease;
+    -o-transition: all 0.1s ease,0.1s ease;
+    -ms-transition: all 0.1s ease,0.1s ease;
+    -moz-transition: all 0.1s ease,0.1s ease;
+    -webkit-transition: all 0.1s ease,0.1s ease;
+  }
+  &-inner:hover &-bg{
+    border-bottom: 8px solid transparent;
+    border-left: 20px solid #D9DEE4;
+    border-top: 8px solid transparent
+  }
+  &-inner:hover &-collapse-trigger{
+    left: 0;
+  }
+  .hc-sider-logo .hc-sider-menu-text{
+    display: none;
+  }
+
+  .ant-menu-inline-collapsed > .ant-menu-item,
+  .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+  .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,
+  .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title{
+    padding: 0 20px !important;
+    .hc-sider-menu-text .anticon{
+      margin-right: 30px;
     }
   }
 }

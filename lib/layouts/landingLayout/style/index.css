@@ -2223,34 +2223,7 @@ textarea.ant-input {
   text-align: center;
   color: white;
 }
-.hc-sider-collapse-outer {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 20px;
-  height: 50px;
-  z-index: 3;
-  -o-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-}
-.hc-sider-collapse-inner {
-  top: -50%;
-  position: relative;
-  overflow: hidden;
-  height: 50px;
-}
-.hc-sider-collapse-bg {
-  height: 50px;
-  right: 0;
-  left: auto;
-  border-bottom: 9px solid transparent;
-  border-left: none;
-  border-right: 13px solid #f7f7f7;
-  border-top: 9px solid transparent;
-}
-.hc-sider-collapse {
+.hc-sider .hc-sider {
   color: #546478;
   height: 50px;
   position: relative;
@@ -2265,20 +2238,58 @@ textarea.ant-input {
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider-collapse-inner:hover .hc-sider-collapse-bg {
+.hc-sider .hc-sider-outer {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 20px;
+  height: 50px;
+  z-index: 3;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.hc-sider .hc-sider-inner {
+  top: -50%;
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+}
+.hc-sider .hc-sider-bg {
+  height: 50px;
+  right: 0;
+  left: auto;
+  border-bottom: 9px solid transparent;
+  border-left: none;
+  border-right: 13px solid #f7f7f7;
+  border-top: 9px solid transparent;
+}
+.hc-sider .hc-sider-inner:hover .hc-sider .hc-sider-bg {
   border-bottom: 8px solid transparent;
   border-left: none;
   border-right: 20px solid #f7f7f7;
   border-top: 8px solid transparent;
 }
-.hc-sider-collapse-inner:hover .hc-sider-collapse {
+.hc-sider .hc-sider-inner:hover .hc-sider .hc-sider-trigger {
   right: 0;
 }
-.hc-sider-collapse.hc-sider-collapse-outer {
+.hc-sider-light {
+  background: white;
+}
+.ant-layout-header .hc-sider-fold {
+  display: none;
+}
+.hc-sider-collapse {
+  top: 0;
   left: 0;
   right: auto;
 }
-.hc-sider-collapse.hc-sider-collapse-bg {
+.hc-sider-collapse-outer {
+  left: 0;
+  right: auto;
+}
+.hc-sider-collapse-bg {
   width: 0;
   height: 50px;
   position: absolute;
@@ -2294,33 +2305,28 @@ textarea.ant-input {
   -moz-transition: all 0.1s ease, 0.1s ease;
   -webkit-transition: all 0.1s ease, 0.1s ease;
 }
-.hc-sider-collapse.hc-sider-collapse {
-  top: 0;
-  left: 0;
-  right: auto;
-}
-.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse-bg {
+.hc-sider-collapse-inner:hover .hc-sider-collapse-bg {
   border-bottom: 8px solid transparent;
   border-left: 20px solid #D9DEE4;
   border-top: 8px solid transparent;
 }
-.hc-sider-collapse.hc-sider-collapse-inner:hover .hc-sider-collapse.hc-sider-collapse {
+.hc-sider-collapse-inner:hover .hc-sider-collapse-collapse-trigger {
   left: 0;
 }
-.hc-sider-light.hc-sider {
-  background: white;
-}
-.hc-sider-light.hc-sider-logo {
-  background: white;
-}
-.hc-sider-light.hc-sider-logo h1 {
-  margin-bottom: 0;
-}
-.hc-sider-light.hc-sider-menu-text {
-  color: rgba(0, 0, 0, 0.85);
-}
-.ant-layout-header .hc-sider-fold {
+.hc-sider-collapse .hc-sider-logo .hc-sider-menu-text {
   display: none;
+}
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding: 0 20px !important;
+}
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item .hc-sider-menu-text .anticon,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .hc-sider-menu-text .anticon,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .hc-sider-menu-text .anticon,
+.hc-sider-collapse .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .hc-sider-menu-text .anticon {
+  margin-right: 30px;
 }
 .hc-layout-landing {
   background: #f0f2f5;

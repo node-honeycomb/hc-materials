@@ -59,9 +59,12 @@ export class Sider extends React.PureComponent {
 
     const route = props.route;
     const routes = this.getRoutes(props.routes, props.orderKeys);
-    let openKeys = route && this.getParentsResolvePaths(route);
-    if (!openKeys || !openKeys.length) {
-      openKeys = this.getOpenKeys(routes, props.subMenus);
+    let openKeys;
+    if (!props.collapsed) {
+      openKeys = route && this.getParentsResolvePaths(route);
+      if (!openKeys || !openKeys.length) {
+        openKeys = this.getOpenKeys(routes, props.subMenus);
+      }
     }
     this.state = {
       routes: routes,
@@ -104,9 +107,12 @@ export class Sider extends React.PureComponent {
       const resolvePath = this.props.getResolvePath(this.props.route);
       if (!this.state.selectedKeys || this.state.selectedKeys.indexOf(resolvePath) === -1) {
         const routes = this.getRoutes(this.state.routes || this.props.routes, this.props.orderKeys);
-        let openKeys = this.props.route && this.getParentsResolvePaths(this.props.route);
-        if (!openKeys || !openKeys.length) {
-          openKeys = this.getOpenKeys(routes, this.props.subMenus);
+        let openKeys;
+        if (!this.props.collapsed) {
+          openKeys = this.props.route && this.getParentsResolvePaths(this.props.route);
+          if (!openKeys || !openKeys.length) {
+            openKeys = this.getOpenKeys(routes, this.props.subMenus);
+          }
         }
         this.setState({
           routes: routes,
@@ -305,12 +311,12 @@ export class Sider extends React.PureComponent {
     let sider = this.props.sider;
     let header = this.props.header;
     const brand = this.props.brand;
+    const {collapsed, onCollapse, flex} = this.props;
 
     const menuOption = Object.assign({
       mode: 'inline',
       theme: 'dark',
       inlineIndent: 24,
-      inlineCollapsed: this.state.collapsed
     }, this.props.menu);
     let flexDiv;
     let prefix = this.props.prefix;
@@ -322,8 +328,10 @@ export class Sider extends React.PureComponent {
       menuOption.style = menuOption.style || {
         width: '100%'
       };
-      menuOption.openKeys = this.state.collapsed ? null : this.state.openKeys;
-      const {collapsed, onCollapse, flex} = this.props;
+      if (!collapsed) {
+        menuOption.inlineCollapsed = true;
+        menuOption.openKeys = this.state.openKeys;
+      }
       Conn = Layout.Sider;
       // inspired
       if (sider) {
@@ -340,6 +348,7 @@ export class Sider extends React.PureComponent {
           collapsible: true,
           breakpoint: 'md',
           width: width,
+          collapsed: collapsed,
           collapsedWidth: collapsedWidth
         };
       }
@@ -349,7 +358,7 @@ export class Sider extends React.PureComponent {
         flexDiv = (<div className="hc-sider-collapse-outer">
           <div className="hc-sider-collapse-inner">
             <div className="hc-sider-collapse-bg"></div>
-            <div className="hc-sider-collapse" onClick={() => onCollapse(!collapsed)}>
+            <div className="hc-sider-collapse-trigger" onClick={() => onCollapse(!collapsed)}>
               {collapsed ? (<Icon type="menu-unfold" />) : <Icon type="menu-fold" />}
             </div>
           </div>
@@ -373,7 +382,7 @@ export class Sider extends React.PureComponent {
         </div>) :  null}
         {prefix}
         <Menu
-          onOpenChange={(openKeys) => this.setState({openKeys: openKeys})}
+          onOpenChange={(openKeys) => !collapsed && this.setState({openKeys: openKeys})}
           onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
           selectedKeys={this.state.selectedKeys}
           {...menuOption}>
