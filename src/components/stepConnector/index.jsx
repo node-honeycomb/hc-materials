@@ -52,14 +52,11 @@ export class StepConnector extends React.PureComponent {
         return [(<div key={index} className="hc-stepConnector-elem-step">
           <button tabIndex={index} type="button" className="hc-stepConnector-elem-step_btn" onClick={() => this.handleStep(index, step.tab)}>
             <div>
-              <span className={'hc-stepConnector-elem-step_span' + (activeStep === index ? ' active' : '')}>
-                <span>
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <text x="12" y="16">{index + 1}</text>
-                  </svg>
-                </span>
-                <Anchor.Link href={'#' + step.id} title={step.text} />
+              <span className={'hc-stepConnector-elem-step_span' + (activeStep === index && !step.id ? ' active' : '')}>
+                <Anchor.Link href={'#' + step.id} title={(<span><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <text x="12" y="16">{index + 1}</text>
+                </svg>{step.text}</span>)} />
               </span>
             </div>
           </button>
