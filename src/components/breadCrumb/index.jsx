@@ -42,7 +42,7 @@ export class BreadCrumb extends React.PureComponent {
     const {className, style, navs, links, extra} = this.props;
 
     return (
-      <div className={'hc-breadcrumb ' + className} style={style}>
+      <div className={'hc-breadCrumb ' + className} style={style}>
         <Breadcrumb>
           {navs
             .map((item, index) => {
@@ -60,7 +60,7 @@ export class BreadCrumb extends React.PureComponent {
                 );
               }
             })}
-          {links || extra ? (<Breadcrumb.Item className="hc-breadcrumb-extra">
+          {links || extra ? (<Breadcrumb.Item className="hc-breadCrumb-extra">
             {links && <NavLink links={links} />}
             {extra}
           </Breadcrumb.Item>) : null}
