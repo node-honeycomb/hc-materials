@@ -139,7 +139,7 @@ class IArchive extends React.PureComponent {
         name = item.dataIndex || item.name;
         label = noLabel ? null :  (item.title || item.name);
         input = this.getFieldInput(name, item);
-        if (input !== undefined) {
+        if (input !== null) {
           fields.push(
             <Col span={item.col ? item.col * span : item.span || span} key={name} style={{display: i < count ? 'block' : 'none'}}>
               <Form.Item {...formItemLayout} {...item.attrs} label={label} style={itemStyle}>
