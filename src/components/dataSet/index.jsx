@@ -77,7 +77,7 @@ export class DataSet extends React.PureComponent {
   componentDidMount() {
     this.mounted = true;
     this._resolver && this._resolver.then(iState => {
-      if (this.mounted) {
+      if (iState && this.mounted) {
         iState.loading = false;
         this.setState(iState, this.props.onChange);
       }

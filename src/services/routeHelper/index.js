@@ -27,7 +27,7 @@ export class RouteHelper {
 
   push(url, query, force) {
     if (!url) {
-      url = this.location;
+      url = this.location.pathname;
     }
     // 解析url，并把queryStr解析为object
     if (Object(url) === url) {
