@@ -41,7 +41,7 @@ export class BasicLayout extends React.PureComponent {
       if (Com) {
         delete item.component;
         delete layoutBlocks[item.key];
-        layoutProps.components[item.key] = layoutProps.components[item.key] || getComponent(item.props, item.getProps)(Com);
+        layoutProps.components[item.key] = layoutProps.components[item.key] || getComponent(item.props, item.getProps, item.contextTypes)(Com);
         if (item.props && item.static) {
           option.__widgets__[item.key] = layoutProps.components[item.key];
         }

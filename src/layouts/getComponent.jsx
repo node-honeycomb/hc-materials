@@ -2,7 +2,7 @@ import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import isReactComponent from '../core/isReactComponent';
 
-export function getComponent(option, getProps) {
+export function getComponent(option, getProps, contextTypes) {
   if (option === false) {
     return () => EmptyComponent;
   } else if (!option && !getProps) {
@@ -19,6 +19,7 @@ export function getComponent(option, getProps) {
   const decorator = BaseComponent => {
     AppointComponent = AppointComponent || BaseComponent || EmptyComponent;
     class Component extends React.PureComponent {
+      static contextTypes = contextTypes;
       constructor(props) {
         super(props);
         if (BaseComponent && !isReactComponent(BaseComponent)) {
@@ -76,6 +77,7 @@ export function getComponent(option, getProps) {
       }
     }
     const newComponent = hoistNonReactStatics(Component, AppointComponent);
+    newComponent.displayName = AppointComponent.displayName;
     if (BaseComponent && BaseComponent.contextTypes) {
       newComponent.contextTypes = Object.assign(newComponent.contextTypes || {}, BaseComponent.contextTypes);
     }

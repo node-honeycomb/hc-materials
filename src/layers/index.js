@@ -207,6 +207,12 @@ export class Layer {
       } else {
         componentOption.props = props;
         componentOption.getProps = getProps;
+        if (opt.contextTypes) {
+          componentOption.contextTypes = {};
+          opt.contextTypes.forEach(name => {
+            componentOption.contextTypes[name] = PropTypes.object;
+          });
+        }
       }
     }
     componentOption.component = newComponent;

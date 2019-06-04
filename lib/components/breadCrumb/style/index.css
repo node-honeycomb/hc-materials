@@ -75,20 +75,20 @@
   color: #666;
   font-weight: normal;
 }
-.hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link::first-child {
+.hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link:first-child {
   font-weight: bold;
 }
 .hc-breadCrumb .ant-breadcrumb .ant-breadcrumb-link h5 {
   display: inline-block;
   font-size: 16px;
 }
-.hc-breadCrumb .ant-breadcrumb-extra {
+.hc-breadCrumb-extra {
   float: right;
 }
-.hc-breadCrumb .ant-breadcrumb-extra .antd-nav-link {
+.hc-breadCrumb-extra .antd-nav-link {
   display: inline-block;
   margin-right: 10px;
 }
-.hc-breadCrumb .ant-breadcrumb-extra > .ant-btn {
+.hc-breadCrumb-extra > .ant-btn {
   margin-right: 10px;
 }
