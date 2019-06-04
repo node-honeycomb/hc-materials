@@ -197,7 +197,7 @@ class IArchive extends React.PureComponent {
 
   render() {
     return (<Form className={'hc-archive ' + this.props.className} style={this.props.style} layout={this.props.layout} onSubmit={this.props.buttonProps.noButton && this.handleSubmit}>
-      <Row gutter={24}>
+      <Row>
         {this.getFields()}
         {this.props.limit && this.props.limit < this.props.options.length ? (<a className="hc-archive-expand" onClick={this.toggle}>
           more <Icon type={this.state.expand ? 'up' : 'down'} />
