@@ -49,7 +49,7 @@ export function getComponent(option, getProps, contextTypes) {
                 });
               }
             }
-          }, (nextState) => this.setState({stateProps: Object.assign({}, this.state.stateProps, nextState)}));
+          }, (nextState) => this.setState({stateProps: Object.assign({}, this.state.stateProps, nextState)}), this.state.stateProps);
         }
       }
 
