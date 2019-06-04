@@ -20,9 +20,11 @@ export class RouteHelper {
   }
 
   replace(query) {
-    const newLocation = createLocation(this.location.pathname);
-    newLocation.query = Object.assign(this.location.query, query);
-    this.history.replace(newLocation);
+    const url = this.location.pathname + this.location.search + this.location.hash;
+    const u = urllib.parse(url, true);
+    u.search = qs.stringify(Object.assign(u.query || {}, query));
+    delete u.query;
+    this.history.replace(urllib.format(u));
   }
 
   push(url, query, force) {
