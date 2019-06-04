@@ -72,7 +72,7 @@ export function getComponent(option, getProps, contextTypes) {
           this.setState({
             stateProps: Object.assign({}, this.state.stateProps, nextProps)
           });
-        }) : {};
+        }, this.state.stateProps) : {};
         return (<Component ref={inst => this._wrappedComponent = inst} {...newProps} {...asyncProps} {...stateProps} />);
       }
     }

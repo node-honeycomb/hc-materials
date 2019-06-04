@@ -358,8 +358,8 @@ function formatLayerLoop(modules, layerOption, widgetsOption, dataQuery) {
         };
       } else {
         const getProps = converter.parse(widget.getProps);
-        widget.getProps = (props, context) => {
-          const syncProps = getProps ? getProps(props, context) : {};
+        widget.getProps = (props, context, setState, istate) => {
+          const syncProps = getProps ? getProps(props, context, setState, istate) : {};
           Object.assign(syncProps, dataRender(ds.data, structure, fields, dataFilter, dataPropName));
           // 静态组件
           if (!syncProps[fieldPropName] && fieldPropName && fields) {

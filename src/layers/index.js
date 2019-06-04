@@ -343,11 +343,11 @@ export class Layer {
       if (com.getProps) {
         if (!com.getProps._overrided) {
           const getProps = com.getProps;
-          com.getProps = (props, context) => {
+          com.getProps = (props, context, setState, istate) => {
             if (typeof state === 'function') {
               state = state();
             }
-            return Object.assign(getProps(props, context), state);
+            return Object.assign(getProps(props, context, setState, istate), state);
           }
           com.getProps._overrided = true;;
         }

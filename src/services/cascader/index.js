@@ -85,8 +85,8 @@ export class Cascader {
    * @param {func} setState -方法
    */
     const _getProps = props.getProps;
-    const getProps = function (props, context, setState) {
-      const newProps = _getProps ? _getProps(props, context, setState) : {};
+    const getProps = function (props, context, setState, istate) {
+      const newProps = _getProps ? _getProps(props, context, setState, istate) : {};
       // 拿到ref实例
       newProps.ref = inst => {
         // 判断是否是Hoc组件
