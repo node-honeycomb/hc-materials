@@ -81,7 +81,7 @@ export class NavLink extends React.PureComponent {
               disabled={item.disabled}
               loading={item.loading}
               {...propsByState}>
-              <a>{item.render ? item.render() : item.name}</a>
+              <a>{item.render ? item.render() : (item.text || item.name)}</a>
             </Menu.Item>
           );
         })}
@@ -105,10 +105,10 @@ export class NavLink extends React.PureComponent {
             {...propsByState}
           >{item.href ?
               (
-                <a href={item.href} target={item.target || '_blank'}>{item.render ? item.render() : item.name}</a>
+                <a href={item.href} target={item.target || '_blank'}>{item.render ? item.render() : (item.text || item.name)}</a>
               ) :
               (
-                <span>{item.render ? item.render() : item.name}</span>
+                <span>{item.render ? item.render() : (item.text || item.name)}</span>
               )}</Button>);
         })}
         {menus.length ? (this.props.menuLabel ?

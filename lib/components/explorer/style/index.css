@@ -1740,9 +1740,8 @@ span.ant-radio + * {
             transform: rotate(405deg);
   }
 }
-.hc-explorer .iconfont {
-  font-style: normal;
-  margin-right: 2px;
+.hc-explorer .ant-tree-title .anticon {
+  margin-right: 5px;
 }
 .hc-explorer-elem_title {
   border-bottom: 1px solid #ddd;
@@ -1790,27 +1789,27 @@ span.ant-radio + * {
   background-color: transparent;
   color: #108ee9;
 }
-.hc-explorer .ant-tree li_elem-btns {
+.hc-explorer .ant-tree li:hover {
+  background: #fefefe;
+}
+.hc-explorer .ant-tree li:hover .hc-explorer_elem-btns {
+  display: block;
+}
+.hc-explorer .ant-tree li.active {
+  background: #fefefe;
+}
+.hc-explorer_elem-btns {
   position: absolute;
-  right: 5px;
+  right: 0;
   display: none;
   background: white;
   border: 1px solid #ddd;
   margin-top: -1px;
   z-index: 10;
 }
-.hc-explorer .ant-tree li_elem-btns span {
+.hc-explorer_elem-btns span {
   padding: 1px 5px;
 }
-.hc-explorer .ant-tree li_elem-btns span:hover {
+.hc-explorer_elem-btns span:hover {
   color: #108ee9;
-}
-.hc-explorer .ant-tree li:hover {
-  background: #fefefe;
-}
-.hc-explorer .ant-tree li:hover_elem-btns {
-  display: block;
-}
-.hc-explorer .ant-tree li.active {
-  background: #fefefe;
 }

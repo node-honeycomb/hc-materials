@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {NavLink} from '../navLink';
 import {Input, Tree, Radio, Icon, Alert, Spin} from 'antd';
 
 export class Explorer extends React.PureComponent {
@@ -16,7 +16,7 @@ export class Explorer extends React.PureComponent {
     searchPlaceholder: PropTypes.string,
     menu: PropTypes.element,
     title: PropTypes.string,
-    actions: PropTypes.array,
+    links: PropTypes.array,
     onSearch: PropTypes.func,
     noResult: PropTypes.string,
     pending: PropTypes.bool,
@@ -126,7 +126,7 @@ export class Explorer extends React.PureComponent {
   }
 
   loopTreeNode(dataSource, searchValue = '') {
-    const actions = this.props.actions;
+    const links = this.props.links;
     const activeKey = this.state.activeKey;
     let firstMatchId;
     /**
@@ -150,27 +150,9 @@ export class Explorer extends React.PureComponent {
         beforeStr = label.substr(0, index);
         afterStr = label.substr(index + searchValue.length);
       }
-      /**
-       * actions = [{
-       *  icon,
-       *  title,
-       *  text,
-       *  onAction
-       * }, ...]
-       */
       let btns = null;
-      if (actions && (this.props.byLeaf && !item.children || !this.props.byLeaf)) {
-        btns = (<span className="hc-explorer_elem-btns">{
-          actions.map((btnItem, key) => {
-            return (<a
-              key={key}
-              href="javascript:;"
-              onClick={() => {
-                btnItem.onAction && btnItem.onAction(item);
-              }}
-              title={btnItem.title || btnItem.text}
-            >{btnItem.icon ? (<Icon type={btnItem.icon} />) : (btnItem.text)}</a>);
-          })}</span>);
+      if (links && (this.props.byLeaf && !item.children || !this.props.byLeaf)) {
+        btns = (<div className="hc-explorer_elem-btns"><NavLink links={links} data={item} /></div>);
       }
 
       if (index > -1) {

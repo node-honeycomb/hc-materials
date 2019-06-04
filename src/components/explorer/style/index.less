@@ -8,9 +8,8 @@
 @explorer-prefix-cls: ~'@{hc-prefix}-explorer';
 
 .@{explorer-prefix-cls}{
-  .iconfont {
-    font-style: normal;
-    margin-right: 2px;
+  .ant-tree-title .anticon{
+    margin-right: 5px;
   }
   &-elem_title{
     border-bottom: 1px solid #ddd;
@@ -56,29 +55,29 @@
       background-color: transparent;
       color: #108ee9;
     }
-    &_elem-btns{
-      position: absolute;
-      right: 5px;
-      display: none;
-      background: white;
-      border: 1px solid #ddd;
-      margin-top: -1px;
-      z-index: 10;
-      span{
-        padding: 1px 5px;
-        &:hover {
-          color: #108ee9;
-        }
-      }
-    }
     &:hover{
       background: #fefefe;
-      &_elem-btns{
+      .hc-explorer_elem-btns{
         display: block;
       }
     }
     &.active{
       background: #fefefe;
+    }
+  }
+  &_elem-btns{
+    position: absolute;
+    right: 0;
+    display: none;
+    background: white;
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    z-index: 10;
+    span{
+      padding: 1px 5px;
+      &:hover {
+        color: #108ee9;
+      }
     }
   }
 }
