@@ -475,7 +475,7 @@ class CustomFormBase extends React.PureComponent {
       Object.assign(this._dataSource, nextState);
       this.forceUpdate();
     }, this.props.form) : {};
-    if (propsByState.name === false) {
+    if (propsByState === false || propsByState.name === false) {
       return null;
     }
     const initialValue = this.getInitialValue(option, propsByState.default || option.default);

@@ -108,7 +108,7 @@ class IArchive extends React.PureComponent {
         };
       }
       decorator.defaultValue = this.getFieldValue(name, option, editable);
-      const stateProps = option.getProps && option.getProps.call(this, this.props, this.state.dataSource, (nextState) => {
+      const stateProps = option.getProps && option.getProps.call(this, this.state.dataSource, (nextState) => {
         this.setState({
           dataSource: Object.assign({}, this.state.dataSource, nextState)
         });
