@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
 import {Anchor} from 'antd';
@@ -49,20 +49,21 @@ export class StepConnector extends React.PureComponent {
 
     return (<Anchor affix={false} className="hc-stepConnector">
       {steps.map((step, index) => {
-        return [(<div key={index} className="hc-stepConnector-elem-step">
-          <button tabIndex={index} type="button" className="hc-stepConnector-elem-step_btn" onClick={() => this.handleStep(index, step.tab)}>
-            <div>
-              <span className={'hc-stepConnector-elem-step_span' + (activeStep === index && !step.id ? ' active' : '')}>
-                <Anchor.Link href={'#' + step.id} title={(<span><svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <text x="12" y="16">{index + 1}</text>
-                </svg>{step.text}</span>)} />
-              </span>
-            </div>
-          </button>
-        </div>),
-        steps.length - index > 1 ? (<div className="hc-stepConnector-elem-connector"><span></span></div>) : null
-        ];
+        return (<Fragment key={index}>
+          <div className="hc-stepConnector-elem-step">
+            <button tabIndex={index} type="button" className="hc-stepConnector-elem-step_btn" onClick={() => this.handleStep(index, step.tab)}>
+              <div>
+                <span className={'hc-stepConnector-elem-step_span' + (activeStep === index && !step.id ? ' active' : '')}>
+                  <Anchor.Link href={'#' + step.id} title={(<span><svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <text x="12" y="16">{index + 1}</text>
+                  </svg>{step.text}</span>)} />
+                </span>
+              </div>
+            </button>
+          </div>),
+          {steps.length - index > 1 ? (<div className="hc-stepConnector-elem-connector"><span></span></div>) : null}
+        </Fragment>);
       })}
     </Anchor>);
   }

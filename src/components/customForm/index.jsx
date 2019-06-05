@@ -756,7 +756,6 @@ CustomForm.getFieldInput = function getFieldInput(option, props, stateProps, dec
                 {options.map(item => (
                   <Radio
                     key={item.value}
-                    value={item.value}
                     disabled={item.disabled}>{CustomForm.getLabel(item, option)}</Radio>
                 ))}
               </Radio.Group>
@@ -768,8 +767,7 @@ CustomForm.getFieldInput = function getFieldInput(option, props, stateProps, dec
               <Select mode={option.mode} {...props} {...stateProps}>
                 {options.map(item => (
                   <Select.Option
-                    key={item.value || item.id}
-                    value={item.value || item.id}
+                    key={item.value === undefined ? item.id : item.value}
                     disabled={item.disabled}>{CustomForm.getLabel(item, option)}</Select.Option>
                 ))}
               </Select>

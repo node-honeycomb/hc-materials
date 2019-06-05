@@ -52,7 +52,7 @@ class IArchive extends React.PureComponent {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.dataSource !== prevState.dataSource) {
-      return {dataSource: nextProps.dataSource};
+      return {dataSource: nextProps.dataSource || IArchive.defaultProps.dataSource};
     } else {
       return null;
     }
@@ -223,10 +223,11 @@ class ArchiveGroup extends React.PureComponent {
     return (<div className="hc-archive-group">
       {
         this.props.options.map(item => {
-          return (<div key={item.name} className="hc-archive-group_box">
-            <h5>{item.title || item.name}</h5>
+          const name = item.dataIndex || item.name;
+          return (<div key={name} className="hc-archive-group_box">
+            <h5>{item.title || name}</h5>
             <Divider />
-            <Archive {...item.attrs} {...this.props} options={item.items} dataSource={this.props.dataSource[item.name]} />
+            <Archive {...item.attrs} {...this.props} options={item.items} dataSource={this.props.dataSource[name]} />
           </div>);
         })
       }
