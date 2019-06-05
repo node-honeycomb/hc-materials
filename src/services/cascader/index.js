@@ -67,6 +67,7 @@ export class Cascader {
       // 是否有重复的级联配置存在
       if (!item) {
         events.push({
+          rely: rely,
           name: name,
           getValueFromEvent: getValueFromEvent,
           trigger: trigger
@@ -129,7 +130,7 @@ export class Cascader {
                     };
                   }
                   // 约定把值传入给_triggerParams
-                  instance._triggerParams = instObj.getValueFromEvent ? instObj.getValueFromEvent(value, refs[instObj.rely]._triggerParams) : null;
+                  instance._triggerParams = instObj.getValueFromEvent ? instObj.getValueFromEvent(value, refs[instObj.rely] ? refs[instObj.rely]._triggerParams : {}) : null;
                   instance[instObj.trigger]();
                 }
               });
