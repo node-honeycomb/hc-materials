@@ -756,6 +756,7 @@ CustomForm.getFieldInput = function getFieldInput(option, props, stateProps, dec
                 {options.map(item => (
                   <Radio
                     key={item.value}
+                    value={item.value}
                     disabled={item.disabled}>{CustomForm.getLabel(item, option)}</Radio>
                 ))}
               </Radio.Group>

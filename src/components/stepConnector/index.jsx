@@ -61,7 +61,7 @@ export class StepConnector extends React.PureComponent {
                 </span>
               </div>
             </button>
-          </div>),
+          </div>
           {steps.length - index > 1 ? (<div className="hc-stepConnector-elem-connector"><span></span></div>) : null}
         </Fragment>);
       })}
