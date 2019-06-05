@@ -123,13 +123,13 @@ export class Cascader {
                         instance._args.push(undefined);
                       }
                     }
-                    const method = instance[instObj.trigger];
+                    const method = typeof instObj.trigger === 'function' ? instObj.trigger : instance[instObj.trigger];
                     instance[instObj.trigger] = function () {
                       return method.apply(this, instance._args.concat(instance._triggerParams));
                     };
                   }
                   // 约定把值传入给_triggerParams
-                  instance._triggerParams = instObj.getValueFromEvent ? instObj.getValueFromEvent(value) : null;
+                  instance._triggerParams = instObj.getValueFromEvent ? instObj.getValueFromEvent(value, refs[instObj.rely]._triggerParams) : null;
                   instance[instObj.trigger]();
                 }
               });

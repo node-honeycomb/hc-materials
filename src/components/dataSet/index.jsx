@@ -17,6 +17,7 @@ export class DataSet extends React.PureComponent {
     formatter: PropTypes.func,
     children: PropTypes.any,
     loading: PropTypes.bool,
+    params: PropTypes.object
   }
 
   static defaultProps = {
@@ -33,7 +34,7 @@ export class DataSet extends React.PureComponent {
     this.stateUpdater = {};
 
     if (props.getResolver) {
-      this._resolver = props.getResolver(props.defaultValue);
+      this._resolver = props.getResolver(props.defaultValue, props.params);
     }
     /**
      * prop = {
@@ -95,7 +96,7 @@ export class DataSet extends React.PureComponent {
       });
     }
     if (this.props.getResolver) {
-      const resolver = this.props.getResolver(value, params);
+      const resolver = this.props.getResolver(value, params || this.props.params);
       resolver.then(iState => {
         if (this.mounted) {
           iState.loading = false;
