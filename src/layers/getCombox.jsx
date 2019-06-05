@@ -9,7 +9,7 @@ export function getCombox({cname, componentType, props, getProps, hoc, className
       super(tprops);
 
       const _getProps = converter.parse(getProps);
-      const propsMap = _getProps ? _getProps.call(this, tprops, context) : props || {};
+      const propsMap = _getProps ? _getProps.call(this, tprops, context, nextState => this.setState(nextState), this.state) : props || {};
       this.state = {
         components: cname.map(n => {
           const item = propsMap[n];

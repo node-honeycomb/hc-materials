@@ -49,7 +49,8 @@ export class Cascader {
    * }
    * ```
    */
-  getFieldDecorator = (name, {rely, event = 'onChange', argIndex = 2, getValueFromEvent, trigger, props = {}}) => Field => {
+  getFieldDecorator = (name, options, extra = {}) => Field => {
+    const {argIndex = 2, props, getProps} = extra;
     /**
      * + 初始化步骤
      * 1. rely有值表示当前组件和来源组件有级联关系，rely指向来源组件的实例名
@@ -60,20 +61,25 @@ export class Cascader {
      *
      * A（来源）和B有级联onClick， A本身有onClick事件，alert(1); B本身onChange值介绍1个参数是不行的，必须要接受2个参数，A传给B的值放在第二个参数，同时这个参数值会存起来。
      */
-    if (rely) {
-      this._cascadesMap[rely] = this._cascadesMap[rely] || {};
-      const events = this._cascadesMap[rely][event] = this._cascadesMap[rely][event] || [];
-      const item = events.find(item => item.name === name);
-      // 是否有重复的级联配置存在
-      if (!item) {
-        events.push({
-          rely: rely,
-          name: name,
-          getValueFromEvent: getValueFromEvent,
-          trigger: trigger
-        });
-      }
+    if (!Array.isArray(options)) {
+      options = [options];
     }
+    options.forEach(({rely, event = 'onChange', getValueFromEvent, trigger}) => {
+      if (rely) {
+        this._cascadesMap[rely] = this._cascadesMap[rely] || {};
+        const events = this._cascadesMap[rely][event] = this._cascadesMap[rely][event] || [];
+        const item = events.find(item => item.name === name);
+        // 是否有重复的级联配置存在
+        if (!item) {
+          events.push({
+            rely: rely,
+            name: name,
+            getValueFromEvent: getValueFromEvent,
+            trigger: trigger
+          });
+        }
+      }
+    });
 
     // 1. 外部变量，统一在函数内部一个地方可以管理到
     // 2. 外部变量很大，存在内部变量来使用，效率更高
@@ -85,9 +91,8 @@ export class Cascader {
    * @param {object} context -父级挂载的组件
    * @param {func} setState -方法
    */
-    const _getProps = props.getProps;
-    const getProps = function (props, context, setState, istate) {
-      const newProps = _getProps ? _getProps(props, context, setState, istate) : {};
+    const _getProps = function (props, context, setState, istate) {
+      const newProps = getProps ? getProps(props, context, setState, istate) : {};
       // 拿到ref实例
       newProps.ref = inst => {
         // 判断是否是Hoc组件
@@ -148,7 +153,7 @@ export class Cascader {
      * 2. render函数把state的值，以props的形式传入到A
      * 3. Hoc组件，可以通过getRealInstance获取B的实例
      */
-    const HocField =  getComponent(props, getProps)(Field);
+    const HocField =  getComponent(props, _getProps)(Field);
     HocField.prototype.getRealInstance = () => {
       return refs[name];
     };
