@@ -68,6 +68,8 @@ export class HocCreator {
       render() {
         if (richProps.childProps) {
           Object.assign(richProps.childProps, this.props);
+        } else {
+          richProps.childProps = Object.assign({}, this.props);
         }
         return (<DataSet
           ref={this._wrapRef}
