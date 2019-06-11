@@ -118,8 +118,16 @@ class IArchive extends React.PureComponent {
       const fieldInput = CustomForm.getFieldInput(option, option.props, stateProps || {}, decorator);
       return form.getFieldDecorator(name, decorator)(fieldInput);
     } else {
-      const value = this.getFieldValue(name, option);
-      return form.getFieldDecorator(name, {})(React.isValidElement(value) ? value : (<span>{value || 'N/A'}</span>));
+      let value = this.getFieldValue(name, option);
+      if (!React.isValidElement(value)) {
+        if (Object(value) === value) {
+          value = JSON.stringify(value, null, 2);
+        } else {
+          value = value || 'N/A';
+        }
+        value = (<span>{value}</span>);
+      }
+      return form.getFieldDecorator(name, {})(value);
     }
   }
 
