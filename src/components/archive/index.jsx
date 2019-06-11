@@ -51,7 +51,7 @@ class IArchive extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.dataSource !== prevProps.dataSource) {
+    if (this.props.dataSource && this.props.dataSource !== prevProps.dataSource) {
       this.setState({
         dataSource: this.props.dataSource
       });
