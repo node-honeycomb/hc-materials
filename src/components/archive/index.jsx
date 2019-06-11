@@ -175,7 +175,10 @@ class IArchive extends React.PureComponent {
           this.props.options.forEach(option => {
             if (option.getValue) {
               const name = option.dataIndex || option.name;
-              values[name] = option.getValue(values[name]);
+              const v = option.getValue(values[name], values);
+              if (v !== undefined) {
+                values[name] = v;
+              }
             }
           });
           resolve(onSubmit && onSubmit(values));
