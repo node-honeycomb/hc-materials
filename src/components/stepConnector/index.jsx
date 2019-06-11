@@ -9,7 +9,8 @@ export class StepConnector extends React.PureComponent {
     height: PropTypes.number,
     steps: PropTypes.array,
     completed: PropTypes.bool,
-    activeStep: PropTypes.number
+    activeStep: PropTypes.number,
+    anchorProps: PropTypes.object
   };
 
   constructor(props) {
@@ -45,9 +46,9 @@ export class StepConnector extends React.PureComponent {
 
   render() {
     const activeStep = this.state.activeStep;
-    const {steps} = this.props;
+    const {steps, anchorProps} = this.props;
 
-    return (<Anchor affix={false} className="hc-stepConnector">
+    return (<Anchor affix={false} className="hc-stepConnector" {...anchorProps}>
       {steps.map((step, index) => {
         return (<Fragment key={index}>
           <div className="hc-stepConnector-elem-step">

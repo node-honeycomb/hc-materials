@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {Link} from 'react-router-dom';
 
-import {Layout, Menu, Icon} from 'antd';
+import {Layout, Menu, Icon, Affix} from 'antd';
 
 const HTTP_PATTERN = /^https?:\/\//;
 
@@ -42,7 +42,8 @@ export class Sider extends React.PureComponent {
     onCollapse: PropTypes.func,
     flex: PropTypes.bool,
     sider: PropTypes.object,
-    header: PropTypes.object
+    header: PropTypes.object,
+    affixProps: PropTypes.object
   }
 
   static defaultProps = {
@@ -312,6 +313,7 @@ export class Sider extends React.PureComponent {
     let header = this.props.header;
     const brand = this.props.brand;
     const {collapsed, onCollapse, flex} = this.props;
+    const Fragment = this.props.affixProps ? Affix : React.Fragment;
 
     const menuOption = Object.assign({
       mode: 'inline',
@@ -380,15 +382,17 @@ export class Sider extends React.PureComponent {
             <h1 className="hc-sider-menu-text">{brand.title}</h1>
           </Link>
         </div>) :  null}
-        {prefix}
-        <Menu
-          onOpenChange={(openKeys) => !collapsed && this.setState({openKeys: openKeys})}
-          onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
-          selectedKeys={this.state.selectedKeys}
-          {...menuOption}>
-          {this.getNavMenuItems(this.state.routes)}
-        </Menu>
-        {flexDiv}
+        <Fragment {...this.props.affixProps}>
+          {prefix}
+          <Menu
+            onOpenChange={(openKeys) => !collapsed && this.setState({openKeys: openKeys})}
+            onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
+            selectedKeys={this.state.selectedKeys}
+            {...menuOption}>
+            {this.getNavMenuItems(this.state.routes)}
+          </Menu>
+          {flexDiv}
+        </Fragment>
       </Conn>
     );
   }
