@@ -50,11 +50,11 @@ class IArchive extends React.PureComponent {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.dataSource !== prevState.dataSource) {
-      return {dataSource: nextProps.dataSource || IArchive.defaultProps.dataSource};
-    } else {
-      return null;
+  componentDidUpdate(prevProps) {
+    if (this.props.dataSource !== prevProps.dataSource) {
+      this.setState({
+        dataSource: this.props.dataSource
+      });
     }
   }
 
