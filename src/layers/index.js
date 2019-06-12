@@ -355,13 +355,13 @@ export class Layer {
           }
           com.getProps._overrided = true;;
         }
-      } else if (com.props) {
-        if (typeof state === 'function') {
-          state = state();
-        }
-        Object.assign(com.props, state);
       } else {
-        com.props = state;
+        if (typeof state === 'function') {
+          com.getProps = state;
+          com.getProps._overrided = true;
+        } else {
+          com.props = Object.assign(com.props || {}, state);
+        }
       }
     }
     return com;
