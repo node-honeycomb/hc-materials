@@ -282,8 +282,8 @@ export class Layer {
   getLayer(opt, getState) {
     const promise = opt.then ? opt : Promise.resolve(opt);
     return Promise.all([promise, this._promise]).then(([opt]) => {
-      const nextState = getState && getState();
-      if (isEqualWith(nextState, opt._prevState, this.customizer) && opt._children) {
+      const nextState = typeof getState === 'function' ? getState() : getState;
+      if (opt._prevState && opt._children && isEqualWith(nextState, opt._prevState, this.customizer)) {
         return opt._children;
       } else {
         opt._prevState = nextState;
