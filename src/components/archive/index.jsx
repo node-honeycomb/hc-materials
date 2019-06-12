@@ -27,7 +27,8 @@ class IArchive extends React.PureComponent {
     className: PropTypes.string,
 
     buttons: PropTypes.array,
-    buttonProps: PropTypes.object
+    buttonProps: PropTypes.object,
+    disabled: PropTypes.bool
   }
 
   static defaultProps = {
@@ -77,15 +78,22 @@ class IArchive extends React.PureComponent {
   }
 
   getFieldInput(name, option) {
-    const {form, readonly, onChange} = this.props;
+    const {form, readonly, onChange, disabled} = this.props;
     const editable = option.editable === undefined ? !readonly : option.editable;
 
-    const stateProps = option.getProps && option.getProps.call(this, this.state.dataSource, (nextState) => {
+    let stateProps = option.getProps && option.getProps.call(this, this.state.dataSource, (nextState) => {
       this.setState({
         dataSource: Object.assign({}, this.state.dataSource, nextState)
       });
     }, this.props.form);
-    if (stateProps === false) return null;
+    if (stateProps === false) {
+      return null;
+    } else if (Object(stateProps) !== stateProps) {
+      stateProps = {};
+    }
+    if (stateProps.disabled === undefined) {
+      stateProps.disabled = disabled;
+    }
 
     if (editable) {
       /**
@@ -115,7 +123,7 @@ class IArchive extends React.PureComponent {
         };
       }
       decorator.defaultValue = this.getFieldValue(name, option, editable);
-      const fieldInput = CustomForm.getFieldInput(option, option.props, stateProps || {}, decorator);
+      const fieldInput = CustomForm.getFieldInput(option, option.props, stateProps, decorator);
       return form.getFieldDecorator(name, decorator)(fieldInput);
     } else {
       let value = this.getFieldValue(name, option);
