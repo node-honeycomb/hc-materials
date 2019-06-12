@@ -91,7 +91,7 @@ class IArchive extends React.PureComponent {
     } else if (Object(stateProps) !== stateProps) {
       stateProps = {};
     }
-    if (stateProps.disabled === undefined) {
+    if ((!option.props || option.props.disabled === undefined) && stateProps.disabled === undefined) {
       stateProps.disabled = disabled;
     }
 
