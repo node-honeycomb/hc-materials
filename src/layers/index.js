@@ -287,7 +287,7 @@ export class Layer {
     const promise = opt.then ? opt : Promise.resolve(opt);
     return Promise.all([promise, this._promise]).then(([opt]) => {
       const nextState = typeof getState === 'function' ? getState() : getState;
-      if (opt._prevState && opt._children && isEqualWith(nextState, opt._prevState, this.customizer)) {
+      if (isEqualWith(nextState, opt._prevState, this.customizer) && opt._children) {
         return opt._children;
       } else {
         opt._prevState = nextState;
@@ -298,9 +298,13 @@ export class Layer {
 
   customizer = (objValue, othValue) => {
     if (Array.isArray(objValue)) {
-      return !objValue.some((item, index) => {
-        return !isEqual(item, othValue[index]);
-      });
+      if (Array.isArray(othValue)) {
+        return !objValue.some((item, index) => {
+          return !isEqual(item, othValue[index]);
+        });
+      } else {
+        return false;
+      }
     } else {
       return isEqual(objValue, othValue);
     }
