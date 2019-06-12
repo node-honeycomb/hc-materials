@@ -208,10 +208,14 @@ export class Layer {
         componentOption.props = props;
         componentOption.getProps = getProps;
         if (opt.contextTypes) {
-          componentOption.contextTypes = {};
-          opt.contextTypes.forEach(name => {
-            componentOption.contextTypes[name] = PropTypes.object;
-          });
+          if (Array.isArray(opt.contextTypes)) {
+            componentOption.contextTypes = {};
+            opt.contextTypes.forEach(name => {
+              componentOption.contextTypes[name] = PropTypes.object;
+            });
+          } else {
+            componentOption.contextTypes = opt.contextTypes;
+          }
         }
       }
     }
