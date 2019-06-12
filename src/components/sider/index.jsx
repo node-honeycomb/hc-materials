@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import {Link} from 'react-router-dom';
@@ -293,11 +294,22 @@ export class Sider extends React.PureComponent {
     });
   }
 
-  toggleClick = () => {
+  handleCollapse = (collapsed) => {
+    collapsed = collapsed || !this.props.collapsed;
     this
       .props
-      .onCollapse(!this.props.collapsed);
+      .onCollapse(collapsed);
 
+    if (this.props.affixProps) {
+      let width = this.props.width || 256;
+      let collapsedWidth = this.props.collapsedWidth || 0;
+      if (collapsed) {
+        width = collapsedWidth;
+      }
+      /* eslint-disable react/no-find-dom-node */
+      const dom = ReactDOM.findDOMNode(this._affixRef.current);
+      dom.firstChild.style.width = isNaN(Number(width)) ? width : (width + 'px');
+    }
     this._resizeTimer = setTimeout(() => {
       const event = document.createEvent('HTMLEvents');
       event.initEvent('resize', true, false);
@@ -305,6 +317,7 @@ export class Sider extends React.PureComponent {
     }, 600);
   }
 
+  _affixRef = React.createRef()
 
   render() {
     let Conn;
@@ -318,7 +331,7 @@ export class Sider extends React.PureComponent {
     const menuOption = Object.assign({
       mode: 'inline',
       theme: 'dark',
-      inlineIndent: 24,
+      inlineIndent: 12,
     }, this.props.menu);
     let flexDiv;
     let prefix = this.props.prefix;
@@ -343,7 +356,6 @@ export class Sider extends React.PureComponent {
         let collapsedWidth = this.props.collapsedWidth || 0;
         if (collapsed) {
           width = collapsedWidth;
-          // collapsedWidth = 0;
         }
         connProps = {
           trigger: null,
@@ -368,7 +380,7 @@ export class Sider extends React.PureComponent {
       } else {
         prefix = (<div className="hc-sider-fold"><Icon
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
-          onClick={this.toggleClick} /></div>);
+          onClick={() => this.handleCollapse()} /></div>);
       }
     }
     if (!prefix) {
@@ -382,7 +394,7 @@ export class Sider extends React.PureComponent {
             <h1 className="hc-sider-menu-text">{brand.title}</h1>
           </Link>
         </div>) :  null}
-        <Fragment {...this.props.affixProps}>
+        <Fragment {...this.props.affixProps} ref={this._affixRef}>
           {prefix}
           <Menu
             onOpenChange={(openKeys) => !collapsed && this.setState({openKeys: openKeys})}

@@ -880,6 +880,7 @@
   height: 20px;
   text-align: center;
   color: white;
+  border-right: 1px solid #e8e8e8;
 }
 .hc-sider .hc-sider {
   color: #546478;

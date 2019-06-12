@@ -12,9 +12,24 @@ export class Cacher {
       }
     }
     const name = ns + ':' + arr.join(' ');
+
     if (!this._map[name]) {
-      this._map[name] = typeof dataOrFn === 'function' ? dataOrFn(!noAllow || isComplete ? params : null) : dataOrFn;
+      this.set(name, () => {
+        return typeof dataOrFn === 'function' ? dataOrFn(!noAllow || isComplete ? params : null) : dataOrFn;
+      });
     }
+    return this.get(name);
+  }
+
+  get(name) {
     return this._map[name];
+  }
+
+  set(name, dataOrFn) {
+    this._map[name] = typeof dataOrFn === 'function' ? dataOrFn() : dataOrFn;
+  }
+
+  has(name) {
+    return !!this.get(name);
   }
 }
