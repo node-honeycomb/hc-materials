@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-
+import path from 'path';
 import {Link} from 'react-router-dom';
 
 import {Layout, Menu, Icon, Affix} from 'antd';
@@ -49,7 +49,7 @@ export class Sider extends React.PureComponent {
 
   static defaultProps = {
     subMenus: {},
-    getResolvePath: (item) => item.resolvePath || item.path,
+    getResolvePath: (item) => path.normalize('/' + item.path),
     brand: {
       logo: '//img.alicdn.com/tfs/TB14dINRpXXXXcyXXXXXXXXXXXX-64-64.png?t=1517996107967',
       title: 'App'
