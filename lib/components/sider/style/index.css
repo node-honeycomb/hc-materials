@@ -933,6 +933,10 @@
 .hc-sider .hc-sider-inner:hover .hc-sider .hc-sider-trigger {
   right: 0;
 }
+.hc-sider .ant-affix .ant-menu-root {
+  height: 100vh;
+  overflow-y: auto;
+}
 .hc-sider-light {
   background: white;
 }
