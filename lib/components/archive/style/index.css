@@ -23,6 +23,7 @@
 }
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children .ant-form-item-children-icon {
   width: auto;
+  right: -5px;
 }
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-explain,
 .hc-archive.ant-form-horizontal .ant-form-item .ant-form-extra {

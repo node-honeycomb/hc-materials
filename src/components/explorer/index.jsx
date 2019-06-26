@@ -22,7 +22,8 @@ export class Explorer extends React.PureComponent {
     pending: PropTypes.bool,
     showLine: PropTypes.bool,
     leafIcon: PropTypes.string,
-    byLeaf: PropTypes.bool
+    byLeaf: PropTypes.bool,
+    getTitle: PropTypes.func
   }
 
   /**
@@ -40,7 +41,8 @@ export class Explorer extends React.PureComponent {
     // single, multiple
     mode: 'single',
     noResult: 'No Result!',
-    pending: false
+    pending: false,
+    getTitle: title => title
   }
 
   constructor(props, context) {
@@ -125,6 +127,10 @@ export class Explorer extends React.PureComponent {
     }
   }
 
+  getTitle(item) {
+    return this.props.getTitle(item.title || item.name, item);
+  }
+
   loopTreeNode(dataSource, searchValue = '') {
     const links = this.props.links;
     const activeKey = this.state.activeKey;
@@ -142,10 +148,9 @@ export class Explorer extends React.PureComponent {
       let beforeStr;
       let afterStr;
       let title;
-      let label = item.name;
-      if (item.title) {
-        label = item.title;
-      } else if (searchValue) {
+      const label = this.getTitle(item);
+
+      if (searchValue) {
         index = label.indexOf(searchValue);
         beforeStr = label.substr(0, index);
         afterStr = label.substr(index + searchValue.length);
