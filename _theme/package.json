@@ -1,0 +1,101 @@
+{
+  "_args": [
+    [
+      "bisheng-theme-one@0.2.35",
+      "/Users/logging/Desktop/hcmd"
+    ]
+  ],
+  "_from": "bisheng-theme-one@0.2.35",
+  "_id": "bisheng-theme-one@0.2.35",
+  "_inBundle": false,
+  "_integrity": "sha1-tfkOemTEw8/80dLR2RqB+NKx+RY=",
+  "_location": "/bisheng-theme-one",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "bisheng-theme-one@0.2.35",
+    "name": "bisheng-theme-one",
+    "escapedName": "bisheng-theme-one",
+    "rawSpec": "0.2.35",
+    "saveSpec": null,
+    "fetchSpec": "0.2.35"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/bisheng-theme-one/download/bisheng-theme-one-0.2.35.tgz",
+  "_spec": "0.2.35",
+  "_where": "/Users/logging/Desktop/hcmd",
+  "author": {
+    "name": "Benjy Cui"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "Firefox ESR",
+              "> 1%",
+              "ie >= 8",
+              "iOS >= 8",
+              "Android >= 4"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/benjycui/bisheng-theme-one/issues"
+  },
+  "dependencies": {
+    "bisheng-plugin-description": "^0.1.4",
+    "react-document-title": "^2.0.1"
+  },
+  "description": "The one theme for bisheng.",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "bisheng": "^0.29.0",
+    "react": "^16.0.0",
+    "shx": "^0.2.2"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/benjycui/bisheng-theme-one#readme",
+  "keywords": [
+    "bisheng",
+    "theme",
+    "one"
+  ],
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "name": "bisheng-theme-one",
+  "peerDependencies": {
+    "bisheng": "^0.28.3",
+    "react": "^16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjycui/bisheng-theme-one.git"
+  },
+  "scripts": {
+    "postpublish": "shx rm -rf lib",
+    "prepublish": "babel ./src --out-dir ./lib && shx cp -R src/static/* lib/static"
+  },
+  "version": "0.2.35"
+}

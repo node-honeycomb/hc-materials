@@ -49,7 +49,14 @@
     "eslint": "4.13.1",
     "eslint-config-aliyun": "2.0.1",
     "eslint-plugin-class-property": "1.0.6",
-    "eslint-plugin-react": "7.5.1"
+    "eslint-plugin-react": "7.5.1",
+
+    "bisheng-plugin-description": "^0.1.4",
+    "bisheng-plugin-react": "^1.0.0",
+    "bisheng-plugin-toc": "^0.4.4",
+    "bisheng-theme-one": "^0.2.35",
+    "bisheng": "1.2.4",
+    "react-document-title": "2.0.3"
   },
   "repository": {
     "type": "git",
