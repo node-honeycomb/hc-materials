@@ -3,7 +3,7 @@ var path = require('path')
 module.exports = {
   port: 8001,
   source: './src',
-  output: './_site',
+  output: './docs',
   theme: './_theme/',
   // theme: 'bisheng-theme-one',
   // plugins: [
