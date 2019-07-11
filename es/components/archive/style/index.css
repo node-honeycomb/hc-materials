@@ -1,0 +1,58 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-archive.ant-form-horizontal {
+  padding: 10px 12px 0;
+}
+.hc-archive.ant-form-horizontal .ant-form-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+.hc-archive.ant-form-horizontal .ant-form-item.ant-form-item-with-help {
+  margin-bottom: 0;
+}
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children {
+  display: block;
+}
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children > * {
+  width: 100%;
+}
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-item-children .ant-form-item-children-icon {
+  width: auto;
+  right: -5px;
+}
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-explain,
+.hc-archive.ant-form-horizontal .ant-form-item .ant-form-extra {
+  font-size: 12px;
+  margin-top: -3px;
+  min-height: 14px;
+  line-height: 14px;
+}
+.hc-archive.ant-form-horizontal .ant-form-item-control-wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.hc-archive.ant-form-vertical > .ant-row {
+  margin: 0;
+}
+.hc-archive.ant-form-vertical .ant-form-item {
+  margin-bottom: 0;
+}
+.hc-archive.ant-form-vertical .ant-form-item .ant-form-item-children {
+  display: block;
+}
+.hc-archive.ant-form-expand {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+.hc-archive.ant-form-btns .ant-btn {
+  margin-right: 10px;
+}

@@ -1,0 +1,45 @@
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.hc-result {
+  text-align: center;
+  width: 72%;
+  margin: 0 auto;
+}
+.hc-result-icon {
+  font-size: 72px;
+  line-height: 72px;
+  margin-bottom: 24px;
+}
+.hc-result-icon > .success {
+  color: #52c41a;
+}
+.hc-result-icon > .error {
+  color: #f5222d;
+}
+.hc-result-title {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+.hc-result-description {
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.45);
+  margin-bottom: 24px;
+}
+.hc-result-extra {
+  background: #fafafa;
+  padding: 24px 40px;
+  border-radius: 2px;
+  text-align: left;
+}
+.hc-result-actions {
+  margin-top: 32px;
+}
+.hc-result-actions button:not(:last-child) {
+  margin-right: 8px;
+}

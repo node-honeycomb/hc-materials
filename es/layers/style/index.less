@@ -1,0 +1,45 @@
+@import '../../theme.less';
+@import '~antd/es/card/style/index.less';
+
+@layer-prefix-cls: ~'@{hc-prefix}-layer';
+@layer-spin-cls: ~'@{hc-prefix}-spin-container';
+
+.@{layer-prefix-cls} {
+  &-layerItem.ant-card{
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 10px;
+    &.active {
+      background: #f6fcff;
+      border: 1px solid #40a9ff;
+    }
+    > .ant-card-head {
+      padding: 0 10px;
+      min-height: 32px;
+      .ant-card-extra {
+        padding: 7px 0;
+        .anticon {
+          cursor: pointer;
+        }
+        .anticon-setting{
+          font-size: 16px;
+        }
+      }
+    }
+    > .ant-card-body {
+      padding: 0;
+      height: calc(~"100% - 44px");
+    }
+  }
+  &-layerItem.ant-card:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.@{layer-spin-cls} {
+  text-align: center;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  padding: 30px 50px;
+  margin: 16px 0;
+}

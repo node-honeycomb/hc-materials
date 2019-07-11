@@ -1,0 +1,58 @@
+@import '../../../theme.less';
+
+@archive-prefix-cls: ~'@{hc-prefix}-archive';
+
+.@{archive-prefix-cls}{
+  &.ant-form-horizontal {
+    padding: 10px 12px 0;
+    .ant-form-item {
+      display: flex;
+      margin-bottom: 10px;
+      &.ant-form-item-with-help{
+        margin-bottom: 0;
+      }
+      .ant-form-item-children{
+        display: block;
+        > *{
+          width: 100%;
+        }
+        .ant-form-item-children-icon {
+          width: auto;
+          right: -5px;
+        }
+      }
+      .ant-form-explain,
+      .ant-form-extra{
+        font-size: 12px;
+        margin-top: -3px;
+        min-height: 14px;
+        line-height: 14px;
+      }
+    }
+    .ant-form-item-control-wrapper {
+      flex: 1;
+    }
+  }
+  &.ant-form-vertical{
+    > .ant-row{
+      margin: 0;
+    }
+    .ant-form-item{
+      margin-bottom: 0;
+      .ant-form-item-children{
+        display: block;
+      }
+    }
+  }
+  &.ant-form{
+    &-expand {
+      font-size: 12px;
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+    }
+    &-btns .ant-btn{
+      margin-right: 10px;
+    }
+  }
+}
