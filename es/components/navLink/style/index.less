@@ -1,0 +1,43 @@
+@import '../../../theme.less';
+@import '~antd/es/menu/style/index.less';
+@import '~antd/es/button/style/index.less';
+@import '~antd/es/dropdown/style/index.less';
+
+@navlink-prefix-cls: ~'@{hc-prefix}-navLink';
+@navlink-dropdown-prefix-cls: ~'@{hc-prefix}-navLink-dropdown_link';
+
+.@{navlink-prefix-cls} {
+  margin-left: 0;
+  white-space: nowrap;
+  .ant-btn-link{
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    background: transparent;
+    border-left: 1px dashed #ddd;
+    height: auto;
+    padding-left: 4px;
+    margin-right: 4px;
+    border-radius: 0;
+    display: inline-block;
+    &:hover,
+    &.active,
+    &:active,
+    &:focus {
+      background: transparent;
+    }
+    &:first-child {
+      padding-left: 0;
+      border-left: 0 none;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.@{navlink-dropdown-prefix-cls} {
+  .ant-dropdown-menu-item{
+    font-size: 12px;
+  }
+}

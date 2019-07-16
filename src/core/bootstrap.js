@@ -3,7 +3,7 @@ import {fallbackRoutes} from './fallbackRoutes';
 import {crud} from 'beatle';
 import {Layer} from '../layers';
 
-export function bootstrap(app, getInitData, versionKey, inters) {
+export function bootstrap(app, getInitData, versionKey, inters, locale = {}) {
   message.config({
     top: 51
   });
@@ -16,7 +16,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
           notification.error({message: msg, description: err.message});
         }
       } else {
-        notification.error({message: 'ApiException', description: msg});
+        notification.error({message: locale['apiException'] || 'ApiException', description: msg});
       }
     }
   };
@@ -61,7 +61,7 @@ export function bootstrap(app, getInitData, versionKey, inters) {
         cacheMsg = message;
         timer = setTimeout(() => {
           notification.error({
-            message: 'ApiException',
+            message: locale['apiException'] || 'ApiException',
             description: message
           });
         }, 10);

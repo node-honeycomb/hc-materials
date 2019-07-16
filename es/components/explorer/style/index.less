@@ -1,0 +1,82 @@
+@import '../../../theme.less';
+@import '~antd/es/input/style/index.less';
+@import '~antd/es/tree/style/index.less';
+@import '~antd/es/radio/style/index.less';
+@import '~antd/es/alert/style/index.less';
+@import '~antd/es/spin/style/index.less';
+
+@explorer-prefix-cls: ~'@{hc-prefix}-explorer';
+
+.@{explorer-prefix-cls}{
+  .ant-tree-title .anticon{
+    margin-right: 5px;
+  }
+  &-elem_title{
+    border-bottom: 1px solid #ddd;
+    height: 43px;
+    line-height: 42px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: #268eea;
+  }
+  &-elem_title &-elem_link{
+    cursor: pointer;
+  }
+  &-elem_btn-group{
+    margin: 7px 6px;
+    white-space: nowrap;
+    .ant-radio-button-wrapper{
+      padding: 0 10px;
+    }
+  }
+  &-elem_search{
+    margin: 6px;
+  }
+  .ant-radio-button-wrapper-checked{
+    background: #6262e6;
+    color: white;
+  }
+  &-elem_tree{
+    padding: 0;
+    margin: 5px 0;
+    height: calc(~"100% - 180px");
+    overflow-y: auto;
+  }
+  .ant-tree li{
+    position: relative;
+    padding: 5px;
+    .ant-tree-node-content-wrapper{
+      height: auto;
+    }
+    a{
+      width: 91%;
+    }
+    a:hover, a.ant-tree-node-selected{
+      background-color: transparent;
+      color: #108ee9;
+    }
+    &.hc-explorer-leaf:hover{
+      background: #fefefe;
+      .hc-explorer_elem-btns{
+        display: block;
+      }
+    }
+    &.hc-explorer-leaf.active{
+      background: #fefefe;
+    }
+  }
+  &_elem-btns{
+    position: absolute;
+    right: 0;
+    display: none;
+    background: white;
+    margin-top: -1px;
+    z-index: 10;
+    span{
+      padding: 1px 5px;
+      &:hover {
+        color: #108ee9;
+      }
+    }
+  }
+}

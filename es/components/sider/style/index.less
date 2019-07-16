@@ -1,0 +1,164 @@
+@import '../../../theme.less';
+@import '~antd/es/layout/style/index.less';
+@import '~antd/es/menu/style/index.less';
+
+@sider-prefix-cls: ~'@{hc-prefix}-sider';
+@sider-light-prefix-cls: ~'@{hc-prefix}-sider-light';
+@sider-collapse-prefix-cls: ~'@{hc-prefix}-sider-collapse';
+
+.@{sider-prefix-cls}{
+  min-height: 100vh;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+  position: relative;
+  z-index: 10;
+
+  &-logo {
+    height: 64px;
+    position: relative;
+    padding-left: 24px;
+    padding-top: 20px;
+    line-height: 0;
+    vertical-align: middle;
+    transition: all .3s;
+    background: #002140;
+    overflow: hidden;
+    white-space: nowrap;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: 32px;
+    }
+    h1 {
+      margin-top: 0.5em;
+      color: #fff;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 20px;
+      margin-left: 12px;
+      font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-weight: 600;
+    }
+  }
+  &-fold{
+    height: 20px;
+    text-align: center;
+    color: white;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  .@{sider-prefix-cls}{
+    color: #546478;
+    height: 50px;
+    position: relative;
+    top: -35px;
+    right: -7px;
+    left: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease,0.1s ease;
+    -o-transition: all 0.1s ease,0.1s ease;
+    -ms-transition: all 0.1s ease,0.1s ease;
+    -moz-transition: all 0.1s ease,0.1s ease;
+    -webkit-transition: all 0.1s ease,0.1s ease;
+
+    &-outer{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 20px;
+      height: 50px;
+      z-index: 3;
+      -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+    }
+    &-inner{
+      top: -50%;
+      position: relative;
+      overflow: hidden;
+      height: 50px;
+    }
+    &-bg{
+      height: 50px;
+      right: 0;
+      left: auto;
+      border-bottom: 9px solid transparent;
+      border-left: none;
+      border-right: 13px solid #f7f7f7;
+      border-top: 9px solid transparent;
+    }
+    &-inner:hover &-bg{
+      border-bottom: 8px solid transparent;
+      border-left: none;
+      border-right: 20px solid #f7f7f7;
+      border-top: 8px solid transparent
+    }
+    &-inner:hover &-trigger{
+      right: 0;
+    }
+  }
+  .ant-affix .ant-menu-root{
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+.@{sider-light-prefix-cls} {
+  background: white;
+}
+
+.ant-layout-header{
+  .@{sider-prefix-cls} {
+    &-fold{
+      display: none;
+    }
+  }
+}
+
+.@{sider-collapse-prefix-cls} {
+  top: 0;
+  left: 0;
+  right: auto;
+  &-outer{
+    left: 0;
+    right: auto;
+  }
+  &-bg{
+    width: 0;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 9px solid transparent;
+    border-left: 13px solid #D9DEE4;
+    border-top: 9px solid transparent;
+    border-right: 0 none;
+    transition: all 0.1s ease,0.1s ease;
+    -o-transition: all 0.1s ease,0.1s ease;
+    -ms-transition: all 0.1s ease,0.1s ease;
+    -moz-transition: all 0.1s ease,0.1s ease;
+    -webkit-transition: all 0.1s ease,0.1s ease;
+  }
+  &-inner:hover &-bg{
+    border-bottom: 8px solid transparent;
+    border-left: 20px solid #D9DEE4;
+    border-top: 8px solid transparent
+  }
+  &-inner:hover &-collapse-trigger{
+    left: 0;
+  }
+  .hc-sider-logo .hc-sider-menu-text{
+    display: none;
+  }
+
+  .ant-menu-inline-collapsed > .ant-menu-item,
+  .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+  .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,
+  .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title{
+    padding: 0 20px !important;
+    .hc-sider-menu-text .anticon{
+      margin-right: 30px;
+    }
+  }
+}
